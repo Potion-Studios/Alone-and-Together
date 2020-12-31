@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="http://my.issue.tracker/"
+license="Assets: All Rights Reserved. Code: LGPLv3"
+[[mods]]
+modId="aloneandtogether"
+version="${file.jarVersion}"
+displayName="Alone & Together"
+#displayURL="http://example.com/"
+#logoFile="examplemod.png"
+#credits="A mod"
+authors="AOCAWOL, Corgitaco"
+description=''''''
+
+
+[[dependencies.aloneandtogether]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
