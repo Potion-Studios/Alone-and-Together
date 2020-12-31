@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.world.feature.blockplacer;
+package corgiaoc.aloneandtogether.common.dimension.abyss.world.feature.blockplacer;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import net.minecraft.util.ResourceLocation;

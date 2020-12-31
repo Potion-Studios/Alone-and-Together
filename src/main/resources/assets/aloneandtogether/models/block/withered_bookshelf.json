@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "end": "aloneandtogether:block/withered_planks",
-    "side": "minecraft:block/bookshelf"
+    "side": "aloneandtogether:block/withered_bookshelf"
   }
 }

@@ -54,6 +54,9 @@ public class ATItems {
     public static final Item WITHERED_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.WITHERED_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.WITHERED_STRIPPED_WOOD));
 
 
+    public static final Item ABYSS_TELEPORTER = createItem(new BlockItem(ATBlocks.ABYSS_TELEPORTER, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ABYSS_TELEPORTER));
+
+
 
     public static Item createItem(Item item, ResourceLocation id) {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {

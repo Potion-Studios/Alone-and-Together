@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.properties;
+package corgiaoc.aloneandtogether.common.dimension.abyss.properties;
 
 import corgiaoc.aloneandtogether.client.gui.ATWorkBenchContainer;
 import net.minecraft.block.BlockState;

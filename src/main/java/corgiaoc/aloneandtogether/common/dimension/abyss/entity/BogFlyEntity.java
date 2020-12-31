@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.entity;
+package corgiaoc.aloneandtogether.common.dimension.abyss.entity;
 
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;

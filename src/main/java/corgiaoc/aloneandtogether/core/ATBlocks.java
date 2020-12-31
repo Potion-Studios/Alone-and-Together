@@ -1,13 +1,17 @@
 package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
-import corgiaoc.aloneandtogether.common.properties.ATCraftingTableBlock;
-import corgiaoc.aloneandtogether.common.properties.BookshelfBlock;
+import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
+import corgiaoc.aloneandtogether.common.dimension.abyss.properties.ATCraftingTableBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.properties.BookshelfBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.properties.DimensionTeleporterBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 import java.util.ArrayList;
@@ -28,12 +32,15 @@ public class ATBlocks {
     public static final Block WITHERED_SLAB = createWoodSlab("withered_slab");
     public static final Block WITHERED_PRESSURE_PLATE = createWoodPressurePlate("withered_pressure_plate");
     public static final Block WITHERED_STAIRS = createWoodStairs("withered_stairs");
-    public static final Block WITHERED_TRAP_DOOR = createTrapDoor("withered_trap_door");
+    public static final Block WITHERED_TRAP_DOOR = createTrapDoor("withered_trapdoor");
     public static final Block WITHERED_CRAFTING_TABLE = createCraftingTable("withered_crafting_table");
     public static final Block WITHERED_BUTTON = createWoodButton("withered_button");
     public static final Block WITHERED_BOOKSHELF = createBookshelf("withered_bookshelf");
     public static final Block WITHERED_DOOR = createDoor("withered_door");
     public static final Block WITHERED_STRIPPED_WOOD = createStrippedLog("withered_strip_wood");
+
+    public static final Block ABYSS_TELEPORTER = createTeleporterBlock("abyss_teleporter", ATDimensions.ABYSS_WORLD_KEY);
+
 
 
     static Block createFence(String id) {
@@ -150,6 +157,14 @@ public class ATBlocks {
 
     static Block createWoodWall(String id) {
         Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.AXE).setRequiresTool());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
+        Block createBlock = new DimensionTeleporterBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool(), worldRegistryKey);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);

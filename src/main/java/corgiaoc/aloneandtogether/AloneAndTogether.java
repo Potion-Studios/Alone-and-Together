@@ -1,6 +1,7 @@
 package corgiaoc.aloneandtogether;
 
-import corgiaoc.aloneandtogether.common.world.feature.blockplacer.ATBlockPlacerTypes;
+import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
+import corgiaoc.aloneandtogether.common.dimension.abyss.world.feature.blockplacer.ATBlockPlacerTypes;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import corgiaoc.aloneandtogether.core.ATEntities;
 import corgiaoc.aloneandtogether.core.ATItems;
@@ -36,19 +37,21 @@ public class AloneAndTogether {
 
     public AloneAndTogether() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        ATDimensions.registerBiomeSources();
     }
 
-    private void clientStuff(final FMLClientSetupEvent event) {
+    private void clientSetup(final FMLClientSetupEvent event) {
+        ATDimensions.registerDimensionRenderens();
     }
 
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class BYGRegistries {
+    public static class ATRegistries {
         @SubscribeEvent
         public static void registerBlocks(RegistryEvent.Register<Block> event) {
             LOGGER.debug("Alone & Together: Registering blocks...");
@@ -75,7 +78,7 @@ public class AloneAndTogether {
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class BYGWorldGenRegistries {
+    public static class ATWorldGenRegistries {
 
         @SubscribeEvent
         public static void registerBiomes(RegistryEvent.Register<Biome> event) {

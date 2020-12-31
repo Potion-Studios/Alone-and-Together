@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/withered_strip_wood"
+    "all": "aloneandtogether:block/withered_stripped_wood"
   }
 }
