@@ -35,12 +35,12 @@ public class AloneAndTogether {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public AloneAndTogether() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonsetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientStuff);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
     }
 
-    private void commonsetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
     private void clientStuff(final FMLClientSetupEvent event) {

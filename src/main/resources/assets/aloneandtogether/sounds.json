@@ -1,27 +1,27 @@
 {
-  "Abyss_soundtrack": {
+  "abyss_soundtrack": {
     "category": "music",
     "sounds": [
       {
-        "name": "aandt:deepblue",
+        "name": "aloneandtogether:deepblue",
         "stream": true
       }
     ]
   },
-  "Stellaris_soundtrack": {
+  "stellaris_soundtrack": {
     "category": "music",
     "sounds": [
       {
-        "name": "aandt:natural perfection",
+        "name": "aloneandtogether:natural_perfection",
         "stream": true
       }
     ]
   },
-  "Evergarden_soundtrack": {
+  "evergarden_soundtrack": {
     "category": "music",
     "sounds": [
       {
-        "name": "aandt:spiralling thoughts",
+        "name": "aloneandtogether:spiralling_thoughts",
         "stream": true
       }
     ]
@@ -30,7 +30,7 @@
     "category": "ambient",
     "sounds": [
       {
-        "name": "aandt:frogs croaking 2",
+        "name": "aloneandtogether:frogs_croaking_2",
         "stream": false
       }
     ]
@@ -39,7 +39,7 @@
     "category": "neutral",
     "sounds": [
       {
-        "name": "aandt:scary screaming frogs",
+        "name": "aloneandtogether:scary_screaming_frogs",
         "stream": false
       }
     ]
@@ -48,16 +48,16 @@
     "category": "neutral",
     "sounds": [
       {
-        "name": "aandt:fly",
+        "name": "aloneandtogether:fly",
         "stream": false
       }
     ]
   },
-  "Frog_Neutral": {
+  "frog_neutral": {
     "category": "neutral",
     "sounds": [
       {
-        "name": "aandt:frog croaking sound effect",
+        "name": "aloneandtogether:frog_croaking_sound_effect",
         "stream": false
       }
     ]

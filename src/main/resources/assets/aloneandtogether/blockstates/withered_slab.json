@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/withered_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/withered"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/withered_slab_top"
+    }
+  }
+}
