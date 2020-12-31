@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[28,)"
-issueTrackerURL="http://my.issue.tracker/"
+issueTrackerURL="https://github.com/CorgiTaco/Alone-and-Together/issues"
 license="Assets: All Rights Reserved. Code: LGPLv3"
 [[mods]]
 modId="aloneandtogether"

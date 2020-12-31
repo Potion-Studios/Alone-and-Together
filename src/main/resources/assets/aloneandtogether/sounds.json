@@ -1,0 +1,65 @@
+{
+  "Abyss_soundtrack": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "aandt:deepblue",
+        "stream": true
+      }
+    ]
+  },
+  "Stellaris_soundtrack": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "aandt:natural perfection",
+        "stream": true
+      }
+    ]
+  },
+  "Evergarden_soundtrack": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "aandt:spiralling thoughts",
+        "stream": true
+      }
+    ]
+  },
+  "bog_ambience": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "aandt:frogs croaking 2",
+        "stream": false
+      }
+    ]
+  },
+  "frog_hurt": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "aandt:scary screaming frogs",
+        "stream": false
+      }
+    ]
+  },
+  "fly_neutral": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "aandt:fly",
+        "stream": false
+      }
+    ]
+  },
+  "Frog_Neutral": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "aandt:frog croaking sound effect",
+        "stream": false
+      }
+    ]
+  }
+}
