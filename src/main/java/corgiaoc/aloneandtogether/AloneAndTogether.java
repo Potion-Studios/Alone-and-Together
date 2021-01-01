@@ -46,7 +46,7 @@ public class AloneAndTogether {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        ATDimensions.registerDimensionRenderens();
+        ATDimensions.registerDimensionRenderers();
     }
 
 

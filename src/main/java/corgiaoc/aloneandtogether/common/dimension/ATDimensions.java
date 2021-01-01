@@ -23,7 +23,7 @@ public class ATDimensions {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static void registerDimensionRenderens() {
+    public static void registerDimensionRenderers() {
         DimensionRenderInfo.field_239208_a_.put(ABYSS_ID, new AbyssDimensionRenderer());
     }
 }
