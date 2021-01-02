@@ -48,11 +48,20 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
         public static final ResourceLocation PLANET = new ResourceLocation(AloneAndTogether.MOD_ID, "textures/environment/stellaris/planet.png");
 
         private final VertexFormat skyVertexFormat = DefaultVertexFormats.POSITION;
+        private final VertexFormat planetVertexFormat = DefaultVertexFormats.POSITION_TEX_COLOR;
 
         private VertexBuffer starVertexBuffer;
+        private VertexBuffer planetVertexBuffer;
+
+        private Vector3f axis;
 
         public StellarisSkyRenderer() {
             generateStarData(15000);
+            setPlanet();
+
+            Random random = new Random(203484);
+            axis = new Vector3f(random.nextFloat(), random.nextFloat(), random.nextFloat());
+            axis.normalize();
         }
 
         private void generateStarData(int numberOfStars) {
@@ -67,6 +76,34 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
             uploadStarData(bufferBuilder, numberOfStars);
             bufferBuilder.finishDrawing();
             this.starVertexBuffer.upload(bufferBuilder);
+        }
+
+
+        private void setPlanet() {
+            BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
+            if (this.planetVertexBuffer != null) {
+                this.planetVertexBuffer.close();
+                planetVertexBuffer = null;
+            }
+
+            this.planetVertexBuffer = new VertexBuffer(planetVertexFormat);
+            bufferBuilder.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
+            bufferBuilder.pos(100.0F, 100, 100.0F).tex(1.0F, 1.0F).color(100, 100, 100, 255).endVertex();
+            bufferBuilder.pos(100.0F, -100, 100.0F).tex(1.0F, 0).color(100, 100, 100, 255).endVertex();
+            bufferBuilder.pos(-100.0F, -100, 100.0F).tex(0, 0).color(100, 100, 100, 155).endVertex();
+            bufferBuilder.pos(-100.0F, 100, 100.0F).tex(0.0F, 1.0F).color(100, 100, 100, 255).endVertex();
+            bufferBuilder.finishDrawing();
+            this.planetVertexBuffer.upload(bufferBuilder);
+        }
+
+        private static void renderPlanet(VertexBuffer planetVBO, MatrixStack matrixStack, VertexFormat vertexFormat) {
+            float brightness = 1.0F;
+            RenderSystem.color4f(brightness, brightness, brightness, brightness);
+            planetVBO.bindBuffer();
+            vertexFormat.setupBufferState(0L);
+            planetVBO.draw(matrixStack.getLast().getMatrix(), 7);
+            VertexBuffer.unbindBuffer();
+            vertexFormat.clearBufferState();
         }
 
         @Override
@@ -86,7 +123,9 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
             matrixStack.pop();
 
             matrixStack.push();
-            SkyRendererUtils.renderSimpleObject(PLANET, Vector3f.XP.rotation(90), 0, 100, matrixStack, mc, tessellator, bufferbuilder);
+            mc.textureManager.bindTexture(PLANET);
+            matrixStack.rotate(new Quaternion(Vector3f.YP.rotation(mc.world.func_242415_f(partialTicks) * 50))); //Make planet move slowly overtime
+            renderPlanet(planetVertexBuffer, matrixStack, planetVertexFormat);
             matrixStack.pop();
 
             RenderSystem.depthMask(true);
@@ -96,17 +135,13 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
         }
 
         private static void renderStarData(VertexBuffer starVBO, MatrixStack matrixStack, VertexFormat vertexFormat) {
-            float brightness = 255.0F;
+            float brightness = 1.0F;
             RenderSystem.color4f(brightness, brightness, brightness, brightness);
             starVBO.bindBuffer();
             vertexFormat.setupBufferState(0L);
             starVBO.draw(matrixStack.getLast().getMatrix(), 7);
             VertexBuffer.unbindBuffer();
             vertexFormat.clearBufferState();
-//            RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-//            RenderSystem.disableBlend();
-//            RenderSystem.enableAlphaTest();
-//            RenderSystem.enableFog();
         }
 
         private static void uploadStarData(BufferBuilder bufferBuilder, int numberOfStars) {
