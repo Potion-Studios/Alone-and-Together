@@ -22,6 +22,7 @@ public class ATBlocks {
     public static List<Block> blocks = new ArrayList<>();
 
     public static final Block ABYSS_TELEPORTER = createTeleporterBlock("abyss_teleporter", ATDimensions.ABYSS_WORLD_KEY);
+    public static final Block STELLARIS_TELEPORTER = createTeleporterBlock("stellaris_teleporter", ATDimensions.STELLARIS_WORLD_KEY);
 
 
     //spectral wood

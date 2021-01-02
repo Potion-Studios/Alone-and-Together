@@ -40,11 +40,11 @@ public class AloneAndTogether {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         ATDimensions.registerBiomeSources();
+        ATDimensions.registerChunkGenerators();
         Registry.BLOCK.keySet().forEach(block ->{
             if (block.toString().contains(AloneAndTogether.MOD_ID)){
                 System.out.println(block.toString());
