@@ -12,7 +12,7 @@ import net.minecraft.util.math.vector.Vector3f;
 
 import java.awt.*;
 
-public class SkyRendererUtil {
+public class SkyRendererUtils {
 
     /**
      * DO NOT PUSH AND POP MATRIX STACKS BEFORE AND AFTER THE USAGE OF THIS METHOD
@@ -62,7 +62,7 @@ public class SkyRendererUtil {
     public static void renderSimpleRotatingObject(ResourceLocation objectTexturePath, Quaternion rotation, float rotationTime, float size, MatrixStack matrixStack, Minecraft mc, Tessellator tessellator, BufferBuilder bufferbuilder) {
         mc.textureManager.bindTexture(objectTexturePath);
         matrixStack.rotate(rotation);
-        SkyRendererUtil.rotateTextureAroundOrigin(matrixStack, rotationTime);
+        SkyRendererUtils.rotateTextureAroundOrigin(matrixStack, rotationTime);
 
         Matrix4f matrix4f = matrixStack.getLast().getMatrix();
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);

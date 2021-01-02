@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ATDecorators {
 
-    public static final List<Placement<?>> decorators = new ArrayList<>();
+    public static List<Placement<?>> decorators = new ArrayList<>();
 
     public static void init() {
     }

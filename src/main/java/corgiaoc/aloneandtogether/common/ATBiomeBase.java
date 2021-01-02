@@ -12,11 +12,11 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraftforge.common.BiomeDictionary;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.Objects;
 
 
 @SuppressWarnings("deprecation")
-public class ATBiomeBase {
+public abstract class ATBiomeBase {
     private final Biome biome;
 
     public ATBiomeBase(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
@@ -60,5 +60,9 @@ public class ATBiomeBase {
 
     public RegistryKey<Biome> getKey() {
         return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
+    }
+
+    public ResourceLocation getID(Registry<Biome> biomeRegistry) {
+        return biomeRegistry.getKey(this.biome);
     }
 }

@@ -57,6 +57,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering blocks...");
             ATBlocks.init();
             ATBlocks.blocks.forEach(block -> event.getRegistry().register(block));
+            ATBlocks.blocks = null;
             LOGGER.info("Alone & Together: Blocks registered!");
         }
 
@@ -65,6 +66,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering items...");
             ATItems.init();
             ATItems.items.forEach(item -> event.getRegistry().register(item));
+            ATItems.items = null;
             LOGGER.info("Alone & Together: Items registered!");
         }
 
@@ -73,6 +75,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering entities...");
             ATEntities.init();
             ATEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
+            ATEntities.entities = null;
             LOGGER.info("Alone & Together: Entities registered!");
         }
     }
@@ -86,6 +89,7 @@ public class AloneAndTogether {
             ATBiomes.init();
             ATBiomes.biomes.sort(Comparator.comparingInt(WorldGenRegistrationHelper.PreserveBiomeOrder::getOrderPosition));
             ATBiomes.biomes.forEach(preserveBiomeOrder -> event.getRegistry().register(preserveBiomeOrder.getBiome()));
+            ATBiomes.biomes = null;
             LOGGER.info("Alone & Together: Biomes registered!");
         }
 
@@ -94,6 +98,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering decorators...");
             ATDecorators.init();
             ATDecorators.decorators.forEach(decorator -> event.getRegistry().register(decorator));
+            ATDecorators.decorators = null;
             LOGGER.info("Alone & Together: Decorators registered!");
         }
 
@@ -111,6 +116,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering features...");
             ATFeatures.init();
             ATFeatures.features.forEach(feature -> event.getRegistry().register(feature));
+            ATFeatures.features = null;
             LOGGER.info("Alone & Together: Features registered!");
         }
 
@@ -119,6 +125,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering surface builders...");
             ATSurfaceBuilders.init();
             ATSurfaceBuilders.surfaceBuilders.forEach(surfaceBuilder -> event.getRegistry().register(surfaceBuilder));
+            ATSurfaceBuilders.surfaceBuilders = null;
             LOGGER.info("Alone & Together: Surface builders Registered!");
         }
 
@@ -128,6 +135,7 @@ public class AloneAndTogether {
             LOGGER.debug("Alone & Together: Registering block placer types...");
             ATBlockPlacerTypes.init();
             ATBlockPlacerTypes.types.forEach(type -> event.getRegistry().register(type));
+            ATBlockPlacerTypes.types = null;
             LOGGER.info("Alone & Together: Registering block placer types!");
         }
     }
