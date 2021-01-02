@@ -28,12 +28,12 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
     }
 
     @Override
-    public Vector3d func_230494_a_(Vector3d vec3D, float p_230494_2_) {
+    public Vector3d func_230494_a_(Vector3d color, float sunHeight) {
         return Vector3d.ZERO;
     }
 
     @Override
-    public boolean func_230493_a_(int p_230493_1_, int p_230493_2_) {
+    public boolean func_230493_a_(int camX, int camY) {
         return false;
     }
 
@@ -118,13 +118,13 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
 //            renderSimpleSkyBox(ABYSS_SKY, matrixStack, mc, tessellator, bufferbuilder, new Color(65, 65, 65, 255));
 
             matrixStack.push();
-            matrixStack.rotate(Vector3f.XP.rotation(mc.world.func_242415_f(partialTicks) * 10)); //Make stars move slowly overtime
+//            matrixStack.rotate(Vector3f.YP.rotation(90)); //Make stars move slowly overtime
             renderStarData(starVertexBuffer, matrixStack, skyVertexFormat);
             matrixStack.pop();
 
             matrixStack.push();
             mc.textureManager.bindTexture(PLANET);
-            matrixStack.rotate(new Quaternion(Vector3f.YP.rotation(mc.world.func_242415_f(partialTicks) * 50))); //Make planet move slowly overtime
+            matrixStack.rotate(new Quaternion(Vector3f.YP.rotation(ticks % 3600 * 0.0005F))); //Make planet move slowly overtime
             renderPlanet(planetVertexBuffer, matrixStack, planetVertexFormat);
             matrixStack.pop();
 
