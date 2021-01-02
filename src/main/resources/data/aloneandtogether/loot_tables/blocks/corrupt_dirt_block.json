@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aloneandtogether:withered_strip_wood"
+          "name": "aloneandtogether:corrupt_dirt_block"
         }
       ],
       "conditions": [

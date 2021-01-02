@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aloneandtogether:withered_button"
+          "name": "aloneandtogether:astral_dirt_block"
         }
       ],
       "conditions": [

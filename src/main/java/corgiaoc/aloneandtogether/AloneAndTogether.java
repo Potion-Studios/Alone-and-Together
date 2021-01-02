@@ -10,6 +10,7 @@ import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.blockplacer.BlockPlacerType;
 import net.minecraft.world.gen.feature.Feature;
@@ -39,10 +40,16 @@ public class AloneAndTogether {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         ATDimensions.registerBiomeSources();
+        Registry.BLOCK.keySet().forEach(block ->{
+            if (block.toString().contains(AloneAndTogether.MOD_ID)){
+                System.out.println(block.toString());
+            }
+        });
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
