@@ -41,6 +41,7 @@ public class ATBlocks {
     public static final Block SPECTRAL_BOOKSHELF = createBookshelf("spectral_bookshelf");
     public static final Block SPECTRAL_DOOR = createDoor("spectral_door");
     public static final Block SPECTRAL_STRIPPED_WOOD = createStrippedLog("spectral_strip_wood");
+    public static final Block SPECTRAL_STRIPPED_LOG = createStrippedLog("spectral_strip_log");
 
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");

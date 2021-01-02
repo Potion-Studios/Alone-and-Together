@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aloneandtogether:item/spectral_door_door"
+  }
+}

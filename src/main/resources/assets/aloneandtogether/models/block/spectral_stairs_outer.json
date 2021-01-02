@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "aloneandtogether:block/spectral_stairs",
+    "top": "aloneandtogether:block/spectral_stairs",
+    "side": "aloneandtogether:block/spectral_stairs"
+  }
+}
