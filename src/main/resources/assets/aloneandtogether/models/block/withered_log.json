@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "aloneandtogether:block/withered_log",
-    "end": "aloneandtogether:block/withered_log_top"
-  }
-}

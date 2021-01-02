@@ -53,7 +53,7 @@ public class AbyssDimensionRenderer extends DimensionRenderInfo {
             Tessellator tessellator = Tessellator.getInstance();
             BufferBuilder bufferbuilder = tessellator.getBuffer();
 
-            renderSimpleSkyBox(ABYSS_SKY, matrixStack, mc, tessellator, bufferbuilder, new Color(100, 100, 100, 255));
+            renderSimpleSkyBox(ABYSS_SKY, matrixStack, mc, tessellator, bufferbuilder, new Color(65, 65, 65, 255));
 
             RenderSystem.depthMask(true);
             RenderSystem.enableTexture();

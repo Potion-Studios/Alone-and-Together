@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "aloneandtogether:block/withered_planks",
-    "top": "aloneandtogether:block/withered_planks",
-    "side": "aloneandtogether:block/withered_planks"
-  }
-}

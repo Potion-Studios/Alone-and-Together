@@ -21,24 +21,6 @@ public class ATBlocks {
 
     public static List<Block> blocks = new ArrayList<>();
 
-
-    public static final Block WITHERED_LOG = createLog("withered_log");
-    public static final Block WITHERED_WOOD = createWood("withered_wood");
-    public static final Block WITHERED_PLANKS = createPlanks("withered_planks");
-    public static final Block WITHERED_FENCE = createFence("withered_fence");
-    public static final Block WITHERED_WALL = createWoodWall("withered_wall");
-
-    public static final Block WITHERED_FENCE_GATE = createFenceGate("withered_fence_gate");
-    public static final Block WITHERED_SLAB = createWoodSlab("withered_slab");
-    public static final Block WITHERED_PRESSURE_PLATE = createWoodPressurePlate("withered_pressure_plate");
-    public static final Block WITHERED_STAIRS = createWoodStairs("withered_stairs");
-    public static final Block WITHERED_TRAP_DOOR = createTrapDoor("withered_trapdoor");
-    public static final Block WITHERED_CRAFTING_TABLE = createCraftingTable("withered_crafting_table");
-    public static final Block WITHERED_BUTTON = createWoodButton("withered_button");
-    public static final Block WITHERED_BOOKSHELF = createBookshelf("withered_bookshelf");
-    public static final Block WITHERED_DOOR = createDoor("withered_door");
-    public static final Block WITHERED_STRIPPED_WOOD = createStrippedLog("withered_strip_wood");
-
     public static final Block ABYSS_TELEPORTER = createTeleporterBlock("abyss_teleporter", ATDimensions.ABYSS_WORLD_KEY);
 
 

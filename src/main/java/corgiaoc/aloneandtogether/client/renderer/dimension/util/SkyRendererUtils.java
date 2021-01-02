@@ -67,10 +67,10 @@ public class SkyRendererUtils {
         Matrix4f matrix4f = matrixStack.getLast().getMatrix();
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
 
-        bufferbuilder.pos(matrix4f, -100.0F/*Up and Down texture size*/, -150.0F/*Size of the texture or Distance from the player*/, -100.0F/*Left to right texture size*/).tex(0.0F/*Horizontal Axis*/, 0.0F/*Vertical Axis*/).color(45, 45, 45, 155).endVertex();
+        bufferbuilder.pos(matrix4f, -100.0F/*Up and Down texture size*/, -size/*Size of the texture or Distance from the player*/, -100.0F/*Left to right texture size*/).tex(0.0F/*Horizontal Axis*/, 0.0F/*Vertical Axis*/).color(255, 45, 45, 155).endVertex();
         bufferbuilder.pos(matrix4f, -100.0F, -size, 100.0F).tex(0.0F, 1.0F).color(255, 45, 45, 255).endVertex();
         bufferbuilder.pos(matrix4f, 100.0F, -size, 100.0F).tex(1.0F, 1.0F).color(255, 45, 45, 255).endVertex();
-        bufferbuilder.pos(matrix4f, 100.0F, -size, -100.0F).tex(1.0F, 0.0F).color(85, 45, 45, 255).endVertex();
+        bufferbuilder.pos(matrix4f, 100.0F, -size, -100.0F).tex(1.0F, 0.0F).color(255, 45, 45, 255).endVertex();
         tessellator.draw();
     }
 
