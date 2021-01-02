@@ -58,6 +58,7 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
         public StellarisSkyRenderer() {
             generateStarData(15000);
             setPlanet();
+            //
 
             Random random = new Random(203484);
             axis = new Vector3f(random.nextFloat(), random.nextFloat(), random.nextFloat());
