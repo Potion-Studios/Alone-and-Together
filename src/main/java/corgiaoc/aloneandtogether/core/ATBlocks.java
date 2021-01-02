@@ -24,6 +24,43 @@ public class ATBlocks {
     public static final Block ABYSS_TELEPORTER = createTeleporterBlock("abyss_teleporter", ATDimensions.ABYSS_WORLD_KEY);
 
 
+    //spectral wood
+    public static final Block SPECTRAL_LOG = createLog("spectral_log");
+    public static final Block SPECTRAL_PLANKS = createPlanks("spectral_planks");
+    public static final Block CARVED_SPECTRAL_PLANKS = createPlanks("carved_spectral_planks");
+    public static final Block SPECTRAL_FENCE = createFence("spectral_fence");
+    public static final Block SPECTRAL_WOOD = createWood("spectral_wood");
+    public static final Block SPECTRAL_WOOD_WALL = createWoodWall("spectral_wood_wall");
+    public static final Block SPECTRAL_FENCE_GATE = createFenceGate("spectral_fence_gate");
+    public static final Block SPECTRAL_SLAB = createWoodSlab("spectral_slab");
+    public static final Block SPECTRAL_PRESSURE_PLATE = createWoodPressurePlate("spectral_pressure_plate");
+    public static final Block SPECTRAL_STAIRS = createWoodStairs("spectral_stairs");
+    public static final Block SPECTRAL_TRAP_DOOR = createTrapDoor("spectral_trapdoor");
+    public static final Block SPECTRAL_CRAFTING_TABLE = createCraftingTable("spectral_crafting_table");
+    public static final Block SPECTRAL_BUTTON = createWoodButton("spectral_button");
+    public static final Block SPECTRAL_BOOKSHELF = createBookshelf("spectral_bookshelf");
+    public static final Block SPECTRAL_DOOR = createDoor("spectral_door");
+    public static final Block SPECTRAL_STRIPPED_WOOD = createStrippedLog("spectral_strip_wood");
+
+    //glowstone
+    public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
+
+    //mycena
+    public static final Block BLUE_MYCENA_BLOCK = createMycenaBlock("blue_mycena_block");
+    public static final Block GREEN_MYCENA_BLOCK = createMycenaBlock("green_mycena_block");
+    public static final Block RED_MYCENA_BLOCK = createMycenaBlock("red_mycena_block");
+    public static final Block YELLOW_MYCENA_BLOCK = createMycenaBlock("yellow_mycena_block");
+    public static final Block MYCENA_STEM_BLOCK = createMycenaBlock("mycena_stem_block");
+
+    //grass
+    public static final Block CORRUPT_GRASS_BLOCK = createGrassBlock("corrupt_grass_block");
+    public static final Block WITHERED_GRASS_BLOCK = createGrassBlock("withered_grass_block");
+    public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
+    public static final Block ORANGE_ASTRAL_GRASS_BLOCK = createGrassBlock("orange_astral_grass_block");
+
+    //dirt
+    public static final Block CORRUPT_DIRT_BLOCK = createDirtBlock("corrupt_dirt_block");
+    public static final Block ASTRAL_DIRT_BLOCK = createDirtBlock("astral_dirt_block");
 
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -147,6 +184,37 @@ public class ATBlocks {
 
     static Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
         Block createBlock = new DimensionTeleporterBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool(), worldRegistryKey);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+    static Block createGlowBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(2.0f, 2.5f).notSolid().setLightLevel((state) -> { return 11; }));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createMycenaBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> { return 11; }));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createGrassBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createDirtBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.5f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
