@@ -59,7 +59,7 @@ public class SkyRendererUtils {
     /**
      * Requires a push prior to the usage and a push after the usage.
      */
-    public static void renderSimpleRotatingObject(ResourceLocation objectTexturePath, Quaternion rotation, float rotationTime, float size, MatrixStack matrixStack, Minecraft mc, Tessellator tessellator, BufferBuilder bufferbuilder) {
+    public static void renderSimpleObject(ResourceLocation objectTexturePath, Quaternion rotation, float rotationTime, float size, MatrixStack matrixStack, Minecraft mc, Tessellator tessellator, BufferBuilder bufferbuilder) {
         mc.textureManager.bindTexture(objectTexturePath);
         matrixStack.rotate(rotation);
         SkyRendererUtils.rotateTextureAroundOrigin(matrixStack, rotationTime);
@@ -68,9 +68,9 @@ public class SkyRendererUtils {
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
 
         bufferbuilder.pos(matrix4f, -100.0F/*Up and Down texture size*/, -size/*Size of the texture or Distance from the player*/, -100.0F/*Left to right texture size*/).tex(0.0F/*Horizontal Axis*/, 0.0F/*Vertical Axis*/).color(255, 45, 45, 155).endVertex();
-        bufferbuilder.pos(matrix4f, -100.0F, -size, 100.0F).tex(0.0F, 1.0F).color(255, 45, 45, 255).endVertex();
-        bufferbuilder.pos(matrix4f, 100.0F, -size, 100.0F).tex(1.0F, 1.0F).color(255, 45, 45, 255).endVertex();
-        bufferbuilder.pos(matrix4f, 100.0F, -size, -100.0F).tex(1.0F, 0.0F).color(255, 45, 45, 255).endVertex();
+        bufferbuilder.pos(matrix4f, -100.0F, -size, 100.0F).tex(0.0F, 1.0F).color(100, 100, 100, 255).endVertex();
+        bufferbuilder.pos(matrix4f, 100.0F, -size, 100.0F).tex(1.0F, 1.0F).color(100, 100, 100, 255).endVertex();
+        bufferbuilder.pos(matrix4f, 100.0F, -size, -100.0F).tex(1.0F, 0.0F).color(100, 100, 100, 255).endVertex();
         tessellator.draw();
     }
 

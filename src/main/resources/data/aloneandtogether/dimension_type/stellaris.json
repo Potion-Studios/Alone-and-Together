@@ -2,7 +2,7 @@
   "logical_height": 256,
   "infiniburn": "minecraft:infiniburn_overworld",
   "effects": "aloneandtogether:stellaris",
-  "ambient_light": 0.0,
+  "ambient_light": 0.35,
   "bed_works": false,
   "respawn_anchor_works": false,
   "has_raids": false,
