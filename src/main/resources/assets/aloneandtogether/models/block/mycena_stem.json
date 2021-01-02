@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/blue_mycena_block"
+    "all": "aloneandtogether:block/mycena_stem"
   }
 }

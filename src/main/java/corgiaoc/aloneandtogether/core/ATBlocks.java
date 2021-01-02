@@ -44,24 +44,52 @@ public class ATBlocks {
     public static final Block SPECTRAL_STRIPPED_WOOD = createStrippedLog("spectral_strip_wood");
     public static final Block SPECTRAL_STRIPPED_LOG = createStrippedLog("spectral_strip_log");
 
+    //golden wood
+    public static final Block GOLDEN_BIRCH_LOG = createLog("golden_birch_log");
+    public static final Block GOLDEN_BIRCH_PLANKS = createPlanks("golden_birch_planks");
+    public static final Block CARVED_GOLDEN_BIRCH_PLANKS = createPlanks("carved_golden_birch_planks");
+    public static final Block GOLDEN_BIRCH_FENCE = createFence("golden_birch_fence");
+    public static final Block GOLDEN_BIRCH_WOOD = createWood("golden_birch_wood");
+    public static final Block GOLDEN_BIRCH_WOOD_WALL = createWoodWall("golden_birch_wood_wall");
+    public static final Block GOLDEN_BIRCH_FENCE_GATE = createFenceGate("golden_birch_fence_gate");
+    public static final Block GOLDEN_BIRCH_SLAB = createWoodSlab("golden_birch_slab");
+    public static final Block GOLDEN_BIRCH_PRESSURE_PLATE = createWoodPressurePlate("golden_birch_pressure_plate");
+    public static final Block GOLDEN_BIRCH_STAIRS = createWoodStairs("golden_birch_stairs");
+    public static final Block GOLDEN_BIRCH_TRAP_DOOR = createTrapDoor("golden_birch_trapdoor");
+    public static final Block GOLDEN_BIRCH_CRAFTING_TABLE = createCraftingTable("golden_birch_crafting_table");
+    public static final Block GOLDEN_BIRCH_BUTTON = createWoodButton("golden_birch_button");
+    public static final Block GOLDEN_BIRCH_BOOKSHELF = createBookshelf("golden_birch_bookshelf");
+    public static final Block GOLDEN_BIRCH_DOOR = createDoor("golden_birch_door");
+    public static final Block GOLDEN_BIRCH_STRIPPED_WOOD = createStrippedLog("golden_birch_strip_wood");
+    public static final Block GOLDEN_BIRCH_STRIPPED_LOG = createStrippedLog("golden_birch_strip_log");
+
+
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
 
     //mycena
-    public static final Block BLUE_MYCENA_BLOCK = createMycenaBlock("blue_mycena_block");
-    public static final Block GREEN_MYCENA_BLOCK = createMycenaBlock("green_mycena_block");
-    public static final Block RED_MYCENA_BLOCK = createMycenaBlock("red_mycena_block");
-    public static final Block YELLOW_MYCENA_BLOCK = createMycenaBlock("yellow_mycena_block");
-    public static final Block MYCENA_STEM_BLOCK = createMycenaBlock("mycena_stem_block");
+    public static final Block BLUE_MYCENA = createMycenaBlock("blue_mycena");
+    public static final Block GREEN_MYCENA = createMycenaBlock("green_mycena");
+    public static final Block RED_MYCENA = createMycenaBlock("red_mycena");
+    public static final Block YELLOW_MYCENA = createMycenaBlock("yellow_mycena");
+    public static final Block MYCENA_STEM = createMycenaBlock("mycena_stem");
 
     //grass
     public static final Block CORRUPT_GRASS_BLOCK = createGrassBlock("corrupt_grass_block");
     public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
     public static final Block ORANGE_ASTRAL_GRASS_BLOCK = createGrassBlock("orange_astral_grass_block");
 
+    //stone
+    public static final Block VOID_STONE = createStoneBlock("void_stone");
+    public static final Block VOID_STONEBRICK = createStoneBlock("void_stonebrick");
+    public static final Block VOID_STONEBRICK_WALL = createStoneWall("void_stonebrick_wall");
+    public static final Block VOID_STONE_WALL = createStoneWall("void_stone_wall");
+    public static final Block VOID_STONEBRICK_STAIRS = createStoneStairs("void_stonebrick_stairs");
+    public static final Block VOID_STONE_STAIRS = createStoneStairs("void_stone_stairs");
+
     //dirt
-    public static final Block CORRUPT_DIRT_BLOCK = createDirtBlock("corrupt_dirt_block");
-    public static final Block ASTRAL_DIRT_BLOCK = createDirtBlock("astral_dirt_block");
+    public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");
+    public static final Block ASTRAL_DIRT = createDirtBlock("astral_dirt");
 
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -97,6 +125,14 @@ public class ATBlocks {
 
     static Block createWoodStairs(String id) {
         Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "planks"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.OAK_PLANKS).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createStoneStairs(String id) {
+        Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "stone"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.STONE).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -183,6 +219,14 @@ public class ATBlocks {
         return createBlock;
     }
 
+    static Block createStoneWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F).harvestTool(ToolType.PICKAXE).setRequiresTool());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
     static Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
         Block createBlock = new DimensionTeleporterBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool(), worldRegistryKey);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
@@ -216,6 +260,14 @@ public class ATBlocks {
 
     static Block createDirtBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.5f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createStoneBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);

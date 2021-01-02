@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/astral_dirt_block"
+    "all": "aloneandtogether:block/corrupt_dirt"
   }
 }
