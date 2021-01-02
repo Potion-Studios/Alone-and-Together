@@ -54,7 +54,6 @@ public class ATBlocks {
 
     //grass
     public static final Block CORRUPT_GRASS_BLOCK = createGrassBlock("corrupt_grass_block");
-    public static final Block WITHERED_GRASS_BLOCK = createGrassBlock("withered_grass_block");
     public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
     public static final Block ORANGE_ASTRAL_GRASS_BLOCK = createGrassBlock("orange_astral_grass_block");
 
