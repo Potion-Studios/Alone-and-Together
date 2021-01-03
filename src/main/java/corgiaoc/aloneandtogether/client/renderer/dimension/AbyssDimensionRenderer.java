@@ -10,6 +10,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.client.ISkyRenderHandler;
 
 import javax.annotation.Nullable;
@@ -41,8 +42,8 @@ public class AbyssDimensionRenderer extends DimensionRenderInfo {
 
     public static class AbyssSkyRenderer implements ISkyRenderHandler {
 
-        public static final ResourceLocation ABYSS_SKY = new ResourceLocation(AloneAndTogether.MOD_ID, "textures/environment/abyss_sky.png");
-        public static final ResourceLocation ABYSS_GALAXY = new ResourceLocation(AloneAndTogether.MOD_ID, "textures/environment/abyss_galaxy.png");
+        public static final ResourceLocation ABYSS_SKY = new ResourceLocation(AloneAndTogether.MOD_ID, "textures/environment/abyss/abyss_sky.png");
+        public static final ResourceLocation VINES = new ResourceLocation(AloneAndTogether.MOD_ID, "textures/environment/abyss/abyss_vines.png");
 
         @Override
         public void render(int ticks, float partialTicks, MatrixStack matrixStack, ClientWorld world, Minecraft mc) {
@@ -55,6 +56,9 @@ public class AbyssDimensionRenderer extends DimensionRenderInfo {
 
             renderSimpleSkyBox(ABYSS_SKY, matrixStack, mc, tessellator, bufferbuilder, new Color(65, 65, 65, 255));
 
+//            matrixStack.push();
+//            renderSimpleObject(VINES, Vector3f.XP.rotationDegrees(80), 0, 65, matrixStack, mc, tessellator, bufferbuilder);
+//            matrixStack.pop();
             RenderSystem.depthMask(true);
             RenderSystem.enableTexture();
             RenderSystem.disableBlend();

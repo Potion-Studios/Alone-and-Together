@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.stellaris.world;
+package corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome.util;
 
 import corgiaoc.aloneandtogether.common.ATBiomeBase;
 import net.minecraft.world.biome.Biome;

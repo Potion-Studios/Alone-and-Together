@@ -1,14 +1,12 @@
 package corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome;
 
-import corgiaoc.aloneandtogether.common.dimension.abyss.world.AbyssBiomeBase;
-import corgiaoc.aloneandtogether.common.dimension.stellaris.world.StellarisBiomeBase;
+import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome.util.StellarisBiomeBase;
 import corgiaoc.aloneandtogether.core.world.ATSurfaceBuilders;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.aloneandtogether.util.BiomeUtils;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class Stellaris extends StellarisBiomeBase {
