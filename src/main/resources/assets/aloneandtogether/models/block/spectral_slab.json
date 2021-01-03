@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "aloneandtogether:block/spectral",
+    "top": "aloneandtogether:block/spectral",
+    "side": "aloneandtogether:block/spectral"
+  }
+}

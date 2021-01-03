@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/spectral_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/spectral"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/spectral_slab_top"
+    }
+  }
+}

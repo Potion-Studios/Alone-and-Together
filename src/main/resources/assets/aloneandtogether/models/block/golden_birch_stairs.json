@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "aloneandtogether:block/golden_birch",
+    "top": "aloneandtogether:block/golden_birch",
+    "side": "aloneandtogether:block/golden_birch"
+  }
+}

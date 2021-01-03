@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "bottom": "aloneandtogether:block/golden_birch_door_bottom",
+    "top": "aloneandtogether:block/golden_birch_door_top"
+  }
+}

@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aloneandtogether:spectral_button_button"
+          "name": "aloneandtogether:spectral_button"
         }
       ],
       "conditions": [
