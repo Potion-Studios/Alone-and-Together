@@ -2,6 +2,8 @@ package corgiaoc.aloneandtogether.common.dimension.abyss.world.biome;
 
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.AbyssBiomeBase;
 import corgiaoc.aloneandtogether.core.ATBlocks;
+import corgiaoc.aloneandtogether.core.world.ATConfiguredFeatures;
+import corgiaoc.aloneandtogether.core.world.ATFeatures;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.aloneandtogether.util.BiomeUtils;
 import net.minecraft.block.Blocks;
@@ -9,6 +11,7 @@ import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -42,6 +45,7 @@ public class AbyssBog extends AbyssBiomeBase {
     }
 
     static {
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.VOID_GRASS);
         
     }
 }

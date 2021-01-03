@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "aloneandtogether:voidstone_wall",
+    "aloneandtogether:spectral_wood_wall",
+    "aloneandtogether:golden_birch_wood_wall",
+    "aloneandtogether:voidstone_brick_wall"
+
+  ]
+}

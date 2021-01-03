@@ -38,7 +38,7 @@
         }
       },
       "default_block": {
-        "Name": "minecraft:stone"
+        "Name": "aloneandtogether:voidstone"
       },
       "default_fluid": {
         "Properties": {

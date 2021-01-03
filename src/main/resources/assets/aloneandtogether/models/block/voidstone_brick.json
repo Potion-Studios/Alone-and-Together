@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/spectral_log"
+    "all": "aloneandtogether:block/voidstone_brick"
   }
 }

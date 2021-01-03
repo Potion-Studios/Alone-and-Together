@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "aloneandtogether:block/spectral_log"
+    "wall": "aloneandtogether:block/voidstone_brick"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "aloneandtogether:block/spectral_log"
+    "wall": "aloneandtogether:block/voidstone_brick"
   }
 }
