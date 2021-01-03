@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "aloneandtogether:block/spectral_pressure_plate"
+    },
+    "powered=true": {
+      "model": "aloneandtogether:block/spectral_pressure_plate_down"
+    }
+  }
+}

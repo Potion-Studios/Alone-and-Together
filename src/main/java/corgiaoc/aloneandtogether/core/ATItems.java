@@ -103,6 +103,7 @@ public class ATItems {
     public static final Item VOID_STONEBRICK_WALL = createItem(new BlockItem(ATBlocks.VOID_STONEBRICK_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_STONEBRICK_WALL));
     public static final Item VOID_STONE_STAIRS = createItem(new BlockItem(ATBlocks.VOID_STONE_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_STONE_STAIRS));
     public static final Item VOID_STONE_WALL = createItem(new BlockItem(ATBlocks.VOID_STONE_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_STONE_WALL));
+    public static final Item DECADASTONE = createItem(new BlockItem(ATBlocks.DECADASTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE));
 
 
     public static Item createItem(Item item, ResourceLocation id) {

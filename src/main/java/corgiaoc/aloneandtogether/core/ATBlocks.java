@@ -86,6 +86,7 @@ public class ATBlocks {
     public static final Block VOID_STONE_WALL = createStoneWall("void_stone_wall");
     public static final Block VOID_STONEBRICK_STAIRS = createStoneStairs("void_stonebrick_stairs");
     public static final Block VOID_STONE_STAIRS = createStoneStairs("void_stone_stairs");
+    public static final Block DECADASTONE = createStoneBlock("decadastone");
 
     //dirt
     public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");

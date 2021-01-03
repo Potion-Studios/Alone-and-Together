@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "aloneandtogether:block/carved_golden_birch_planks"
+  }
+}
