@@ -1,6 +1,6 @@
 package corgiaoc.aloneandtogether.common.world.feature.tree.util;
 
-import corgiaoc.aloneandtogether.common.world.feature.config.BYGTreeConfig;
+import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -32,10 +32,10 @@ public abstract class HugeTreeSpawner extends TreeSpawner {
     }
 
     @Nullable
-    protected abstract ConfiguredFeature<BYGTreeConfig, ?> getBigTreeFeature(Random random);
+    protected abstract ConfiguredFeature<ATTreeConfig, ?> getBigTreeFeature(Random random);
 
     public boolean bigTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
-        ConfiguredFeature<BYGTreeConfig, ?> configuredTreeFeature = this.getBigTreeFeature(random);
+        ConfiguredFeature<ATTreeConfig, ?> configuredTreeFeature = this.getBigTreeFeature(random);
         if (configuredTreeFeature == null) {
             return false;
         } else {

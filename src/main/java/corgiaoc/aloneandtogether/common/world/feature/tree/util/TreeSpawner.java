@@ -1,6 +1,6 @@
 package corgiaoc.aloneandtogether.common.world.feature.tree.util;
 
-import corgiaoc.aloneandtogether.common.world.feature.config.BYGTreeConfig;
+import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -13,10 +13,10 @@ import java.util.Random;
 
 public abstract class TreeSpawner {
     @Nullable
-    protected abstract ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random);
+    protected abstract ConfiguredFeature<ATTreeConfig, ?> getTreeFeature(Random random);
 
     public boolean spawn(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        ConfiguredFeature<BYGTreeConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
+        ConfiguredFeature<ATTreeConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
         if (configuredTreeFeature == null) {
             return false;
         } else {

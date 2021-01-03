@@ -2,7 +2,7 @@ package corgiaoc.aloneandtogether.common.world.feature.tree.util;
 
 
 import com.mojang.serialization.Codec;
-import corgiaoc.aloneandtogether.common.world.feature.config.BYGTreeConfig;
+import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -10,13 +10,13 @@ import net.minecraft.world.ISeedReader;
 import java.util.Random;
 import java.util.Set;
 
-public class EmptyTree extends ATAbstractTreeFeature<BYGTreeConfig> {
+public class EmptyTree extends ATAbstractTreeFeature<ATTreeConfig> {
 
-    public EmptyTree(Codec<BYGTreeConfig> configIn) {
+    public EmptyTree(Codec<ATTreeConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, ATTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);

@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BYGTreeConfig implements IFeatureConfig {
+public class ATTreeConfig implements IFeatureConfig {
 
-    public static final Codec<BYGTreeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<ATTreeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState())).forGetter((config) -> {
             return config.trunkProvider;
         }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState())).forGetter((config) -> {
@@ -34,7 +34,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             return config.diskRadius;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
             return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
-        })).apply(codecRecorder, BYGTreeConfig::new);
+        })).apply(codecRecorder, ATTreeConfig::new);
     });
 
 
@@ -49,7 +49,7 @@ public class BYGTreeConfig implements IFeatureConfig {
     private final Set<Block> whitelist;
     private boolean forcedPlacement = false;
 
-    BYGTreeConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider groundReplacementProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius, List<BlockState> whitelist) {
+    ATTreeConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider groundReplacementProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius, List<BlockState> whitelist) {
         this.trunkProvider = trunkProvider;
         this.leavesProvider = leavesProvider;
         this.groundReplacementProvider = groundReplacementProvider;
@@ -258,7 +258,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder copy(BYGTreeConfig config) {
+        public Builder copy(ATTreeConfig config) {
             this.trunkProvider = config.trunkProvider;
             this.leavesProvider = config.leavesProvider;
             this.groundReplacementProvider = config.groundReplacementProvider;
@@ -270,8 +270,8 @@ public class BYGTreeConfig implements IFeatureConfig {
             return this;
         }
 
-        public BYGTreeConfig build() {
-            return new BYGTreeConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+        public ATTreeConfig build() {
+            return new ATTreeConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
         }
     }
 }

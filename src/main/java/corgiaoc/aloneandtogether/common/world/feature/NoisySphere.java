@@ -1,23 +1,17 @@
 package corgiaoc.aloneandtogether.common.world.feature;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
 public class NoisySphere extends Feature<NoisySphereConfig> {
 
-    public static int stopSpamInt = 0;
     protected static FastNoise fastNoise;
     protected long seed;
 
@@ -36,13 +30,11 @@ public class NoisySphere extends Feature<NoisySphereConfig> {
         int yRadius = config.getRandomYRadius(random);
         int zRadius = config.getRandomZRadius(random);
 
-
         for (int stackIDX = 0; stackIDX < stackHeight; stackIDX++) {
-
+            int[][] topY = new int[xRadius * 2 + 1][zRadius * 2 + 1];
             for (int x = -xRadius; x <= xRadius; x++) {
-                for (int y = -yRadius; y <= yRadius; y++) {
-                    for (int z = -zRadius; z <= zRadius; z++) {
-
+                for (int z = -zRadius; z <= zRadius; z++) {
+                    for (int y = -yRadius; y <= yRadius; y++) {
                         mutable2.setPos(mutable).move(x, y, z);
 
                         //Credits to Hex_26 for this equation!
@@ -50,14 +42,18 @@ public class NoisySphere extends Feature<NoisySphereConfig> {
                         if (equationResult >= 1 + 0.7 * fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ()))
                             continue;
 
+                        world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 2);
 
-                        BlockState blockState = world.getBlockState(mutable2);
-                        if (this.canBlockPlaceHere(blockState))
-                            world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 3);
+                        if (topY[x + xRadius][z + zRadius] < mutable2.getY()) {
+                            topY[x + xRadius][z + zRadius] = mutable2.getY();
+                        }
                     }
+                    BlockPos.Mutable tempMutable = new BlockPos.Mutable().setPos(mutable2);
+                    tempMutable.setY(topY[x + xRadius][z + zRadius] + 1);
+                    if (tempMutable.getY() > position.getY() + -yRadius)
+                        world.setBlockState(tempMutable, config.getTopBlockProvider().getBlockState(random, mutable2), 2);
                 }
             }
-
             xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
             yRadius = (int) (yRadius / config.getRadiusDivisorPerStack());
             zRadius = (int) (zRadius / config.getRadiusDivisorPerStack());
@@ -75,10 +71,10 @@ public class NoisySphere extends Feature<NoisySphereConfig> {
         }
     }
 
-    private boolean canBlockPlaceHere(BlockState state) {
-        return state.isAir() || state.getMaterial() == Material.EARTH || state.getMaterial() == Material.PLANTS ||
-                state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.LEAVES ||
-                state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
-                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.isIn(Tags.Blocks.DIRT);
-    }
+//    private boolean canBlockPlaceHere(BlockState state) {
+//        return state.isAir() || state.getMaterial() == Material.EARTH || state.getMaterial() == Material.PLANTS ||
+//                state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.LEAVES ||
+//                state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
+//                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.isIn(Tags.Blocks.DIRT);
+//    }
 }

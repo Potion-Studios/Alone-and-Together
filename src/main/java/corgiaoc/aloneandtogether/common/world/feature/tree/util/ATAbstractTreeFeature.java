@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 
-import corgiaoc.aloneandtogether.common.world.feature.config.BYGTreeConfig;
+import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import corgiaoc.aloneandtogether.common.world.feature.util.FeatureUtil;
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
@@ -28,10 +28,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
-public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
+public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
     protected long seed;
@@ -68,26 +67,26 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
         });
     }
 
-    public void placeTrunk(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeTrunk(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
-    public void placeBranch(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeBranch(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
-    public void placeLeaves(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeLeaves(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
     //TODO: Make all our trees use the method above.
-    public void placeLeaves(BYGTreeConfig config, Random random, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
+    public void placeLeaves(ATTreeConfig config, Random random, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos pos = new BlockPos(x, y, z);
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockPos, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
@@ -95,13 +94,13 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
     }
 
 
-    public void placeNetherTrunk(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeNetherTrunk(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHereNether(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
-    public void placeNetherBranch(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeNetherBranch(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHereNether(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
@@ -143,7 +142,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
      * @param config Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
-    public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+    public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
         if (config.isPlacementForced())
             return true;
 
@@ -156,7 +155,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
         });
     }
 
-    public static boolean isDesiredGroundwNetherTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+    public static boolean isDesiredGroundwNetherTags(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
         if (config.isPlacementForced())
             return true;
 
@@ -169,7 +168,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
         });
     }
 
-    public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+    public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
         if (config.isPlacementForced())
             return true;
 
@@ -182,7 +181,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
         });
     }
 
-    public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+    public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
         if (config.isPlacementForced())
             return true;
 
@@ -420,7 +419,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
      * @param trunkPositions List of trunk positions where the base is built under the given position.
      */
 
-    public void buildTrunkBase(BlockPos centerPos, Set<BlockPos> treeBlocksSet, ISeedReader reader, BYGTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunkBase(BlockPos centerPos, Set<BlockPos> treeBlocksSet, ISeedReader reader, ATTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (config.isPlacementForced())
             return;
         BlockState ground = reader.getBlockState(centerPos.offset(Direction.DOWN));
@@ -453,7 +452,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
     /**
      * Use this to set the soil under small trunked trees.
      */
-    public void setSoil(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, BYGTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void setSoil(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, ATTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
@@ -465,7 +464,7 @@ public abstract class ATAbstractTreeFeature<TFC extends BYGTreeConfig> extends F
     }
 
 
-    public void setDisk(ISeedReader world, Random random, BlockPos pos, BYGTreeConfig config) {
+    public void setDisk(ISeedReader world, Random random, BlockPos pos, ATTreeConfig config) {
         if (config.isPlacementForced() || config.getDiskRadius() <= 0)
             return;
 

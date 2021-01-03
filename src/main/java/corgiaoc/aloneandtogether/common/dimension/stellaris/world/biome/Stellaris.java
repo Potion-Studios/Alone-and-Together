@@ -2,17 +2,17 @@ package corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome;
 
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome.util.StellarisBiomeBase;
 import corgiaoc.aloneandtogether.core.world.ATConfiguredFeatures;
-import corgiaoc.aloneandtogether.core.world.ATSurfaceBuilders;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.aloneandtogether.util.BiomeUtils;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class Stellaris extends StellarisBiomeBase {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("stellaris", new ConfiguredSurfaceBuilder<>(ATSurfaceBuilders.STELLARIS, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("stellaris", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
     static final Biome.Category CATEGORY = Biome.Category.ICY;
     static final float DEPTH = 6.0F;

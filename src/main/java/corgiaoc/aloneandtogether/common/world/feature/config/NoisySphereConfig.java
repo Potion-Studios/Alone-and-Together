@@ -70,6 +70,10 @@ public class NoisySphereConfig implements IFeatureConfig {
         return this.blockProvider;
     }
 
+    public BlockStateProvider getTopBlockProvider() {
+        return topBlockProvider;
+    }
+
     public int getMinHeight() {
         return Math.abs(minHeight);
     }
