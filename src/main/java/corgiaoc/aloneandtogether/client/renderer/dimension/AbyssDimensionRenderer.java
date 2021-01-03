@@ -56,9 +56,9 @@ public class AbyssDimensionRenderer extends DimensionRenderInfo {
 
             renderSimpleSkyBox(ABYSS_SKY, matrixStack, mc, tessellator, bufferbuilder, new Color(65, 65, 65, 255));
 
-//            matrixStack.push();
-//            renderSimpleObject(VINES, Vector3f.XP.rotationDegrees(80), 0, 65, matrixStack, mc, tessellator, bufferbuilder);
-//            matrixStack.pop();
+            matrixStack.push();
+            renderSimpleObject(VINES, Vector3f.XP.rotationDegrees(80), 0, 65, matrixStack, mc, tessellator, bufferbuilder);
+            matrixStack.pop();
             RenderSystem.depthMask(true);
             RenderSystem.enableTexture();
             RenderSystem.disableBlend();
