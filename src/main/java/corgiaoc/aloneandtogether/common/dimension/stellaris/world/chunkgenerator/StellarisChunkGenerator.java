@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.stellaris;
+package corgiaoc.aloneandtogether.common.dimension.stellaris.world.chunkgenerator;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -12,7 +12,6 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.structure.StructureManager;
-import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 
 import java.util.function.Supplier;
 

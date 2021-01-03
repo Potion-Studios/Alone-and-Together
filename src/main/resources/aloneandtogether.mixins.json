@@ -4,9 +4,10 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "aloneandtogether.refmap.json",
   "mixins": [
+    "MixinEntity",
+    "MixinLivingEntity"
   ],
-  "client":[
-
+  "client": [
   ],
   "injectors": {
     "defaultRequire": 1

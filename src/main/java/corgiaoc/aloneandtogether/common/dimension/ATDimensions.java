@@ -4,7 +4,7 @@ import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.client.renderer.dimension.StellarisDimensionRenderer;
 import corgiaoc.aloneandtogether.client.renderer.dimension.AbyssDimensionRenderer;
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.biomesource.AbyssBiomeSource;
-import corgiaoc.aloneandtogether.common.dimension.stellaris.StellarisChunkGenerator;
+import corgiaoc.aloneandtogether.common.dimension.stellaris.world.chunkgenerator.StellarisChunkGenerator;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biomesource.StellarisBiomeSource;
 import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.util.RegistryKey;
