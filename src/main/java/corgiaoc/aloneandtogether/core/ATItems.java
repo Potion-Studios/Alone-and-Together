@@ -77,6 +77,25 @@ public class ATItems {
     public static final Item GOLDEN_BIRCH_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.GOLDEN_BIRCH_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GOLDEN_BIRCH_STRIPPED_WOOD));
     public static final Item GOLDEN_BIRCH_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.GOLDEN_BIRCH_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GOLDEN_BIRCH_STRIPPED_LOG));
 
+    //cosmic wood
+    public static final Item COSMIC_LOG = createItem(new BlockItem(ATBlocks.COSMIC_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_LOG));
+    public static final Item COSMIC_PLANKS = createItem(new BlockItem(ATBlocks.COSMIC_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_PLANKS));
+    public static final Item CARVED_COSMIC_PLANKS = createItem(new BlockItem(ATBlocks.CARVED_COSMIC_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CARVED_COSMIC_PLANKS));
+    public static final Item COSMIC_FENCE = createItem(new BlockItem(ATBlocks.COSMIC_FENCE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_FENCE));
+    public static final Item COSMIC_WOOD = createItem(new BlockItem(ATBlocks.COSMIC_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_WOOD));
+    public static final Item COSMIC_WOOD_WALL = createItem(new BlockItem(ATBlocks.COSMIC_WOOD_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_WOOD_WALL));
+    public static final Item COSMIC_FENCE_GATE = createItem(new BlockItem(ATBlocks.COSMIC_FENCE_GATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_FENCE_GATE));
+    public static final Item COSMIC_SLAB = createItem(new BlockItem(ATBlocks.COSMIC_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_SLAB));
+    public static final Item COSMIC_PRESSURE_PLATE = createItem(new BlockItem(ATBlocks.COSMIC_PRESSURE_PLATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_PRESSURE_PLATE));
+    public static final Item COSMIC_STAIRS = createItem(new BlockItem(ATBlocks.COSMIC_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_STAIRS));
+    public static final Item COSMIC_TRAP_DOOR = createItem(new BlockItem(ATBlocks.COSMIC_TRAP_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_TRAP_DOOR));
+    public static final Item COSMIC_CRAFTING_TABLE = createItem(new BlockItem(ATBlocks.COSMIC_CRAFTING_TABLE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_CRAFTING_TABLE));
+    public static final Item COSMIC_BUTTON = createItem(new BlockItem(ATBlocks.COSMIC_BUTTON, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_BUTTON));
+    public static final Item COSMIC_BOOKSHELF = createItem(new BlockItem(ATBlocks.COSMIC_BOOKSHELF, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_BOOKSHELF));
+    public static final Item COSMIC_DOOR = createItem(new BlockItem(ATBlocks.COSMIC_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_DOOR));
+    public static final Item COSMIC_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.COSMIC_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_STRIPPED_WOOD));
+    public static final Item COSMIC_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.COSMIC_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_STRIPPED_LOG));
+
     //glowstone
     public static final Item BOG_LILLY_CRYSTAL = createItem(new BlockItem(ATBlocks.BOG_LILLY_CRYSTAL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BOG_LILLY_CRYSTAL));
 
