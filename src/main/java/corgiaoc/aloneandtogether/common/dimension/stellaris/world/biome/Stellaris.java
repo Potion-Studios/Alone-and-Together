@@ -1,11 +1,13 @@
 package corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome;
 
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome.util.StellarisBiomeBase;
+import corgiaoc.aloneandtogether.core.world.ATConfiguredFeatures;
 import corgiaoc.aloneandtogether.core.world.ATSurfaceBuilders;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.aloneandtogether.util.BiomeUtils;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -29,6 +31,6 @@ public class Stellaris extends StellarisBiomeBase {
     }
 
     static {
-        
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, ATConfiguredFeatures.STELLARIS_METEORITE);
     }
 }
