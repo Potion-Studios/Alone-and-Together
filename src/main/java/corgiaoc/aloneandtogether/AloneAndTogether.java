@@ -1,5 +1,6 @@
 package corgiaoc.aloneandtogether;
 
+import corgiaoc.aloneandtogether.client.renderer.CutOutRenders;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.feature.blockplacer.ATBlockPlacerTypes;
 import corgiaoc.aloneandtogether.core.ATBlocks;
@@ -40,6 +41,7 @@ public class AloneAndTogether {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(cutoutRenders::renderCutOuts);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -55,6 +57,8 @@ public class AloneAndTogether {
     private void clientSetup(final FMLClientSetupEvent event) {
         ATDimensions.registerDimensionRenderers();
     }
+
+    public static final CutOutRenders cutoutRenders = new CutOutRenders();
 
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aloneandtogether:yellow_mycena_block"
+          "name": "aloneandtogether:mycena_stem"
         }
       ],
       "conditions": [

@@ -14,6 +14,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,19 +75,24 @@ public class ATBlocks {
     public static final Block YELLOW_MYCENA = createMycenaBlock("yellow_mycena");
     public static final Block MYCENA_STEM = createMycenaBlock("mycena_stem");
 
+    //overgrown stone
+    public static final Block OVERGROWN_VOIDSTONE = createOvergrownStone("overgrown_voidstone");
+
     //grass
-    public static final Block CORRUPT_GRASS_BLOCK = createGrassBlock("corrupt_grass_block");
     public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
     public static final Block ORANGE_ASTRAL_GRASS_BLOCK = createGrassBlock("orange_astral_grass_block");
 
     //stone
-    public static final Block VOID_STONE = createStoneBlock("void_stone");
-    public static final Block VOID_STONEBRICK = createStoneBlock("void_stonebrick");
-    public static final Block VOID_STONEBRICK_WALL = createStoneWall("void_stonebrick_wall");
-    public static final Block VOID_STONE_WALL = createStoneWall("void_stone_wall");
-    public static final Block VOID_STONEBRICK_STAIRS = createStoneStairs("void_stonebrick_stairs");
-    public static final Block VOID_STONE_STAIRS = createStoneStairs("void_stone_stairs");
-    public static final Block DECADASTONE = createStoneBlock("decadastone");
+    public static final Block VOIDSTONE = createStoneBlock("voidstone");
+    public static final Block VOIDSTONE_BRICK = createStoneBlock("voidstone_brick");
+    public static final Block VOIDSTONE_BRICK_WALL = createStoneWall("voidstone_brick_wall");
+    public static final Block VOIDSTONE_WALL = createStoneWall("voidstone_wall");
+    public static final Block VOIDSTONE_BRICK_STAIRS = createStoneStairs("voidstone_brick_stairs");
+    public static final Block VOIDSTONE_STAIRS = createStoneStairs("voidstone_stairs");
+    public static final Block DECADASTONE = createStonePillar("decadastone");
+
+    //leaves
+    public static final Block SPECTRAL_LEAVES = createLeafBlock("spectral_leaves");
 
     //dirt
     public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");
@@ -269,6 +275,30 @@ public class ATBlocks {
 
     static Block createStoneBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createOvergrownStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.PLANT).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createStonePillar(String id) {
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().sound(SoundType.BASALT).hardnessAndResistance(1.5F, 6.0F));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createLeafBlock(String id) {
+        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
