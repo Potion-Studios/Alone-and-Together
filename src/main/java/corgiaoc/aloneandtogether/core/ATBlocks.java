@@ -219,7 +219,7 @@ public class ATBlocks {
     }
 
     static Block createWoodWall(String id) {
-        Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.AXE).setRequiresTool());
+        Block createBlock = new WallBlock(AbstractBlock.Properties.from(SPECTRAL_WOOD));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -227,7 +227,7 @@ public class ATBlocks {
     }
 
     static Block createStoneWall(String id) {
-        Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F).harvestTool(ToolType.PICKAXE).setRequiresTool());
+        Block createBlock = new WallBlock(AbstractBlock.Properties.from(VOIDSTONE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -282,7 +282,7 @@ public class ATBlocks {
     }
 
     static Block createOvergrownStone(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.PLANT).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
