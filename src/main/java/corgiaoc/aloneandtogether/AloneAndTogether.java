@@ -1,8 +1,10 @@
 package corgiaoc.aloneandtogether;
 
+import corgiaoc.aloneandtogether.client.entity.renderers.GeckoRenderer;
 import corgiaoc.aloneandtogether.client.renderer.ATCutOutRenders;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.feature.blockplacer.ATBlockPlacerTypes;
+import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import corgiaoc.aloneandtogether.core.ATEntities;
 import corgiaoc.aloneandtogether.core.ATItems;
@@ -10,6 +12,7 @@ import corgiaoc.aloneandtogether.core.world.*;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -21,6 +24,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -51,11 +55,15 @@ public class AloneAndTogether {
                 System.out.println(block.toString());
             }
         });
+        GlobalEntityTypeAttributes.put(ATEntities.GECKO, GeckoEntity.setCustomAttributes().create());
+
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
         ATDimensions.registerDimensionRenderers();
         ATCutOutRenders.renderCutOuts();
+        RenderingRegistry.registerEntityRenderingHandler(ATEntities.GECKO, GeckoRenderer::new);
+
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

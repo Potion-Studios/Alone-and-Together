@@ -1,7 +1,9 @@
 package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
+import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 
@@ -11,6 +13,8 @@ import java.util.List;
 public class ATEntities {
 
     public static List<EntityType<?>> entities = new ArrayList<>();
+
+    public static final EntityType<GeckoEntity> GECKO = createEntity("gecko", EntityType.Builder.create(GeckoEntity::new, EntityClassification.AMBIENT).size(0.6f,0.4f).build("gecko"));
 
 
     public static <E extends Entity, ET extends EntityType<E>> ET createEntity(String id, ET entityType) {
