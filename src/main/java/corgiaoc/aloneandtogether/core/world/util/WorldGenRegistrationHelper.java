@@ -69,14 +69,14 @@ public class WorldGenRegistrationHelper {
         structure.setRegistryName(bygID);
         ATStructures.structures.add(structure);
         Structure.NAME_STRUCTURE_BIMAP.put(bygID.toString(), structure);
-
+//
         Structure.STRUCTURE_DECORATION_STAGE_MAP.put(structure, decorationStage);
-
-        DimensionStructuresSettings.field_236191_b_ =
-                ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
-                        .putAll(DimensionStructuresSettings.field_236191_b_)
-                        .put(structure, new StructureSeparationSettings(minChunkDistance, maxChunkDistance, seedModifier))
-                        .build();
+//
+//        DimensionStructuresSettings.field_236191_b_ =
+//                ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
+//                        .putAll(DimensionStructuresSettings.field_236191_b_)
+//                        .put(structure, new StructureSeparationSettings(minChunkDistance, maxChunkDistance, seedModifier))
+//                        .build();
         return structure;
     }
 
