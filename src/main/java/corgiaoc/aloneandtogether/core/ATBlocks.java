@@ -97,9 +97,8 @@ public class ATBlocks {
     public static final Block VOID_GRASS = createPlantBlock("void_grass");
     public static final Block VOID_FERN = createPlantBlock("void_fern");
     public static final Block GLOWTAIL = createGlowTallPlant("glowtail");
-    public static final Block SPECTRAL_VINES = createVineBlock("spectral_vines");
-    public static final Block SPECTRAL_VINES_GLOWING = createVineGlowBlock("spectral_vines_glowing");
     public static final Block SPECTRAL_VINES_PLANT = createVinePlant("spectral_vines_plant");
+    public static final Block SPECTRAL_VINES = createVineGlowBlock("spectral_vines");
 
     //dirt
     public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");
@@ -293,7 +292,7 @@ public class ATBlocks {
         return createBlock;
     }
     static Block createVineGlowBlock(String id) {
-        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> { return 2; }));
+        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> { return 10; }));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);

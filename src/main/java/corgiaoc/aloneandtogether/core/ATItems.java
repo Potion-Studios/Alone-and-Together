@@ -103,8 +103,6 @@ public class ATItems {
     public static final Item VOID_FERN = createItem(new BlockItem(ATBlocks.VOID_FERN, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_FERN));
     public static final Item GLOWTAIL = createItem(new BlockItem(ATBlocks.GLOWTAIL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GLOWTAIL));
     public static final Item SPECTRAL_VINES = createItem(new BlockItem(ATBlocks.SPECTRAL_VINES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_VINES));
-    public static final Item SPECTRAL_VINES_GLOWING = createItem(new BlockItem(ATBlocks.SPECTRAL_VINES_GLOWING, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_VINES_GLOWING));
-    public static final Item SPECTRAL_VINES_PLANT = createItem(new BlockItem(ATBlocks.SPECTRAL_VINES_PLANT, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_VINES_PLANT));
 
     //stone
     public static final Item VOIDSTONE = createItem(new BlockItem(ATBlocks.VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE));

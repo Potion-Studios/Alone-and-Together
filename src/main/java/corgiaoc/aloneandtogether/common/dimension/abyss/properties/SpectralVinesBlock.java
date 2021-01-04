@@ -3,10 +3,16 @@ package corgiaoc.aloneandtogether.common.dimension.abyss.properties;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
@@ -26,7 +32,7 @@ public class SpectralVinesBlock extends AbstractTopPlantBlock {
     }
 
     protected Block getBodyPlantBlock() {
-        return ATBlocks.SPECTRAL_VINES;
+        return ATBlocks.SPECTRAL_VINES_PLANT;
     }
 
 
@@ -34,5 +40,30 @@ public class SpectralVinesBlock extends AbstractTopPlantBlock {
         return PlantBlockHelper.isAir(state);
     }
 
+//    @OnlyIn(Dist.CLIENT)
+//    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+//        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
+//        Vector3d lvt_6_1_ = lvt_5_1_.getBoundingBox().getCenter();
+//        double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;
+//        double lvt_9_1_ = (double) pos.getZ() + lvt_6_1_.z;
+//
+//        for (int lvt_11_1_ = 0; lvt_11_1_ < 3; ++lvt_11_1_) {
+//            if (rand.nextBoolean()) {
+//                worldIn.addParticle(ParticleTypes.END_ROD, lvt_7_1_ + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (0.5D - (double) rand.nextFloat()), lvt_9_1_ + (double) (rand.nextFloat() / 5.0F), 0.0D, 0.0D, 0.0D);
+//            }
+//        }
+//
+//    }
 
+    @Override
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.offset(this.growthDirection.getOpposite());
+        BlockState blockstate = worldIn.getBlockState(blockpos);
+        Block block = blockstate.getBlock();
+        if (!this.canGrowOn(block)) {
+            return false;
+        } else {
+            return block == this.getTopPlantBlock() || block == this.getBodyPlantBlock() || block == ATBlocks.SPECTRAL_LEAVES || blockstate.isSolidSide(worldIn, blockpos, this.growthDirection);
+        }
+    }
 }

@@ -18,7 +18,7 @@ public class SpectralVinesPlant extends AbstractBodyPlantBlock {
     }
 
     protected AbstractTopPlantBlock getTopPlantBlock() {
-        return (AbstractTopPlantBlock)ATBlocks.SPECTRAL_VINES_GLOWING;
+        return (AbstractTopPlantBlock)ATBlocks.SPECTRAL_VINES;
     }
 }
 
