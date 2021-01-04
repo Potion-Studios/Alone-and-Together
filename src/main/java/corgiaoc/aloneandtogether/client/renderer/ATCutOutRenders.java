@@ -11,7 +11,6 @@ public class ATCutOutRenders {
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_LOG.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_LEAVES.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_VINES.getBlock(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_VINES_GLOWING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_VINES_PLANT.getBlock(), RenderType.getCutoutMipped());
     }
 }
