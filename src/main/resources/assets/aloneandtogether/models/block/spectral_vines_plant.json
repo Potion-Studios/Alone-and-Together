@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "aloneandtogether:block/spectral_vines_plant"
+  }
+}

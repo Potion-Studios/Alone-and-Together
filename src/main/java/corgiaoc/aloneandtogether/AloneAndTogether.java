@@ -114,8 +114,7 @@ public class AloneAndTogether {
         public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
             LOGGER.debug("Alone & Together: Registering structures...");
             ATStructures.init();
-//            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
-//            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
+            ATStructures.structures.forEach(structure -> event.getRegistry().register(structure));
             LOGGER.info("Alone & Together: Structures registered!");
         }
 

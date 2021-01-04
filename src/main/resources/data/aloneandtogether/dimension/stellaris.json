@@ -11,7 +11,15 @@
       "bedrock_floor_position": 0,
       "sea_level": 63,
       "disable_mob_generation": false,
-      "structures": {"structures": {} },
+      "structures": {
+        "structures": {
+          "aloneandtogether:large_meteorite": {
+            "spacing": 80,
+            "separation": 20,
+            "salt": 10387319
+          }
+        }
+      },
       "noise": {
         "random_density_offset": true,
         "density_factor": 1.0,

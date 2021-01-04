@@ -39,7 +39,7 @@ public class StellarisBiomeSource extends BiomeProvider {
     private final long seed;
 
     protected StellarisBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        super(BiomeUtils.fillBiomeSourceList(biomeRegistry, "abyss"));
+        super(BiomeUtils.fillBiomeSourceList(biomeRegistry, "stellaris"));
         fillStellarisBiomeSource(WorldGenRegistries.BIOME);
         this.biomeRegistry = biomeRegistry;
         this.seed = seed;

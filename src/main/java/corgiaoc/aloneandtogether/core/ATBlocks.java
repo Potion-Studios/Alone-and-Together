@@ -2,9 +2,7 @@ package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
-import corgiaoc.aloneandtogether.common.dimension.abyss.properties.ATCraftingTableBlock;
-import corgiaoc.aloneandtogether.common.dimension.abyss.properties.BookshelfBlock;
-import corgiaoc.aloneandtogether.common.dimension.abyss.properties.DimensionTeleporterBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.properties.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -98,7 +96,7 @@ public class ATBlocks {
     //overgrown stone
     public static final Block OVERGROWN_VOIDSTONE = createOvergrownStone("overgrown_voidstone");
 
-    //grass
+    //grass blocks
     public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
     public static final Block ORANGE_ASTRAL_GRASS_BLOCK = createGrassBlock("orange_astral_grass_block");
 
@@ -118,6 +116,9 @@ public class ATBlocks {
     //plants
     public static final Block VOID_GRASS = createPlantBlock("void_grass");
     public static final Block VOID_FERN = createPlantBlock("void_fern");
+    public static final Block GLOWTAIL = createGlowTallPlant("glowtail");
+    public static final Block SPECTRAL_VINES_PLANT = createVinePlant("spectral_vines_plant");
+    public static final Block SPECTRAL_VINES = createVineGlowBlock("spectral_vines");
 
     //dirt
     public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");
@@ -281,6 +282,13 @@ public class ATBlocks {
         blocks.add(createBlock);
         return createBlock;
     }
+    static Block createGlowTallPlant(String id) {
+        Block createBlock = new DoublePlantBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).setLightLevel((state) -> { return 2; }));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
 
     static Block createMycenaBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> { return 11; }));
@@ -289,7 +297,27 @@ public class ATBlocks {
         blocks.add(createBlock);
         return createBlock;
     }
-
+    static Block createVinePlant(String id) {
+        Block createBlock = new SpectralVinesPlant(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+    static Block createVineBlock(String id) {
+        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+    static Block createVineGlowBlock(String id) {
+        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> { return 10; }));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
     static Block createGrassBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
