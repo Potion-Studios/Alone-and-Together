@@ -143,11 +143,11 @@ public class NoisySphereConfig implements IFeatureConfig {
     }
 
     public int getRandomYRadius(Random rand) {
-        return rand.nextInt(maxXRadius) + minXRadius;
+        return rand.nextInt(maxYRadius) + minYRadius;
     }
 
     public int getRandomZRadius(Random rand) {
-        return rand.nextInt(maxXRadius) + minXRadius;
+        return rand.nextInt(maxZRadius) + minZRadius;
     }
 
     public double getRadiusDivisorPerStack() {

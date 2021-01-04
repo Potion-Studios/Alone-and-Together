@@ -45,6 +45,10 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
             int xCoord = chunkX * 16;
             int zCoord = chunkZ * 16;
 
+
+            BlockPos startPos = new BlockPos(xCoord, 64, zCoord);
+            BlockPos.Mutable mutable = new BlockPos.Mutable();
+
             int xRadius = config.getRandomXRadius(random);
             int yRadius = config.getRandomYRadius(random);
             int zRadius = config.getRandomZRadius(random);
@@ -57,24 +61,33 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
 
             int xComponentMove = (xRadius / 16) + 1;
             int yComponentMove = (yRadius / 16) + 1;
-            int zComponentMove = (yRadius / 16) + 1;
-            this.getBoundingBox().minY = 128; //Set the start Y
+            int zComponentMove = (zRadius / 16) + 1;
 
-            int idx = -1;
+            this.bounds.minX = startPos.getX() - xRadius;
+            this.bounds.minY = startPos.getY() - yRadius;
+            this.bounds.minZ = startPos.getZ() - zRadius;
+
+            this.bounds.maxX = startPos.getX() + xRadius;
+            this.bounds.maxY = startPos.getY() + yRadius;
+            this.bounds.maxZ = startPos.getZ() + zRadius;
+
+            int moveX = 0;
             for (int x = -xComponentMove; x < xComponentMove; x++) {
+                meteoriteDataHelper.setXCurrentRadius(-xRadius + moveX);
+                int moveZ = 0;
                 for (int z = -zComponentMove; z < zComponentMove; z++) {
+                    meteoriteDataHelper.setZCurrentRadius(-zRadius + moveZ);
+                    int moveY = 0;
                     for (int y = -yComponentMove; y < yComponentMove; y++) {
-                        meteoriteDataHelper.setXCurrentRadius(meteoriteDataHelper.getXCurrentRadius() + 16);
-                        meteoriteDataHelper.setYCurrentRadius(meteoriteDataHelper.getYCurrentRadius() + 16);
-                        meteoriteDataHelper.setZCurrentRadius(meteoriteDataHelper.getZCurrentRadius() + 16);
-                        this.components.add(new MeteoritePiece(meteoriteDataHelper, config));
-                        idx++;
-                        if (idx > 0) {
-                            StructurePiece structurePiece = this.components.get(idx);
-                            structurePiece.offset(x + 16, y + 16, z + 16);
-                        }
+                        mutable.setPos(startPos.getX() + moveX, startPos.getY() + moveY, startPos.getZ() + moveZ);
+                        meteoriteDataHelper.setYCurrentRadius(-yRadius + moveY);
+                        this.components.add(new MeteoritePiece(meteoriteDataHelper, config, mutable.toImmutable()));
+                        moveY += 16;
+
                     }
+                    moveZ += 16;
                 }
+                moveX += 16;
             }
             this.recalculateStructureSize();
         }
@@ -92,11 +105,14 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
 
     public static class MeteoritePiece extends StructurePiece {
 
+        private BlockPos pos;
         private MeteoriteDataHelper currentRadiusData;
         private NoisySphereConfig config;
 
-        public MeteoritePiece(MeteoriteDataHelper currentRadiusData, NoisySphereConfig config) {
+        public MeteoritePiece(MeteoriteDataHelper currentRadiusData, NoisySphereConfig config, BlockPos pos) {
             super(ATStructures.METEORITE_PIECE, 0);
+            this.pos = pos;
+            this.boundingBox = new MutableBoundingBox(pos, pos);
             this.currentRadiusData = currentRadiusData;
             this.config = config;
         }
@@ -112,42 +128,47 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
 
         @Override
         public boolean func_230383_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator generator, Random random, MutableBoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
-            BlockPos.Mutable mutable = new BlockPos.Mutable(this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ);
+            if (pos == null)
+                return false;
+
+            BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
             BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
 
-            int xRange = currentRadiusData.getXCurrentRadius();
-            int yRange = currentRadiusData.getYCurrentRadius();
-            int zRange = currentRadiusData.getZCurrentRadius();
 
             int xRadius = currentRadiusData.getXRadius();
             int yRadius = currentRadiusData.getYRadius();
             int zRadius = currentRadiusData.getZRadius();
 
-            boolean isHighestIteration = yRange + 16 > yRadius;
+            int xCurrentRadius = currentRadiusData.getXCurrentRadius() - xRadius;
+            int yCurrentRadius = currentRadiusData.getYCurrentRadius() - yRadius;
+            int zCurrentRadius = currentRadiusData.getZCurrentRadius() - zRadius;
+
+            boolean isHighestIteration = yCurrentRadius + 16 > yRadius;
 
 
-            for (int x = xRange; x <= xRange + 16; x++) {
-                int[][] topY = new int[xRange * 2 + 1][zRange * 2 + 1];
-                for (int z = -zRange; z <= zRange + 16; z++) {
-                    for (int y = -yRange; y <= yRange + 16; y++) {
+            for (int x = 0; x < 16; x++) {
+                int[][] topY = new int[17][17];
+                for (int z = 0; z < 16; z++) {
+                    for (int y = 0; y < 16; y++) {
                         mutable2.setPos(mutable).move(x, y, z);
 
                         //Credits to Hex_26 for this equation!
-                        double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
-                        if (equationResult >= 1 + 0.7 * Start.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ()))
+                        double equationResult = Math.pow(xCurrentRadius + x, 2) / Math.pow(xRadius, 2) + Math.pow(yCurrentRadius + y, 2) / Math.pow(yRadius, 2) + Math.pow(zCurrentRadius + z, 2) / Math.pow(zRadius, 2);
+                         if (equationResult >= 1 + 0.7 * Start.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ()))
                             continue;
 
                         world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 2);
 
+
                         if (isHighestIteration) {
-                            if (topY[x + xRadius][z + zRadius] < mutable2.getY()) {
-                                topY[x + xRadius][z + zRadius] = mutable2.getY();
+                            if (topY[x][z] < mutable2.getY()) {
+                                topY[x][z] = mutable2.getY();
                             }
                         }
                     }
                     if (isHighestIteration) {
                         BlockPos.Mutable tempMutable = new BlockPos.Mutable().setPos(mutable2);
-                        tempMutable.setY(topY[x + xRadius][z + zRadius] + 1);
+                        tempMutable.setY(topY[x][z] + 1);
                         if (tempMutable.getY() > mutable.getY() + -yRadius)
                             world.setBlockState(tempMutable, config.getTopBlockProvider().getBlockState(random, mutable2), 2);
                     }
