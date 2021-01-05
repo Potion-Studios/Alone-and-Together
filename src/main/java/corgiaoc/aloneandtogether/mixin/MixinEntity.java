@@ -3,6 +3,8 @@ package corgiaoc.aloneandtogether.mixin;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.util.StellarisDimensionGravityModifier;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EndermanEntity;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,6 +19,8 @@ public class MixinEntity {
     @Shadow private Vector3d motion;
 
     @Shadow public World world;
+
+    @Shadow private AxisAlignedBB boundingBox;
 
     @Inject(method = "setMotion(Lnet/minecraft/util/math/vector/Vector3d;)V", at = @At("HEAD"), cancellable = true)
     private void stellarisGravity(Vector3d motionIn, CallbackInfo ci) {

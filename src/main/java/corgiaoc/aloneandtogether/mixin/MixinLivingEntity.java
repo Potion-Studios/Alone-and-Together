@@ -1,10 +1,7 @@
 package corgiaoc.aloneandtogether.mixin;
 
-import com.sun.jna.platform.unix.X11;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.util.StellarisDimensionGravityModifier;
-import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
-import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,8 +21,6 @@ public abstract class MixinLivingEntity {
     @Shadow protected boolean isJumping;
 
     @Shadow protected abstract float getJumpUpwardsMotion();
-
-    @Shadow public abstract EntitySize getSize(Pose poseIn);
 
     @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
     private void modifyJumpFactor(CallbackInfo ci) {
@@ -52,5 +47,10 @@ public abstract class MixinLivingEntity {
         if (world.getDimensionKey() == ATDimensions.STELLARIS_WORLD_KEY) {
             cir.setReturnValue(0);
         }
+    }
+
+    @Inject(method = "getPoseAABB", at = @At("HEAD"), cancellable = true)
+    private void injectRectangularBoundingBox(Pose pose, CallbackInfoReturnable<AxisAlignedBB> cir) {
+
     }
 }
