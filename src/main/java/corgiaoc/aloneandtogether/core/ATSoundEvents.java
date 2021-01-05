@@ -7,8 +7,10 @@ import net.minecraft.util.SoundEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ATSounds {
+public class ATSoundEvents {
     public static List<SoundEvent> soundEvents = new ArrayList<>();
+
+
 
 
     public static void init() {
