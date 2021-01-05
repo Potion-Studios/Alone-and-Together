@@ -20,13 +20,13 @@ import java.util.Map;
 
 public final class GeckoRenderer extends AbstractGeckoRenderer<GeckoEntity, GeckoModel<GeckoEntity>> {
     private static final Map<SkinColors, ResourceLocation> getTexture = Util.make(Maps.newEnumMap(SkinColors.class), (p_239384_0_) -> {
-     p_239384_0_.put(SkinColors.WHITE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
-      p_239384_0_.put(SkinColors.CREAMY, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
+     p_239384_0_.put(SkinColors.WHITE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/white_gecko.png"));
+      p_239384_0_.put(SkinColors.BLUE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/blue_gecko.png"));
       p_239384_0_.put(SkinColors.GREEN, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
-      p_239384_0_.put(SkinColors.BROWN, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
-      p_239384_0_.put(SkinColors.BLACK, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
-      p_239384_0_.put(SkinColors.GRAY, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
-      p_239384_0_.put(SkinColors.ORANGE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
+      p_239384_0_.put(SkinColors.BROWN, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/brown_gecko.png"));
+      p_239384_0_.put(SkinColors.BLACK, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/black_gecko.png"));
+      p_239384_0_.put(SkinColors.RED, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/red_gecko.png"));
+      p_239384_0_.put(SkinColors.ORANGE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/orange_gecko.png"));
 });
 
     public GeckoRenderer(EntityRendererManager renderManagerIn) {

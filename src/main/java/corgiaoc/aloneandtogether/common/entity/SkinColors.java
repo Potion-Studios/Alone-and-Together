@@ -7,11 +7,11 @@ import java.util.Comparator;
 
 public enum SkinColors{
     WHITE(0),
-    CREAMY(1),
+    BLUE(1),
     GREEN(2),
     BROWN(3),
     BLACK(4),
-    GRAY(5),
+    RED(5),
     ORANGE(6);
 
     private static final SkinColors[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(SkinColors::getId)).toArray((p_234255_0_) -> {

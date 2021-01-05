@@ -14,44 +14,45 @@ public class GeckoModel<T extends GeckoEntity> extends AgeableModel<T> {
     private final ModelRenderer Tail;
     private final ModelRenderer Legs;
     private final ModelRenderer bb_main;
+    private float headRotationAngleX;
 
-    public GeckoModel() {
+    public GeckoModel(float e) {
         textureWidth = 32;
         textureHeight = 32;
 
         Head = new ModelRenderer(this);
         Head.setRotationPoint(0.0F, 22.0F, -3.0F);
         Head.setTextureOffset(18, 27).addBox(-2.0F, -1.0F, -3.0F, 4.0F, 2.0F, 3.0F, 0.0F, false);
-        Head.setTextureOffset(10, 25).addBox(-1.0F, -2.0F, -3.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
-        Head.setTextureOffset(0, 4).addBox(-2.0F, -2.0F, -3.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-        Head.setTextureOffset(0, 4).addBox(1.0F, -2.0F, -3.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        Head.setTextureOffset(10, 29).addBox(-1.0F, -2.0F, -3.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+        Head.setTextureOffset(0, 30).addBox(-2.0F, -2.0F, -3.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        Head.setTextureOffset(0, 30).addBox(1.0F, -2.0F, -3.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 
         Snout = new ModelRenderer(this);
         Snout.setRotationPoint(0.0F, 0.0F, 0.0F);
         Head.addChild(Snout);
-        Snout.setTextureOffset(7, 1).addBox(-1.0F, -1.0F, -5.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
-        Snout.setTextureOffset(0, 0).addBox(-1.0F, 0.0F, -5.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+        Snout.setTextureOffset(0, 0).addBox(-1.0F, -1.0F, -5.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+        Snout.setTextureOffset(0, 4).addBox(-1.0F, 0.0F, -5.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
 
         Tail = new ModelRenderer(this);
         Tail.setRotationPoint(0.0F, 24.0F, 0.0F);
-        Tail.setTextureOffset(14, 28).addBox(-1.0F, -2.0F, 3.0F, 2.0F, 1.0F, 3.0F, 0.0F, false);
-        Tail.setTextureOffset(6, 9).addBox(-1.0F, -3.0F, 2.0F, 2.0F, 2.0F, 1.0F, 0.0F, false);
-        Tail.setTextureOffset(6, 29).addBox(-0.5F, -2.0F, 6.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
+        Tail.setTextureOffset(22, 0).addBox(-1.0F, -2.0F, 3.0F, 2.0F, 1.0F, 3.0F, 0.0F, false);
+        Tail.setTextureOffset(26, 5).addBox(-1.0F, -3.0F, 2.0F, 2.0F, 2.0F, 1.0F, 0.0F, false);
+        Tail.setTextureOffset(26, 7).addBox(-0.5F, -2.0F, 6.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
 
         Legs = new ModelRenderer(this);
         Legs.setRotationPoint(0.0F, 24.0F, 0.0F);
-        Legs.setTextureOffset(28, 23).addBox(-2.5F, -3.0F, -3.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(24, 23).addBox(-2.5F, -1.0F, -4.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(28, 23).addBox(1.5F, -3.0F, -3.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(24, 23).addBox(1.5F, -1.0F, -4.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(28, 23).addBox(-2.5F, -3.0F, 1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(24, 23).addBox(-2.5F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(28, 23).addBox(1.5F, -3.0F, 1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
-        Legs.setTextureOffset(24, 23).addBox(1.5F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 12).addBox(-2.5F, -3.0F, -3.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 10).addBox(-2.5F, -1.0F, -4.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 12).addBox(1.5F, -3.0F, -3.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 10).addBox(1.5F, -1.0F, -4.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 12).addBox(-2.5F, -3.0F, 1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 10).addBox(-2.5F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 12).addBox(1.5F, -3.0F, 1.0F, 1.0F, 3.0F, 1.0F, 0.0F, false);
+        Legs.setTextureOffset(28, 10).addBox(1.5F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
 
         bb_main = new ModelRenderer(this);
         bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bb_main.setTextureOffset(16, 1).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 2.0F, 5.0F, 0.0F, false);
+        bb_main.setTextureOffset(0, 16).addBox(-1.5F, -3.0F, -3.0F, 3.0F, 2.0F, 5.0F, 0.0F, false);
     }
 
     @Override
