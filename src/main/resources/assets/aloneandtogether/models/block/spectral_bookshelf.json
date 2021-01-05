@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "aloneandtogether:block/spectral_planks",
+    "side": "aloneandtogether:block/spectral_bookshelf"
+  }
+}

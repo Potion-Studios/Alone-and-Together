@@ -3,6 +3,7 @@ package corgiaoc.aloneandtogether.common.entity;
 
 import corgiaoc.aloneandtogether.common.dimension.abyss.entity.BogFlyEntity;
 import corgiaoc.aloneandtogether.core.ATEntities;
+import net.minecraft.block.material.PushReaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -11,7 +12,9 @@ import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -20,6 +23,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
@@ -34,6 +39,7 @@ public class GeckoEntity extends AnimalEntity {
 
     public GeckoEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
+
     }
 
 
@@ -73,25 +79,45 @@ public class GeckoEntity extends AnimalEntity {
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(9, new LeapAtTargetGoal(this, 0.4f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, BogFlyEntity.class, false));
-
     }
 
     @Nullable
     @Override
-    public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity p_241840_2_) {
-        return ATEntities.GECKO.create(world);
+    public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity baby) {
+        GeckoEntity geckoEntity = ATEntities.GECKO.create(world);
+        geckoEntity.setSkinColor(getRandomGeckoColor(world.getRandom()));
+        return geckoEntity;
+    }
+
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn) {
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
+        if (flag) {
+            this.applyEnchantments(this, entityIn);
+        }
+
+        return flag;
+    }
+
+
+    @Override
+    public void applyEntityCollision(Entity entityIn) {
+        if (entityIn == this)
+        super.applyEntityCollision(entityIn);
     }
 
     @Nullable
     public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+        this.setSkinColor(getRandomGeckoColor(worldIn.getRandom()));
         if (spawnDataIn == null) {
             spawnDataIn = new AgeableEntity.AgeableData(1.0f);
         }
-        this.setSkinColor(getRandomGeckoColor(worldIn.getRandom()));
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     public boolean isOnLadder() {
+        if (this.collidedHorizontally){
+        }
         return true;
     }
 
@@ -99,7 +125,7 @@ public class GeckoEntity extends AnimalEntity {
         return SkinColors.byId(this.dataManager.get(SKIN_COLOR) & 15);
     }
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 2.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.5F).createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D);
+        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 2.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.5F).createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
     }
 
     public void setSkinColor(SkinColors color) {

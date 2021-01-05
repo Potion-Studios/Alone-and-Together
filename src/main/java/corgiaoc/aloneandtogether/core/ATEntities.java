@@ -14,7 +14,7 @@ public class ATEntities {
 
     public static List<EntityType<?>> entities = new ArrayList<>();
 
-    public static final EntityType<GeckoEntity> GECKO = createEntity("gecko", EntityType.Builder.create(GeckoEntity::new, EntityClassification.AMBIENT).size(0.6f,0.4f).build("gecko"));
+    public static final EntityType<GeckoEntity> GECKO = createEntity("gecko", EntityType.Builder.create(GeckoEntity::new, EntityClassification.AMBIENT).size(0.4f,0.4f).build("gecko"));
 
 
     public static <E extends Entity, ET extends EntityType<E>> ET createEntity(String id, ET entityType) {
