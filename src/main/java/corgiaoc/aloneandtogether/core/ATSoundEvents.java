@@ -20,6 +20,7 @@ public class ATSoundEvents {
     public static SoundEvent createSound(String id, SoundEvent event) {
 //        Registry.register(Registry.SOUND_EVENT, new ResourceLocation(AloneAndTogether.MOD_ID, id), event);
         event.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id));
+        soundEvents.add(event);
         return event;
     }
 
