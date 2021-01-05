@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/cosmic_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/cosmic"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/cosmic_slab_top"
+    }
+  }
+}

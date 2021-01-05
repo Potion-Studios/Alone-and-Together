@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "bottom": "aloneandtogether:block/cosmic_door_bottom",
+    "top": "aloneandtogether:block/cosmic_door_top"
+  }
+}
