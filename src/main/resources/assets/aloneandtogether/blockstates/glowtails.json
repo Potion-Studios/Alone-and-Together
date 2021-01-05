@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "aloneandtogether:block/glowtails_bottom"
+    },
+    "half=upper": {
+      "model": "aloneandtogether:block/glowtails_top"
+    }
+  }
+}

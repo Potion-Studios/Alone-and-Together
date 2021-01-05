@@ -39,6 +39,8 @@ public class ATItems {
     public static final Item ABYSS_TELEPORTER = createItem(new BlockItem(ATBlocks.ABYSS_TELEPORTER, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ABYSS_TELEPORTER));
     public static final Item STELLARIS_TELEPORTER = createItem(new BlockItem(ATBlocks.STELLARIS_TELEPORTER, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.STELLARIS_TELEPORTER));
 
+    public static final Item GECKO_SPAWN_EGG = createItem(new SpawnEggItem(ATEntities.GECKO, 15423, 21331, (new Item.Properties().group(CREATIVE_TAB))),"gecko_spawn_egg");
+
     //spectral wood
     public static final Item SPECTRAL_LOG = createItem(new BlockItem(ATBlocks.SPECTRAL_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_LOG));
     public static final Item SPECTRAL_PLANKS = createItem(new BlockItem(ATBlocks.SPECTRAL_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_PLANKS));
@@ -120,7 +122,7 @@ public class ATItems {
     //plants
     public static final Item VOID_GRASS = createItem(new BlockItem(ATBlocks.VOID_GRASS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_GRASS));
     public static final Item VOID_FERN = createItem(new BlockItem(ATBlocks.VOID_FERN, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_FERN));
-    public static final Item GLOWTAIL = createItem(new BlockItem(ATBlocks.GLOWTAIL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GLOWTAIL));
+    public static final Item GLOWTAILS = createItem(new BlockItem(ATBlocks.GLOWTAILS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GLOWTAILS));
     public static final Item SPECTRAL_VINES = createItem(new BlockItem(ATBlocks.SPECTRAL_VINES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_VINES));
 
     //stone
@@ -145,6 +147,7 @@ public class ATItems {
             return null;
         }
     }
+
 
     public static Item createItem(Item item, String id) {
 //        Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, id), item);

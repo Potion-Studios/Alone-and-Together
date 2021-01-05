@@ -116,7 +116,7 @@ public class ATBlocks {
     //plants
     public static final Block VOID_GRASS = createPlantBlock("void_grass");
     public static final Block VOID_FERN = createPlantBlock("void_fern");
-    public static final Block GLOWTAIL = createGlowTallPlant("glowtail");
+    public static final Block GLOWTAILS = createGlowTallPlant("glowtails");
     public static final Block SPECTRAL_VINES_PLANT = createVinePlant("spectral_vines_plant");
     public static final Block SPECTRAL_VINES = createVineGlowBlock("spectral_vines");
 
@@ -283,7 +283,7 @@ public class ATBlocks {
         return createBlock;
     }
     static Block createGlowTallPlant(String id) {
-        Block createBlock = new DoublePlantBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).setLightLevel((state) -> { return 2; }));
+        Block createBlock = new GlowTailsBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT).setLightLevel((state) -> { return 2; }));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
