@@ -1,6 +1,7 @@
 package corgiaoc.aloneandtogether.common.world.structure;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.aloneandtogether.core.world.ATStructures;
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FastNoise;
@@ -36,28 +37,23 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
 
         public Start(Structure<NoisySphereConfig> structure, int chunkX, int chunkZ, MutableBoundingBox boundingBox, int reference, long seed) {
             super(structure, chunkX, chunkZ, boundingBox, reference, seed);
-            setSeed(seed);
             this.seed = seed;
         }
 
         @Override
         public void func_230364_a_(DynamicRegistries dynamicRegistry, ChunkGenerator generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoisySphereConfig config) {
+            setSeed(seed, config.getNoiseFrequency());
             int xCoord = chunkX * 16;
             int zCoord = chunkZ * 16;
 
 
             BlockPos startPos = new BlockPos(xCoord, 64, zCoord);
             BlockPos.Mutable mutable = new BlockPos.Mutable();
+            AloneAndTogether.LOGGER.info("Start pos: " + startPos.getCoordinatesAsString());
 
             int xRadius = config.getRandomXRadius(random);
             int yRadius = config.getRandomYRadius(random);
             int zRadius = config.getRandomZRadius(random);
-
-            int xCurrentRadius = -xRadius;
-            int yCurrentRadius = -yRadius;
-            int zCurrentRadius = -zRadius;
-
-            MeteoriteDataHelper meteoriteDataHelper = new MeteoriteDataHelper(xCurrentRadius, yCurrentRadius, zCurrentRadius, xRadius, yRadius, zRadius);
 
             int xComponentMove = (xRadius / 16) + 1;
             int yComponentMove = (yRadius / 16) + 1;
@@ -71,33 +67,24 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
             this.bounds.maxY = startPos.getY() + yRadius;
             this.bounds.maxZ = startPos.getZ() + zRadius;
 
-            int moveX = 0;
-            for (int x = -xComponentMove; x < xComponentMove; x++) {
-                meteoriteDataHelper.setXCurrentRadius(-xRadius + moveX);
-                int moveZ = 0;
-                for (int z = -zComponentMove; z < zComponentMove; z++) {
-                    meteoriteDataHelper.setZCurrentRadius(-zRadius + moveZ);
-                    int moveY = 0;
-                    for (int y = -yComponentMove; y < yComponentMove; y++) {
-                        mutable.setPos(startPos.getX() + moveX, startPos.getY() + moveY, startPos.getZ() + moveZ);
-                        meteoriteDataHelper.setYCurrentRadius(-yRadius + moveY);
-                        this.components.add(new MeteoritePiece(meteoriteDataHelper, config, mutable.toImmutable()));
-                        moveY += 16;
+            for (int x = -xComponentMove; x <= xComponentMove; x++) {
+                for (int z = -zComponentMove; z <= zComponentMove; z++) {
+                    for (int y = -yComponentMove; y <= yComponentMove; y++) {
+                        mutable.setPos(startPos.getX() + (x * 16), startPos.getY() + (y * 16), startPos.getZ() + (z * 16));
+                        this.components.add(new MeteoritePiece(new MeteoriteDataHelper(x * 16, y * 16, z * 16, xRadius, yRadius, zRadius), config, mutable.toImmutable()));
 
                     }
-                    moveZ += 16;
                 }
-                moveX += 16;
             }
             this.recalculateStructureSize();
         }
 
 
-        public void setSeed(long seed) {
+        public void setSeed(long seed, double noiseFrequency) {
             if (this.seed != seed || fastNoise == null) {
                 fastNoise = new FastNoise((int) seed);
                 fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
-                fastNoise.SetFrequency(0.09f);
+                fastNoise.SetFrequency(0.045F);
                 random = new Random(seed);
             }
         }
@@ -139,22 +126,27 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
             int yRadius = currentRadiusData.getYRadius();
             int zRadius = currentRadiusData.getZRadius();
 
-            int xCurrentRadius = currentRadiusData.getXCurrentRadius() - xRadius;
-            int yCurrentRadius = currentRadiusData.getYCurrentRadius() - yRadius;
-            int zCurrentRadius = currentRadiusData.getZCurrentRadius() - zRadius;
-
-            boolean isHighestIteration = yCurrentRadius + 16 > yRadius;
+            boolean isHighestIteration = currentRadiusData.getYCurrentRadius() + 16 > yRadius;
 
 
             for (int x = 0; x < 16; x++) {
                 int[][] topY = new int[17][17];
                 for (int z = 0; z < 16; z++) {
                     for (int y = 0; y < 16; y++) {
+                        int currentXRadius = currentRadiusData.getXCurrentRadius() + x;
+                        int currentYRadius = currentRadiusData.getYCurrentRadius() + y;
+                        int currentZRadius = currentRadiusData.getZCurrentRadius() + z;
+
+
+                        if (currentXRadius >= xRadius || currentYRadius >= yRadius || currentZRadius >= zRadius)
+                            continue;
+
                         mutable2.setPos(mutable).move(x, y, z);
 
                         //Credits to Hex_26 for this equation!
-                        double equationResult = Math.pow(xCurrentRadius + x, 2) / Math.pow(xRadius, 2) + Math.pow(yCurrentRadius + y, 2) / Math.pow(yRadius, 2) + Math.pow(zCurrentRadius + z, 2) / Math.pow(zRadius, 2);
-                         if (equationResult >= 1 + 0.7 * Start.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ()))
+                        double equationResult = Math.pow(currentXRadius, 2) / Math.pow(xRadius, 2) + Math.pow(currentYRadius, 2) / Math.pow(yRadius, 2) + Math.pow(currentZRadius, 2) / Math.pow(zRadius, 2);
+                        double threshold = 1 + 0.95 * Start.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
+                        if (equationResult >= threshold)
                             continue;
 
                         world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 2);
@@ -180,13 +172,13 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
 
     public static class MeteoriteDataHelper {
 
-        private int xCurrentRadius;
-        private int yCurrentRadius;
-        private int zCurrentRadius;
+        private final int xCurrentRadius;
+        private final int yCurrentRadius;
+        private final int zCurrentRadius;
 
-        private int xRadius;
-        private int yRadius;
-        private int zRadius;
+        private final int xRadius;
+        private final int yRadius;
+        private final int zRadius;
 
         public MeteoriteDataHelper(int xCurrentRadius, int yCurrentRadius, int zCurrentRadius, int xRadius, int yRadius, int zRadius) {
             this.xCurrentRadius = xCurrentRadius;
@@ -201,16 +193,8 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
             return xCurrentRadius;
         }
 
-        public void setXCurrentRadius(int xCurrentRadius) {
-            this.xCurrentRadius = xCurrentRadius;
-        }
-
         public int getYCurrentRadius() {
             return yCurrentRadius;
-        }
-
-        public void setYCurrentRadius(int yCurrentRadius) {
-            this.yCurrentRadius = yCurrentRadius;
         }
 
         public int getZCurrentRadius() {
@@ -221,28 +205,12 @@ public class LargeMeteoriteStructure extends Structure<NoisySphereConfig> {
             return xRadius;
         }
 
-        public void setxRadius(int xRadius) {
-            this.xRadius = xRadius;
-        }
-
         public int getYRadius() {
             return yRadius;
         }
 
-        public void setyRadius(int yRadius) {
-            this.yRadius = yRadius;
-        }
-
         public int getZRadius() {
             return zRadius;
-        }
-
-        public void setzRadius(int zRadius) {
-            this.zRadius = zRadius;
-        }
-
-        public void setZCurrentRadius(int zCurrentRadius) {
-            this.zCurrentRadius = zCurrentRadius;
         }
     }
 }

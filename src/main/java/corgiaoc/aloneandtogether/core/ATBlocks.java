@@ -62,6 +62,26 @@ public class ATBlocks {
     public static final Block GOLDEN_BIRCH_STRIPPED_WOOD = createStrippedLog("golden_birch_strip_wood");
     public static final Block GOLDEN_BIRCH_STRIPPED_LOG = createStrippedLog("golden_birch_strip_log");
 
+    //cosmic wood
+    public static final Block COSMIC_LOG = createLog("cosmic_log");
+    public static final Block COSMIC_PLANKS = createPlanks("cosmic_planks");
+    public static final Block CARVED_COSMIC_PLANKS = createPlanks("carved_cosmic_planks");
+    public static final Block COSMIC_FENCE = createFence("cosmic_fence");
+    public static final Block COSMIC_WOOD = createWood("cosmic_wood");
+    public static final Block COSMIC_WOOD_WALL = createWoodWall("cosmic_wood_wall");
+    public static final Block COSMIC_FENCE_GATE = createFenceGate("cosmic_fence_gate");
+    public static final Block COSMIC_SLAB = createWoodSlab("cosmic_slab");
+    public static final Block COSMIC_PRESSURE_PLATE = createWoodPressurePlate("cosmic_pressure_plate");
+    public static final Block COSMIC_STAIRS = createWoodStairs("cosmic_stairs");
+    public static final Block COSMIC_TRAP_DOOR = createTrapDoor("cosmic_trapdoor");
+    public static final Block COSMIC_CRAFTING_TABLE = createCraftingTable("cosmic_crafting_table");
+    public static final Block COSMIC_BUTTON = createWoodButton("cosmic_button");
+    public static final Block COSMIC_BOOKSHELF = createBookshelf("cosmic_bookshelf");
+    public static final Block COSMIC_DOOR = createDoor("cosmic_door");
+    public static final Block COSMIC_STRIPPED_WOOD = createStrippedLog("cosmic_strip_wood");
+    public static final Block COSMIC_STRIPPED_LOG = createStrippedLog("cosmic_strip_log");
+
+
 
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");

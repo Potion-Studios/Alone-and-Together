@@ -8,12 +8,14 @@ import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import corgiaoc.aloneandtogether.core.ATEntities;
 import corgiaoc.aloneandtogether.core.ATItems;
+import corgiaoc.aloneandtogether.core.ATSoundEvents;
 import corgiaoc.aloneandtogether.core.world.*;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.blockplacer.BlockPlacerType;
@@ -93,6 +95,15 @@ public class AloneAndTogether {
             ATEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
             ATEntities.entities = null;
             LOGGER.info("Alone & Together: Entities registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+            LOGGER.debug("Alone & Together: Registering sounds...");
+            ATSoundEvents.init();
+            ATSoundEvents.soundEvents.forEach(soundEvent -> event.getRegistry().register(soundEvent));
+            ATSoundEvents.soundEvents = null;
+            LOGGER.info("Alone & Together: Sounds registered!");
         }
     }
 

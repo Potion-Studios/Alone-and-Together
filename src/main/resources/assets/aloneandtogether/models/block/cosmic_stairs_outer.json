@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "aloneandtogether:block/cosmic",
+    "top": "aloneandtogether:block/cosmic",
+    "side": "aloneandtogether:block/cosmic"
+  }
+}

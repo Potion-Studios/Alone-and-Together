@@ -18,7 +18,7 @@ public class MixinMinecraft {
             require = 1
     )
     private boolean replaceflag2(boolean flag2) {
-        AloneAndTogether.LOGGER.info("Shutup Expermental Settnings!!!");
+        AloneAndTogether.LOGGER.info("Shut up Experimental Settings!!!");
         return false;
     }
 
