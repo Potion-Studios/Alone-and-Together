@@ -3,7 +3,9 @@ package corgiaoc.aloneandtogether.mixin;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.util.StellarisDimensionGravityModifier;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -45,5 +47,10 @@ public abstract class MixinLivingEntity {
         if (world.getDimensionKey() == ATDimensions.STELLARIS_WORLD_KEY) {
             cir.setReturnValue(0);
         }
+    }
+
+    @Inject(method = "getPoseAABB", at = @At("HEAD"), cancellable = true)
+    private void injectRectangularBoundingBox(Pose pose, CallbackInfoReturnable<AxisAlignedBB> cir) {
+
     }
 }
