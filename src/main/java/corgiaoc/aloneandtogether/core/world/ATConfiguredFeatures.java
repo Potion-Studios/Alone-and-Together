@@ -9,10 +9,12 @@ import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.*;
 
 public class ATConfiguredFeatures {
+    public static final ConfiguredFeature<?, ?> DUMMY_TREE = createConfiguredFeature("dummy_tree", ATFeatures.NBT_STRUCTURE.withConfiguration(new NoFeatureConfig()).withPlacement(ATDecorators.COUNT_EXTRA_RANDOM_Y.configure(new CountExtraRandomYConfig(0, 0.05F, 1))));
 
     public static final ConfiguredFeature<?, ?> STELLARIS_METEORITE = createConfiguredFeature("meteorite", ATFeatures.METEORITE.withConfiguration(new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.BLACKSTONE.getDefaultState(), 5).addWeightedBlockstate(Blocks.BLACK_CONCRETE.getDefaultState(), 5).addWeightedBlockstate(Blocks.GILDED_BLACKSTONE.getDefaultState(), 2).addWeightedBlockstate(Blocks.GRAY_CONCRETE.getDefaultState(), 10)).setTopBlock(Blocks.GRAY_CONCRETE_POWDER).build()).withPlacement(ATDecorators.COUNT_EXTRA_RANDOM_Y.configure(new CountExtraRandomYConfig(0, 0.05F, 1))));
     public static final ConfiguredFeature<?, ?> VOID_GRASS = createConfiguredFeature("void_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new WeightedBlockStateProvider().addWeightedBlockstate(ATBlocks.VOID_GRASS.getDefaultState(), 5), new SimpleBlockPlacer())).tries(24).build()));

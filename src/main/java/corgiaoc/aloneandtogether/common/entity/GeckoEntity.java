@@ -3,19 +3,12 @@ package corgiaoc.aloneandtogether.common.entity;
 
 import corgiaoc.aloneandtogether.common.dimension.abyss.entity.BogFlyEntity;
 import corgiaoc.aloneandtogether.core.ATEntities;
-import net.minecraft.block.material.PushReaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.AbstractSkeletonEntity;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -24,13 +17,14 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 
@@ -89,21 +83,18 @@ public class GeckoEntity extends AnimalEntity {
         return geckoEntity;
     }
 
+    public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
+        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 2.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5F).createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+    }
+
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float) ((int) this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
         if (flag) {
             this.applyEnchantments(this, entityIn);
         }
 
         return flag;
-    }
-
-
-    @Override
-    public void applyEntityCollision(Entity entityIn) {
-        if (entityIn == this)
-        super.applyEntityCollision(entityIn);
     }
 
     @Nullable
@@ -115,31 +106,35 @@ public class GeckoEntity extends AnimalEntity {
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
-    public boolean isOnLadder() {
-        if (this.collidedHorizontally){
-        }
-        return true;
+    @Override
+    public void applyEntityCollision(Entity entityIn) {
+        if (entityIn == this)
+            super.applyEntityCollision(entityIn);
     }
 
     public SkinColors getSkinColor() {
         return SkinColors.byId(this.dataManager.get(SKIN_COLOR) & 15);
     }
-    public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 2.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.5F).createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+
+    public boolean isOnLadder() {
+        if (this.collidedHorizontally) {
+        }
+        return true;
     }
 
     public void setSkinColor(SkinColors color) {
         byte b0 = this.dataManager.get(SKIN_COLOR);
-        this.dataManager.set(SKIN_COLOR, (byte)(b0 & 240 | color.getId() & 15));
+        this.dataManager.set(SKIN_COLOR, (byte) (b0 & 240 | color.getId() & 15));
     }
 
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(SKIN_COLOR, (byte)0);
+        this.dataManager.register(SKIN_COLOR, (byte) 0);
     }
+
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putByte("Color", (byte)this.getSkinColor().getId());
+        compound.putByte("Color", (byte) this.getSkinColor().getId());
     }
 
     public void readAdditional(CompoundNBT compound) {
@@ -147,4 +142,52 @@ public class GeckoEntity extends AnimalEntity {
         this.setSkinColor(SkinColors.byId(compound.getByte("Color")));
     }
 
+
+    public enum SkinColors {
+        WHITE(0),
+        BLUE(1),
+        GREEN(2),
+        BROWN(3),
+        BLACK(4),
+        RED(5),
+        ORANGE(6);
+
+        private static final SkinColors[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(SkinColors::getId)).toArray(SkinColors[]::new);
+        private final int id;
+
+        SkinColors(int id) {
+            this.id = id;
+        }
+
+        public static SkinColors byId(int colorId) {
+            if (colorId < 0 || colorId >= VALUES.length) {
+                colorId = 0;
+            }
+
+            return VALUES[colorId];
+        }
+
+        public int getId() {
+            return this.id;
+        }
+    }
+
+    public enum SkinTypes {
+        NONE(0),
+        DOTS(1),
+        STRIPES(2),
+        BLACK_TAIL(3),
+        RED_EYES(4);
+
+        private final int id;
+
+        SkinTypes(int id) {
+            this.id = id;
+        }
+
+        public int getId() {
+            return this.id;
+        }
+
+    }
 }

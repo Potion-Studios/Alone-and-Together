@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
 
-public class AbstractGeckoRenderer <T extends GeckoEntity, M extends GeckoModel<T>> extends MobRenderer<T, M> {
+public class AbstractGeckoRenderer<T extends GeckoEntity, M extends GeckoModel<T>> extends MobRenderer<T, M> {
     private final float SCALE;
 
     public AbstractGeckoRenderer(EntityRendererManager renderManagerIn, M model, float scaleIn) {
