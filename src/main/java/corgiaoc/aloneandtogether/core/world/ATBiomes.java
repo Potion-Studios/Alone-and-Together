@@ -2,6 +2,7 @@ package corgiaoc.aloneandtogether.core.world;
 
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.biome.AbyssBog;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biome.Stellaris;
+import corgiaoc.aloneandtogether.common.world.DummyBiome;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.world.biome.Biome;
 
@@ -18,6 +19,7 @@ public class ATBiomes {
 
     public static final Biome STELLARIS = createBiome("stellaris.stellaris", new Stellaris().getBiome(), 1);
 
+    public static final Biome DUMMY = createBiome("dummy", new DummyBiome().getBiome(), 2);
 
 
 

@@ -15,6 +15,7 @@ public class SpectralVinesPlant extends AbstractBodyPlantBlock {
 
     public SpectralVinesPlant(AbstractBlock.Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false);
+
     }
 
     protected AbstractTopPlantBlock getTopPlantBlock() {

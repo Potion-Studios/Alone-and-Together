@@ -2,17 +2,11 @@ package corgiaoc.aloneandtogether.common.dimension.abyss.properties;
 
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import net.minecraft.block.*;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+
 
 import java.util.Random;
 
@@ -21,6 +15,7 @@ public class SpectralVinesBlock extends AbstractTopPlantBlock {
 
     public SpectralVinesBlock(AbstractBlock.Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false, 0.1D);
+        this.setDefaultState(this.stateContainer.getBaseState().with(AGE, 0));
     }
 
     /**

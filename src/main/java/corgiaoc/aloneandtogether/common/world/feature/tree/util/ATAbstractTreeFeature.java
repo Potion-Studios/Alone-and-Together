@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 
 import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import corgiaoc.aloneandtogether.common.world.feature.util.FeatureUtil;
+import corgiaoc.aloneandtogether.core.ATBlocks;
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -572,6 +573,7 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_PATH, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.PODZOL, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(ATBlocks.OVERGROWN_VOIDSTONE, ATBlocks.VOIDSTONE);
     }
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {

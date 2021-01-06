@@ -291,7 +291,7 @@ public class ATBlocks {
     }
 
     static Block createMycenaBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> { return 11; }));
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> 11));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -306,7 +306,7 @@ public class ATBlocks {
 
     }
     static Block createVineGlowBlock(String id) {
-        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> { return 12; }));
+        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> 12));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
