@@ -115,13 +115,11 @@ public class ATBlocks {
 
     //plants
     public static final Block VOID_GRASS = createPlantBlock("void_grass");
-    public static final Block VOID_FERN = createPlantBlock("void_fern");
     public static final Block GLOWTAILS = createGlowTallPlant("glowtails");
     public static final Block SPECTRAL_VINES_PLANT = createVinePlant("spectral_vines_plant");
     public static final Block SPECTRAL_VINES = createVineGlowBlock("spectral_vines");
 
     //dirt
-    public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");
     public static final Block ASTRAL_DIRT = createDirtBlock("astral_dirt");
 
     static Block createFence(String id) {
