@@ -5,7 +5,8 @@
   "refmap": "aloneandtogether.refmap.json",
   "mixins": [
     "MixinEntity",
-    "MixinLivingEntity"
+    "MixinLivingEntity",
+    "MixinTemplate"
   ],
   "client": [
     "MixinMinecraft"

@@ -2,6 +2,7 @@ package corgiaoc.aloneandtogether.mixin;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
+import corgiaoc.aloneandtogether.util.TreeParserUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -9,7 +10,6 @@ import net.minecraft.block.ILiquidContainer;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.inventory.IClearable;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
@@ -25,7 +25,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -186,42 +185,7 @@ public abstract class MixinTemplate {
                     addEntitiesToWorld(world, featurePos, settings);
                 }
 
-                List<String> treeLeaveList = new ArrayList<>();
-                List<String> trunkLogList = new ArrayList<>();
-                List<String> treeBranchList = new ArrayList<>();
-                final int stopppp = 1;
-                list2.forEach(o -> {
-                    int featureX = o.getFirst().getX();
-                    int featureY = o.getFirst().getY() - featurePos.getY();
-                    int realY = o.getFirst().getY();
-                    int realZ = o.getFirst().getZ();
-                    BlockPos pos = new BlockPos(featureX, realY, realZ);
-                    BlockState state = world.getBlockState(o.getFirst());
-
-                    Block blockCheck = state.getBlock();
-                    int modifiedY = featureY;
-                    //|| pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == 0
-                    if (blockCheck.getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
-                        trunkLogList.add("placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(" + featureX + ", " + modifiedY + ", " + realZ + "), boundsIn);");
-                    } else if (blockCheck.getRegistryName().toString().contains("log")) {
-                        treeBranchList.add("placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(" + featureX + ", " + modifiedY + ", " + realZ + "), boundsIn);");
-                    }
-
-                    if (state.hasProperty(BlockStateProperties.DISTANCE_1_7) && state.get(BlockStateProperties.DISTANCE_1_7) <= 6) {
-                        if (blockCheck.getRegistryName().toString().contains("leaves")) {
-                            treeLeaveList.add("placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(" + featureX + ", " + modifiedY + ", " + realZ + "), boundsIn);");
-                        }
-                    }
-
-                     {
-                        if (blockCheck.getRegistryName().toString().contains("diorite")) {
-                            treeLeaveList.add("this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(" + featureX + ", " + modifiedY + ", " + realZ + "), boundsIn);");
-                        }
-                    }
-                });
-                trunkLogList.forEach(System.out::println);
-                treeBranchList.forEach(System.out::println);
-                treeLeaveList.forEach(System.out::println);
+                TreeParserUtils.processTreeNBTData(world, featurePos, list2);
 
                 return true;
             } else {

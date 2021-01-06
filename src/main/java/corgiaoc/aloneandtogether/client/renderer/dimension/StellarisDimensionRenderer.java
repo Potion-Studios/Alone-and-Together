@@ -125,7 +125,7 @@ public class StellarisDimensionRenderer extends DimensionRenderInfo {
 
             matrixStack.push();
             mc.textureManager.bindTexture(PLANET);
-            matrixStack.rotate(new Quaternion(Vector3f.YP.rotation(ticks % 3600 * 0.0005F))); //Make planet move slowly overtime
+            matrixStack.rotate(new Quaternion(Vector3f.YP.rotation(ticks % 24000 * 0.0005F))); //Make planet move slowly overtime
             matrixStack.rotate(Vector3f.ZP.rotationDegrees(180));
             renderPlanet(planetVertexBuffer, matrixStack, planetVertexFormat);
             matrixStack.pop();

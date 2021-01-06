@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 
 import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import corgiaoc.aloneandtogether.common.world.feature.util.FeatureUtil;
+import corgiaoc.aloneandtogether.core.ATBlocks;
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -14,6 +15,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -35,6 +38,9 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
     protected static FastNoise fastNoise;
     protected long seed;
 
+    private Mirror mirror = Mirror.NONE;
+    private Rotation rotation = Rotation.NONE;
+
     public static final Map<Block, Block> SPREADABLE_TO_NON_SPREADABLE = new HashMap<>();
 
     public ATAbstractTreeFeature(Codec<TFC> configCodec) {
@@ -45,12 +51,8 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
         return worldReader.hasBlockState(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
-    public boolean canLogPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+    public static boolean canLogPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
         return worldReader.hasBlockState(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
-    }
-
-    public boolean canLogPlaceHereNether(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherTreeHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
@@ -74,6 +76,13 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
     }
 
     public void placeBranch(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+//        if (pos instanceof BlockPos.Mutable)
+//            FeatureUtil.transformMutable((BlockPos.Mutable) pos, this.mirror, this.rotation);
+//
+//        if (canLogPlaceHere(reader, pos)) {
+//            this.setFinalBlockState(blockSet, reader, FeatureUtil.transform(pos, this.mirror, this.rotation), config.getTrunkProvider().getBlockState(random, pos), boundingBox);
+//        }
+
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
@@ -84,28 +93,6 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
             this.setFinalBlockState(blockSet, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
         }
     }
-
-    //TODO: Make all our trees use the method above.
-    public void placeLeaves(ATTreeConfig config, Random random, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos pos = new BlockPos(x, y, z);
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
-        }
-    }
-
-
-    public void placeNetherTrunk(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHereNether(reader, pos)) {
-            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
-        }
-    }
-
-    public void placeNetherBranch(ATTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHereNether(reader, pos)) {
-            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
-        }
-    }
-
 
     /**
      * We use this to determine if a sapling's tree can grow at the given pos.
@@ -155,32 +142,6 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
         });
     }
 
-    public static boolean isDesiredGroundwNetherTags(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
-        if (config.isPlacementForced())
-            return true;
-
-        return reader.hasBlockState(pos, (state) -> {
-            Block block = state.getBlock();
-            for (Block block1 : config.getWhitelist()) {
-                return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(BlockTags.NYLIUM) || block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
-            }
-            return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(BlockTags.NYLIUM) || block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS);
-        });
-    }
-
-    public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
-        if (config.isPlacementForced())
-            return true;
-
-        return reader.hasBlockState(pos, (state) -> {
-            Block block = state.getBlock();
-            for (Block block1 : config.getWhitelist()) {
-                return block.isIn(Tags.Blocks.END_STONES) || block == block1;
-            }
-            return block.isIn(Tags.Blocks.END_STONES);
-        });
-    }
-
     public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, ATTreeConfig config) {
         if (config.isPlacementForced())
             return true;
@@ -200,7 +161,7 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
      * @param desiredGroundBlock Add a blacklist of blocks that we want.
      * @return Determines if the pos contains a block from our whitelist.
      */
-    public boolean isDesiredGround(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGround(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
@@ -523,6 +484,9 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
 
     @Override
     public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
+        //Randomize the rotation/mirror of a given tree.
+        this.rotation = Rotation.values()[rand.nextInt(Rotation.values().length)];
+        this.mirror = Mirror.values()[rand.nextInt(Mirror.values().length)];
         return placeTree(worldIn, rand, pos, config);
     }
 
@@ -609,6 +573,7 @@ public abstract class ATAbstractTreeFeature<TFC extends ATTreeConfig> extends Fe
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_PATH, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.PODZOL, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(ATBlocks.OVERGROWN_VOIDSTONE, ATBlocks.VOIDSTONE);
     }
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {

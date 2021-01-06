@@ -13,5 +13,9 @@ public class ATCutOutRenders {
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_VINES.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_VINES_PLANT.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ATBlocks.GLOWTAILS.getBlock(), RenderType.getCutoutMipped());
+
+        //Doors & Trapdoors
+        RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_DOOR.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_TRAP_DOOR.getBlock(), RenderType.getTranslucent());
     }
 }

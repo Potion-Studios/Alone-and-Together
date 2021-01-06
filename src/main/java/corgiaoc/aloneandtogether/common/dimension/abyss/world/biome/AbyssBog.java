@@ -3,11 +3,7 @@ package corgiaoc.aloneandtogether.common.dimension.abyss.world.biome;
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.AbyssBiomeBase;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import corgiaoc.aloneandtogether.core.world.ATConfiguredFeatures;
-import corgiaoc.aloneandtogether.core.world.ATConfiguredStructures;
-import corgiaoc.aloneandtogether.core.world.ATFeatures;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.aloneandtogether.util.BiomeUtils;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
@@ -47,5 +43,25 @@ public class AbyssBog extends AbyssBiomeBase {
 
     static {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.VOID_GRASS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.ABYSS_BOG_TREES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
     }
 }

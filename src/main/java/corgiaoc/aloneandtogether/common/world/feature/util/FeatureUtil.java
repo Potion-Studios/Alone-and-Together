@@ -45,8 +45,7 @@ public class FeatureUtil {
 
 
 
-    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn)
-    {
+    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn) {
         switch (mirrorIn)
         {
             case LEFT_RIGHT:
@@ -70,8 +69,7 @@ public class FeatureUtil {
         }
     }
 
-    public static BlockPos transform(BlockPos pos, Mirror mirrorIn, Rotation rotationIn)
-    {
+    public static BlockPos transform(BlockPos pos, Mirror mirrorIn, Rotation rotationIn) {
         int posX = pos.getX();
         int posZ = pos.getZ();
         boolean mirror = true;

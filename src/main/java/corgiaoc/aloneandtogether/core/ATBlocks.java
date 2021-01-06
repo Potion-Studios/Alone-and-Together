@@ -115,13 +115,11 @@ public class ATBlocks {
 
     //plants
     public static final Block VOID_GRASS = createPlantBlock("void_grass");
-    public static final Block VOID_FERN = createPlantBlock("void_fern");
     public static final Block GLOWTAILS = createGlowTallPlant("glowtails");
     public static final Block SPECTRAL_VINES_PLANT = createVinePlant("spectral_vines_plant");
     public static final Block SPECTRAL_VINES = createVineGlowBlock("spectral_vines");
 
     //dirt
-    public static final Block CORRUPT_DIRT = createDirtBlock("corrupt_dirt");
     public static final Block ASTRAL_DIRT = createDirtBlock("astral_dirt");
 
     static Block createFence(String id) {
@@ -291,7 +289,7 @@ public class ATBlocks {
     }
 
     static Block createMycenaBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> { return 11; }));
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> 11));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -306,7 +304,7 @@ public class ATBlocks {
 
     }
     static Block createVineGlowBlock(String id) {
-        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> { return 12; }));
+        Block createBlock = new SpectralVinesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).setLightLevel((state) -> 12));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
