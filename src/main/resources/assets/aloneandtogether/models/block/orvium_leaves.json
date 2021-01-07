@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "aloneandtogether:block/orvium_leaves"
+  }
+}

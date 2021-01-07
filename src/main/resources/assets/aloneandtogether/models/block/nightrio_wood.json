@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/nightrio_wood"
+    "all": "aloneandtogether:block/nightrio_log"
   }
 }

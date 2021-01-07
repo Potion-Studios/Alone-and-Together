@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "aloneandtogether:block/golden_birch_wood"
+    "wall": "aloneandtogether:block/golden_birch_log"
   }
 }

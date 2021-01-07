@@ -152,6 +152,9 @@ public class ATItems {
 
     //leaves
     public static final Item SPECTRAL_LEAVES = createItem(new BlockItem(ATBlocks.SPECTRAL_LEAVES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_LEAVES));
+    public static final Item ORVIUM_LEAVES = createItem(new BlockItem(ATBlocks.ORVIUM_LEAVES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_LEAVES));
+
+
 
     //dirt
     public static final Item ASTRAL_DIRT = createItem(new BlockItem(ATBlocks.ASTRAL_DIRT, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ASTRAL_DIRT));
@@ -164,6 +167,7 @@ public class ATItems {
     //stone
     public static final Item VOIDSTONE = createItem(new BlockItem(ATBlocks.VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE));
     public static final Item VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK));
+    public static final Item MOSSY_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.MOSSY_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.MOSSY_VOIDSTONE_BRICK));
     public static final Item CHISELED_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.CHISELED_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_VOIDSTONE_BRICK));
     public static final Item CRACKED_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.CRACKED_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CRACKED_VOIDSTONE_BRICK));
     public static final Item VOIDSTONE_BRICK_STAIRS = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK_STAIRS));
