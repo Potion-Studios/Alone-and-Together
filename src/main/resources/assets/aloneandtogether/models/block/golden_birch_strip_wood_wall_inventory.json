@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "aloneandtogether:block/golden_birch_strip_wood"
+    "wall": "aloneandtogether:block/golden_birch_strip_log"
   }
 }

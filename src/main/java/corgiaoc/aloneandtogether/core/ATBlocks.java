@@ -59,8 +59,8 @@ public class ATBlocks {
     public static final Block GOLDEN_BIRCH_BUTTON = createWoodButton("golden_birch_button");
     public static final Block GOLDEN_BIRCH_BOOKSHELF = createBookshelf("golden_birch_bookshelf");
     public static final Block GOLDEN_BIRCH_DOOR = createDoor("golden_birch_door");
-    public static final Block GOLDEN_BIRCH_STRIPPED_WOOD = createStrippedLog("golden_birch_stripped_wood");
-    public static final Block GOLDEN_BIRCH_STRIPPED_LOG = createStrippedLog("golden_birch_stripped_log");
+    public static final Block GOLDEN_BIRCH_STRIPPED_WOOD = createStrippedLog("golden_birch_strip_wood");
+    public static final Block GOLDEN_BIRCH_STRIPPED_LOG = createStrippedLog("golden_birch_strip_log");
 
     //cosmic wood
     public static final Block COSMIC_LOG = createLog("cosmic_log");
@@ -140,6 +140,7 @@ public class ATBlocks {
     //stone
     public static final Block VOIDSTONE = createStoneBlock("voidstone");
     public static final Block VOIDSTONE_BRICK = createStoneBlock("voidstone_brick");
+    public static final Block MOSSY_VOIDSTONE_BRICK = createStoneBlock("mossy_voidstone_brick");
     public static final Block CRACKED_VOIDSTONE_BRICK = createStoneBlock("cracked_voidstone_brick");
     public static final Block CHISELED_VOIDSTONE_BRICK = createStoneBlock("chiseled_voidstone_brick");
     public static final Block VOIDSTONE_BRICK_WALL = createStoneWall("voidstone_brick_wall");

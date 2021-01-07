@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "aloneandtogether:block/golden_birch_strip_wood"
+    "wall": "aloneandtogether:block/golden_birch_strip_log"
   }
 }

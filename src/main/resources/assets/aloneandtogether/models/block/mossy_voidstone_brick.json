@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/cosmic_log_side"
+    "all": "aloneandtogether:block/mossy_voidstone_brick"
   }
 }
