@@ -17,7 +17,7 @@ public class ATItems {
     public static final ItemGroup CREATIVE_TAB = new ItemGroup("aloneandtogether") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.CHAIN);
+            return new ItemStack(ATItems.CARVED_COSMIC_PLANKS);
         }
 
         @Override
@@ -97,6 +97,44 @@ public class ATItems {
     public static final Item COSMIC_DOOR = createItem(new BlockItem(ATBlocks.COSMIC_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_DOOR));
     public static final Item COSMIC_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.COSMIC_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_STRIPPED_WOOD));
     public static final Item COSMIC_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.COSMIC_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.COSMIC_STRIPPED_LOG));
+    
+    //orvium wood
+    public static final Item ORVIUM_LOG = createItem(new BlockItem(ATBlocks.ORVIUM_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_LOG));
+    public static final Item ORVIUM_PLANKS = createItem(new BlockItem(ATBlocks.ORVIUM_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_PLANKS));
+    public static final Item CARVED_ORVIUM_PLANKS = createItem(new BlockItem(ATBlocks.CARVED_ORVIUM_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CARVED_ORVIUM_PLANKS));
+    public static final Item ORVIUM_FENCE = createItem(new BlockItem(ATBlocks.ORVIUM_FENCE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_FENCE));
+    public static final Item ORVIUM_WOOD = createItem(new BlockItem(ATBlocks.ORVIUM_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_WOOD));
+    public static final Item ORVIUM_WOOD_WALL = createItem(new BlockItem(ATBlocks.ORVIUM_WOOD_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_WOOD_WALL));
+    public static final Item ORVIUM_FENCE_GATE = createItem(new BlockItem(ATBlocks.ORVIUM_FENCE_GATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_FENCE_GATE));
+    public static final Item ORVIUM_SLAB = createItem(new BlockItem(ATBlocks.ORVIUM_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_SLAB));
+    public static final Item ORVIUM_PRESSURE_PLATE = createItem(new BlockItem(ATBlocks.ORVIUM_PRESSURE_PLATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_PRESSURE_PLATE));
+    public static final Item ORVIUM_STAIRS = createItem(new BlockItem(ATBlocks.ORVIUM_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_STAIRS));
+    public static final Item ORVIUM_TRAP_DOOR = createItem(new BlockItem(ATBlocks.ORVIUM_TRAP_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_TRAP_DOOR));
+    public static final Item ORVIUM_CRAFTING_TABLE = createItem(new BlockItem(ATBlocks.ORVIUM_CRAFTING_TABLE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_CRAFTING_TABLE));
+    public static final Item ORVIUM_BUTTON = createItem(new BlockItem(ATBlocks.ORVIUM_BUTTON, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_BUTTON));
+    public static final Item ORVIUM_BOOKSHELF = createItem(new BlockItem(ATBlocks.ORVIUM_BOOKSHELF, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_BOOKSHELF));
+    public static final Item ORVIUM_DOOR = createItem(new BlockItem(ATBlocks.ORVIUM_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_DOOR));
+    public static final Item ORVIUM_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.ORVIUM_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_STRIPPED_WOOD));
+    public static final Item ORVIUM_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.ORVIUM_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_STRIPPED_LOG));
+
+    //nightrio wood
+    public static final Item NIGHTRIO_LOG = createItem(new BlockItem(ATBlocks.NIGHTRIO_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_LOG));
+    public static final Item NIGHTRIO_PLANKS = createItem(new BlockItem(ATBlocks.NIGHTRIO_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_PLANKS));
+    public static final Item CARVED_NIGHTRIO_PLANKS = createItem(new BlockItem(ATBlocks.CARVED_NIGHTRIO_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CARVED_NIGHTRIO_PLANKS));
+    public static final Item NIGHTRIO_FENCE = createItem(new BlockItem(ATBlocks.NIGHTRIO_FENCE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_FENCE));
+    public static final Item NIGHTRIO_WOOD = createItem(new BlockItem(ATBlocks.NIGHTRIO_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_WOOD));
+    public static final Item NIGHTRIO_WOOD_WALL = createItem(new BlockItem(ATBlocks.NIGHTRIO_WOOD_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_WOOD_WALL));
+    public static final Item NIGHTRIO_FENCE_GATE = createItem(new BlockItem(ATBlocks.NIGHTRIO_FENCE_GATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_FENCE_GATE));
+    public static final Item NIGHTRIO_SLAB = createItem(new BlockItem(ATBlocks.NIGHTRIO_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_SLAB));
+    public static final Item NIGHTRIO_PRESSURE_PLATE = createItem(new BlockItem(ATBlocks.NIGHTRIO_PRESSURE_PLATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_PRESSURE_PLATE));
+    public static final Item NIGHTRIO_STAIRS = createItem(new BlockItem(ATBlocks.NIGHTRIO_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_STAIRS));
+    public static final Item NIGHTRIO_TRAP_DOOR = createItem(new BlockItem(ATBlocks.NIGHTRIO_TRAP_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_TRAP_DOOR));
+    public static final Item NIGHTRIO_CRAFTING_TABLE = createItem(new BlockItem(ATBlocks.NIGHTRIO_CRAFTING_TABLE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_CRAFTING_TABLE));
+    public static final Item NIGHTRIO_BUTTON = createItem(new BlockItem(ATBlocks.NIGHTRIO_BUTTON, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_BUTTON));
+    public static final Item NIGHTRIO_BOOKSHELF = createItem(new BlockItem(ATBlocks.NIGHTRIO_BOOKSHELF, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_BOOKSHELF));
+    public static final Item NIGHTRIO_DOOR = createItem(new BlockItem(ATBlocks.NIGHTRIO_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_DOOR));
+    public static final Item NIGHTRIO_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.NIGHTRIO_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_STRIPPED_WOOD));
+    public static final Item NIGHTRIO_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.NIGHTRIO_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.NIGHTRIO_STRIPPED_LOG));
 
     //glowstone
     public static final Item BOG_LILLY_CRYSTAL = createItem(new BlockItem(ATBlocks.BOG_LILLY_CRYSTAL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BOG_LILLY_CRYSTAL));
@@ -126,6 +164,8 @@ public class ATItems {
     //stone
     public static final Item VOIDSTONE = createItem(new BlockItem(ATBlocks.VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE));
     public static final Item VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK));
+    public static final Item CHISELED_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.CHISELED_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_VOIDSTONE_BRICK));
+    public static final Item CRACKED_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.CRACKED_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CRACKED_VOIDSTONE_BRICK));
     public static final Item VOIDSTONE_BRICK_STAIRS = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK_STAIRS));
     public static final Item VOIDSTONE_BRICK_WALL = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK_WALL));
     public static final Item VOIDSTONE_STAIRS = createItem(new BlockItem(ATBlocks.VOIDSTONE_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_STAIRS));

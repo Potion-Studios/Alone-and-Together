@@ -40,8 +40,8 @@ public class ATBlocks {
     public static final Block SPECTRAL_BUTTON = createWoodButton("spectral_button");
     public static final Block SPECTRAL_BOOKSHELF = createBookshelf("spectral_bookshelf");
     public static final Block SPECTRAL_DOOR = createDoor("spectral_door");
-    public static final Block SPECTRAL_STRIPPED_WOOD = createStrippedLog("spectral_strip_wood");
-    public static final Block SPECTRAL_STRIPPED_LOG = createStrippedLog("spectral_strip_log");
+    public static final Block SPECTRAL_STRIPPED_WOOD = createStrippedLog("spectral_stripped_wood");
+    public static final Block SPECTRAL_STRIPPED_LOG = createStrippedLog("spectral_stripped_log");
 
     //golden wood
     public static final Block GOLDEN_BIRCH_LOG = createLog("golden_birch_log");
@@ -59,8 +59,8 @@ public class ATBlocks {
     public static final Block GOLDEN_BIRCH_BUTTON = createWoodButton("golden_birch_button");
     public static final Block GOLDEN_BIRCH_BOOKSHELF = createBookshelf("golden_birch_bookshelf");
     public static final Block GOLDEN_BIRCH_DOOR = createDoor("golden_birch_door");
-    public static final Block GOLDEN_BIRCH_STRIPPED_WOOD = createStrippedLog("golden_birch_strip_wood");
-    public static final Block GOLDEN_BIRCH_STRIPPED_LOG = createStrippedLog("golden_birch_strip_log");
+    public static final Block GOLDEN_BIRCH_STRIPPED_WOOD = createStrippedLog("golden_birch_stripped_wood");
+    public static final Block GOLDEN_BIRCH_STRIPPED_LOG = createStrippedLog("golden_birch_stripped_log");
 
     //cosmic wood
     public static final Block COSMIC_LOG = createLog("cosmic_log");
@@ -78,9 +78,46 @@ public class ATBlocks {
     public static final Block COSMIC_BUTTON = createWoodButton("cosmic_button");
     public static final Block COSMIC_BOOKSHELF = createBookshelf("cosmic_bookshelf");
     public static final Block COSMIC_DOOR = createDoor("cosmic_door");
-    public static final Block COSMIC_STRIPPED_WOOD = createStrippedLog("cosmic_strip_wood");
-    public static final Block COSMIC_STRIPPED_LOG = createStrippedLog("cosmic_strip_log");
+    public static final Block COSMIC_STRIPPED_WOOD = createStrippedLog("cosmic_stripped_wood");
+    public static final Block COSMIC_STRIPPED_LOG = createStrippedLog("cosmic_stripped_log");
 
+    //orvium wood
+    public static final Block ORVIUM_LOG = createLog("orvium_log");
+    public static final Block ORVIUM_PLANKS = createPlanks("orvium_planks");
+    public static final Block CARVED_ORVIUM_PLANKS = createPlanks("carved_orvium_planks");
+    public static final Block ORVIUM_FENCE = createFence("orvium_fence");
+    public static final Block ORVIUM_WOOD = createWood("orvium_wood");
+    public static final Block ORVIUM_WOOD_WALL = createWoodWall("orvium_wood_wall");
+    public static final Block ORVIUM_FENCE_GATE = createFenceGate("orvium_fence_gate");
+    public static final Block ORVIUM_SLAB = createWoodSlab("orvium_slab");
+    public static final Block ORVIUM_PRESSURE_PLATE = createWoodPressurePlate("orvium_pressure_plate");
+    public static final Block ORVIUM_STAIRS = createWoodStairs("orvium_stairs");
+    public static final Block ORVIUM_TRAP_DOOR = createTrapDoor("orvium_trapdoor");
+    public static final Block ORVIUM_CRAFTING_TABLE = createCraftingTable("orvium_crafting_table");
+    public static final Block ORVIUM_BUTTON = createWoodButton("orvium_button");
+    public static final Block ORVIUM_BOOKSHELF = createBookshelf("orvium_bookshelf");
+    public static final Block ORVIUM_DOOR = createDoor("orvium_door");
+    public static final Block ORVIUM_STRIPPED_WOOD = createStrippedLog("orvium_stripped_wood");
+    public static final Block ORVIUM_STRIPPED_LOG = createStrippedLog("orvium_stripped_log");
+    
+    //nightrio wood
+    public static final Block NIGHTRIO_LOG = createLog("nightrio_log");
+    public static final Block NIGHTRIO_PLANKS = createPlanks("nightrio_planks");
+    public static final Block CARVED_NIGHTRIO_PLANKS = createPlanks("carved_nightrio_planks");
+    public static final Block NIGHTRIO_FENCE = createFence("nightrio_fence");
+    public static final Block NIGHTRIO_WOOD = createWood("nightrio_wood");
+    public static final Block NIGHTRIO_WOOD_WALL = createWoodWall("nightrio_wood_wall");
+    public static final Block NIGHTRIO_FENCE_GATE = createFenceGate("nightrio_fence_gate");
+    public static final Block NIGHTRIO_SLAB = createWoodSlab("nightrio_slab");
+    public static final Block NIGHTRIO_PRESSURE_PLATE = createWoodPressurePlate("nightrio_pressure_plate");
+    public static final Block NIGHTRIO_STAIRS = createWoodStairs("nightrio_stairs");
+    public static final Block NIGHTRIO_TRAP_DOOR = createTrapDoor("nightrio_trapdoor");
+    public static final Block NIGHTRIO_CRAFTING_TABLE = createCraftingTable("nightrio_crafting_table");
+    public static final Block NIGHTRIO_BUTTON = createWoodButton("nightrio_button");
+    public static final Block NIGHTRIO_BOOKSHELF = createBookshelf("nightrio_bookshelf");
+    public static final Block NIGHTRIO_DOOR = createDoor("nightrio_door");
+    public static final Block NIGHTRIO_STRIPPED_WOOD = createStrippedLog("nightrio_stripped_wood");
+    public static final Block NIGHTRIO_STRIPPED_LOG = createStrippedLog("nightrio_stripped_log");
 
 
     //glowstone
@@ -103,6 +140,8 @@ public class ATBlocks {
     //stone
     public static final Block VOIDSTONE = createStoneBlock("voidstone");
     public static final Block VOIDSTONE_BRICK = createStoneBlock("voidstone_brick");
+    public static final Block CRACKED_VOIDSTONE_BRICK = createStoneBlock("cracked_voidstone_brick");
+    public static final Block CHISELED_VOIDSTONE_BRICK = createStoneBlock("chiseled_voidstone_brick");
     public static final Block VOIDSTONE_BRICK_WALL = createStoneWall("voidstone_brick_wall");
     public static final Block VOIDSTONE_WALL = createStoneWall("voidstone_wall");
     public static final Block VOIDSTONE_BRICK_STAIRS = createStoneStairs("voidstone_brick_stairs");
@@ -112,6 +151,7 @@ public class ATBlocks {
 
     //leaves
     public static final Block SPECTRAL_LEAVES = createLeafBlock("spectral_leaves");
+    public static final Block ORVIUM_LEAVES = createLeafBlock("orvium_leaves");
 
     //plants
     public static final Block VOID_GRASS = createPlantBlock("void_grass");

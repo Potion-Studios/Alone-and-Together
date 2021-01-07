@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "aloneandtogether:block/voidstone_brick",
+    "top": "aloneandtogether:block/voidstone_brick",
+    "side": "aloneandtogether:block/voidstone_brick"
+  }
+}

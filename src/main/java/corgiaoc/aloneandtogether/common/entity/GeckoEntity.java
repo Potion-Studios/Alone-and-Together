@@ -1,6 +1,7 @@
 package corgiaoc.aloneandtogether.common.entity;
 
 
+import corgiaoc.aloneandtogether.client.entity.renderers.GeckoRenderer;
 import corgiaoc.aloneandtogether.common.dimension.abyss.entity.BogFlyEntity;
 import corgiaoc.aloneandtogether.core.ATEntities;
 import net.minecraft.entity.*;
@@ -83,18 +84,20 @@ public class GeckoEntity extends AnimalEntity {
         return geckoEntity;
     }
 
-    public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 2.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5F).createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
-    }
-
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float) ((int) this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
         if (flag) {
             this.applyEnchantments(this, entityIn);
         }
-
         return flag;
+    }
+
+
+    @Override
+    public void applyEntityCollision(Entity entityIn) {
+        if (entityIn == this)
+        super.applyEntityCollision(entityIn);
     }
 
     @Nullable
@@ -106,35 +109,32 @@ public class GeckoEntity extends AnimalEntity {
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
-    @Override
-    public void applyEntityCollision(Entity entityIn) {
-        if (entityIn == this)
-            super.applyEntityCollision(entityIn);
-    }
-
-    public SkinColors getSkinColor() {
-        return SkinColors.byId(this.dataManager.get(SKIN_COLOR) & 15);
-    }
-
     public boolean isOnLadder() {
-        if (this.collidedHorizontally) {
+        if (this.collidedHorizontally){
         }
         return true;
     }
 
+
+    public SkinColors getSkinColor() {
+        return SkinColors.byId(this.dataManager.get(SKIN_COLOR) & 15);
+    }
+    public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
+        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 2.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.5F).createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+    }
+
     public void setSkinColor(SkinColors color) {
         byte b0 = this.dataManager.get(SKIN_COLOR);
-        this.dataManager.set(SKIN_COLOR, (byte) (b0 & 240 | color.getId() & 15));
+        this.dataManager.set(SKIN_COLOR, (byte)(b0 & 240 | color.getId() & 15));
     }
 
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(SKIN_COLOR, (byte) 0);
+        this.dataManager.register(SKIN_COLOR, (byte)0);
     }
-
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putByte("Color", (byte) this.getSkinColor().getId());
+        compound.putByte("Color", (byte)this.getSkinColor().getId());
     }
 
     public void readAdditional(CompoundNBT compound) {
@@ -142,8 +142,7 @@ public class GeckoEntity extends AnimalEntity {
         this.setSkinColor(SkinColors.byId(compound.getByte("Color")));
     }
 
-
-    public enum SkinColors {
+    public enum SkinColors{
         WHITE(0),
         BLUE(1),
         GREEN(2),
@@ -152,11 +151,17 @@ public class GeckoEntity extends AnimalEntity {
         RED(5),
         ORANGE(6);
 
-        private static final SkinColors[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(SkinColors::getId)).toArray(SkinColors[]::new);
+        private static final SkinColors[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(SkinColors::getId)).toArray((p_234255_0_) -> {
+            return new SkinColors[p_234255_0_];
+        });
         private final int id;
 
-        SkinColors(int id) {
+        private SkinColors(int id) {
             this.id = id;
+        }
+
+        public int getId() {
+            return this.id;
         }
 
         public static SkinColors byId(int colorId) {
@@ -166,28 +171,6 @@ public class GeckoEntity extends AnimalEntity {
 
             return VALUES[colorId];
         }
-
-        public int getId() {
-            return this.id;
-        }
     }
 
-    public enum SkinTypes {
-        NONE(0),
-        DOTS(1),
-        STRIPES(2),
-        BLACK_TAIL(3),
-        RED_EYES(4);
-
-        private final int id;
-
-        SkinTypes(int id) {
-            this.id = id;
-        }
-
-        public int getId() {
-            return this.id;
-        }
-
-    }
 }

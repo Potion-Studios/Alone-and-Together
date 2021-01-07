@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_rh",
+  "textures": {
+    "bottom": "aloneandtogether:block/nightrio_door_bottom",
+    "top": "aloneandtogether:block/nightrio_door_top"
+  }
+}

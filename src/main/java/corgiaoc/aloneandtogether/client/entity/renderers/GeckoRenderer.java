@@ -12,6 +12,8 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 public final class GeckoRenderer extends AbstractGeckoRenderer<GeckoEntity, GeckoModel<GeckoEntity>> {
+
+
     private static final Map<GeckoEntity.SkinColors, ResourceLocation> GECKO_TEXTURE = Util.make(Maps.newEnumMap(GeckoEntity.SkinColors.class), (textureMap) -> {
         textureMap.put(GeckoEntity.SkinColors.BLUE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/blue_gecko.png"));
         textureMap.put(GeckoEntity.SkinColors.WHITE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/white_gecko.png"));

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "aloneandtogether:block/orvium_log_side",
+    "end": "aloneandtogether:block/orvium_log_top"
+  }
+}

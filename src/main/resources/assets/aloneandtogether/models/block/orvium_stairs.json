@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "aloneandtogether:block/orvium",
+    "top": "aloneandtogether:block/orvium",
+    "side": "aloneandtogether:block/orvium"
+  }
+}

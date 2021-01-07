@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "aloneandtogether:block/orvium_stripped_wood",
+    "end": "aloneandtogether:block/orvium_stripped_wood_top"
+  }
+}

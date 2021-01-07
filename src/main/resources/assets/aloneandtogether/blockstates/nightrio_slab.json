@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/nightrio_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/nightrio"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/nightrio_slab_top"
+    }
+  }
+}

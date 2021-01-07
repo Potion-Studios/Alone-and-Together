@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "aloneandtogether:block/nightrio",
+    "top": "aloneandtogether:block/nightrio",
+    "side": "aloneandtogether:block/nightrio"
+  }
+}

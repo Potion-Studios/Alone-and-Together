@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/orvium_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/orvium"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/orvium_slab_top"
+    }
+  }
+}

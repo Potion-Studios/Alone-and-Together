@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "aloneandtogether:block/nightrio_pressure_plate"
+    },
+    "powered=true": {
+      "model": "aloneandtogether:block/nightrio_pressure_plate_down"
+    }
+  }
+}

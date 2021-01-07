@@ -3,6 +3,7 @@ package corgiaoc.aloneandtogether.client.entity.renderers;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import corgiaoc.aloneandtogether.client.entity.models.GeckoModel;
 import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
+import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,7 @@ public class AbstractGeckoRenderer<T extends GeckoEntity, M extends GeckoModel<T
         matrixStackIn.scale(this.SCALE, this.SCALE, this.SCALE);
         super.preRenderCallback(entitylivingbaseIn, matrixStackIn, partialTickTime);
     }
+
 
     @Nullable
     public ResourceLocation getEntityTexture(T entity) {
