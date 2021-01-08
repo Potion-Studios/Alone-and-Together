@@ -2,9 +2,12 @@ package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.fml.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +141,7 @@ public class ATItems {
 
     //glowstone
     public static final Item BOG_LILLY_CRYSTAL = createItem(new BlockItem(ATBlocks.BOG_LILLY_CRYSTAL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BOG_LILLY_CRYSTAL));
-
+    public static final Item ABYSS_GLOWSTONE_ORE = createItem(new BlockItem(ATBlocks.ABYSS_GLOWSTONE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ABYSS_GLOWSTONE_ORE));
     //mycena
     public static final Item BLUE_MYCENA = createItem(new BlockItem(ATBlocks.BLUE_MYCENA, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BLUE_MYCENA));
     public static final Item GREEN_MYCENA = createItem(new BlockItem(ATBlocks.GREEN_MYCENA, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GREEN_MYCENA));
@@ -154,6 +157,13 @@ public class ATItems {
     public static final Item SPECTRAL_LEAVES = createItem(new BlockItem(ATBlocks.SPECTRAL_LEAVES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_LEAVES));
     public static final Item ORVIUM_LEAVES = createItem(new BlockItem(ATBlocks.ORVIUM_LEAVES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_LEAVES));
 
+    //ores
+    public static final Item KROHNKITE_ORE = createItem(new BlockItem(ATBlocks.KROHNKITE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.KROHNKITE_ORE));
+    public static final Item ALEXANDRITE_ORE = createItem(new BlockItem(ATBlocks.ALEXANDRITE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ALEXANDRITE_ORE));
+
+    //gems
+    public static final Item ALEXANDRITE_GEM = new Item(new Item.Properties().group(CREATIVE_TAB)).setRegistryName("alexandrite_gem");
+    public static final Item KROHNKITE_GEM = new Item(new Item.Properties().group(CREATIVE_TAB)).setRegistryName("krohnkite_gem");
 
 
     //dirt
@@ -192,12 +202,15 @@ public class ATItems {
 
 
     public static Item createItem(Item item, String id) {
-//        Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, id), item);
+//        Registry.register(Registry.ITEM, new ResourceLocation(AloneAndTogetger.MOD_ID, id), item);
         item.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         items.add(item);
         return item;
     }
 
-    public static void init() {
+    public static void init()
+    {
     }
+
+
 }

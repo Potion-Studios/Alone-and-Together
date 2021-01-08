@@ -119,9 +119,15 @@ public class ATBlocks {
     public static final Block NIGHTRIO_STRIPPED_WOOD = createStrippedLog("nightrio_stripped_wood");
     public static final Block NIGHTRIO_STRIPPED_LOG = createStrippedLog("nightrio_stripped_log");
 
+    //Ores
+    public static final Block ALEXANDRITE_ORE = createOre("alexandrite_ore");
+    public static final Block KROHNKITE_ORE = createOre("krohnkite_ore");
+
+
 
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
+    public static final Block ABYSS_GLOWSTONE_ORE = createGlowBlock("abyss_glowstone_ore");
 
     //mycena
     public static final Block BLUE_MYCENA = createMycenaBlock("blue_mycena");
@@ -165,6 +171,14 @@ public class ATBlocks {
 
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createOre(String id) {
+        Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
