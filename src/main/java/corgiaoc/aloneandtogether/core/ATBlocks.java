@@ -147,8 +147,15 @@ public class ATBlocks {
     public static final Block VOIDSTONE_WALL = createStoneWall("voidstone_wall");
     public static final Block VOIDSTONE_BRICK_STAIRS = createStoneStairs("voidstone_brick_stairs");
     public static final Block VOIDSTONE_STAIRS = createStoneStairs("voidstone_stairs");
+    public static final Block VOIDSTONE_BRICK_SLAB = createStoneSlabs("voidstone_brick_slab");
+    public static final Block VOIDSTONE_SLAB = createStoneSlabs("voidstone_slab");
     public static final Block DECADASTONE = createStonePillar("decadastone");
     public static final Block DECADASITE = createStoneBlock("decadasite");
+    public static final Block METEOR_STONE = createStoneBlock("meteor_stone");
+    public static final Block METEOR_STONE_WALL = createStoneWall("meteor_stone_wall");
+    public static final Block METEOR_STONE_STAIRS = createStoneStairs("meteor_stone_stairs");
+    public static final Block METEOR_STONE_SLAB = createStoneSlabs("meteor_stone_slab");
+    public static final Block ALEXANDERITE_ORE = createStoneBlock("alexanderite_ore");
 
     //leaves
     public static final Block SPECTRAL_LEAVES = createLeafBlock("spectral_leaves");
@@ -213,6 +220,14 @@ public class ATBlocks {
 
     static Block createStoneStairs(String id) {
         Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "stone"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.STONE).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createStoneSlabs(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -330,7 +345,7 @@ public class ATBlocks {
     }
 
     static Block createMycenaBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).setLightLevel((state) -> 11));
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).notSolid().setLightLevel((state) -> 11));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
