@@ -6,13 +6,13 @@ import corgiaoc.aloneandtogether.common.dimension.abyss.properties.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -162,13 +162,17 @@ public class ATBlocks {
     public static final Block ORVIUM_LEAVES = createLeafBlock("orvium_leaves");
 
     //plants
-    public static final Block VOID_GRASS = createPlantBlock("void_grass");
+    public static final Block VOID_GRASS = createAbyssPlantBlock("void_grass");
+    public static final Block VOID_FERN = createAbyssPlantBlock("void_fern");
     public static final Block GLOWTAILS = createGlowTallPlant("glowtails");
     public static final Block SPECTRAL_VINES_PLANT = createVinePlant("spectral_vines_plant");
     public static final Block SPECTRAL_VINES = createVineGlowBlock("spectral_vines");
 
     //dirt
     public static final Block ASTRAL_DIRT = createDirtBlock("astral_dirt");
+
+    //chests
+    public static final Block SPECTRAL_CHEST = createChestBlock("spectral_chest");
 
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -186,6 +190,14 @@ public class ATBlocks {
         return createBlock;
     }
 
+    static Block createChestBlock(String id){
+        Block createBlock = new ChestBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD), () -> TileEntityType.CHEST);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
     static Block createWoodSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
@@ -194,8 +206,8 @@ public class ATBlocks {
         return createBlock;
     }
 
-    static Block createPlantBlock(String id) {
-        Block createBlock = new TallGrassBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
+    static Block createAbyssPlantBlock(String id) {
+        Block createBlock = new ATFernBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT));
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -391,7 +403,7 @@ public class ATBlocks {
     }
 
     static Block createOvergrownStone(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.NYLIUM).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
