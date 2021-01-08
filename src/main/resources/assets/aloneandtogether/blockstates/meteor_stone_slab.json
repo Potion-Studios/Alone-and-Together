@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/meteor_stone_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/meteor_stone"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/meteor_stone_slab_top"
+    }
+  }
+}

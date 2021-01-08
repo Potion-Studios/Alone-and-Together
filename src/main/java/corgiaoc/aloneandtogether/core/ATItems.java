@@ -171,6 +171,7 @@ public class ATItems {
 
     //plants
     public static final Item VOID_GRASS = createItem(new BlockItem(ATBlocks.VOID_GRASS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_GRASS));
+    public static final Item VOID_FERN = createItem(new BlockItem(ATBlocks.VOID_FERN, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_FERN));
     public static final Item GLOWTAILS = createItem(new BlockItem(ATBlocks.GLOWTAILS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GLOWTAILS));
     public static final Item SPECTRAL_VINES = createItem(new BlockItem(ATBlocks.SPECTRAL_VINES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_VINES));
 
@@ -181,12 +182,22 @@ public class ATItems {
     public static final Item CHISELED_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.CHISELED_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_VOIDSTONE_BRICK));
     public static final Item CRACKED_VOIDSTONE_BRICK = createItem(new BlockItem(ATBlocks.CRACKED_VOIDSTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CRACKED_VOIDSTONE_BRICK));
     public static final Item VOIDSTONE_BRICK_STAIRS = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK_STAIRS));
+    public static final Item VOIDSTONE_BRICK_SLAB = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK_SLAB));
+    public static final Item VOIDSTONE_SLAB = createItem(new BlockItem(ATBlocks.VOIDSTONE_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_SLAB));
     public static final Item VOIDSTONE_BRICK_WALL = createItem(new BlockItem(ATBlocks.VOIDSTONE_BRICK_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_BRICK_WALL));
     public static final Item VOIDSTONE_STAIRS = createItem(new BlockItem(ATBlocks.VOIDSTONE_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_STAIRS));
     public static final Item VOIDSTONE_WALL = createItem(new BlockItem(ATBlocks.VOIDSTONE_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE_WALL));
     public static final Item DECADASTONE = createItem(new BlockItem(ATBlocks.DECADASTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE));
     public static final Item OVERGROWN_VOIDSTONE = createItem(new BlockItem(ATBlocks.OVERGROWN_VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.OVERGROWN_VOIDSTONE));
     public static final Item DECADASITE = createItem(new BlockItem(ATBlocks.DECADASITE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASITE));
+    public static final Item METEOR_STONE = createItem(new BlockItem(ATBlocks.METEOR_STONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.METEOR_STONE));
+    public static final Item METEOR_STONE_WALL = createItem(new BlockItem(ATBlocks.METEOR_STONE_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.METEOR_STONE_WALL));
+    public static final Item METEOR_STONE_STAIRS = createItem(new BlockItem(ATBlocks.METEOR_STONE_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.METEOR_STONE_STAIRS));
+    public static final Item METEOR_STONE_SLAB = createItem(new BlockItem(ATBlocks.METEOR_STONE_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.METEOR_STONE_SLAB));
+    public static final Item ALEXANDERITE_ORE = createItem(new BlockItem(ATBlocks.ALEXANDERITE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ALEXANDERITE_ORE));
+    
+    //chests
+    public static final Item SPECTRAL_CHEST = createItem(new BlockItem(ATBlocks.SPECTRAL_CHEST, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CHEST));
 
 
     public static Item createItem(Item item, ResourceLocation id) {
