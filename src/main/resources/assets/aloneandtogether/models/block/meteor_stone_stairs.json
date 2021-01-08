@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "aloneandtogether:block/meteor_stone",
+    "top": "aloneandtogether:block/meteor_stone",
+    "side": "aloneandtogether:block/meteor_stone"
+  }
+}
