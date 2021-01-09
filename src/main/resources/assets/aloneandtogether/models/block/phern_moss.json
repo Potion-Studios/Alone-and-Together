@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "particle": "aloneandtogether:block/voidstone",
+    "bottom": "aloneandtogether:block/voidstone",
+    "top": "aloneandtogether:block/phern_moss_top",
+    "side": "aloneandtogether:block/phern_moss"
+  }
+}

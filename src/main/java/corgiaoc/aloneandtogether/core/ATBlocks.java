@@ -119,15 +119,16 @@ public class ATBlocks {
     public static final Block NIGHTRIO_STRIPPED_WOOD = createStrippedLog("nightrio_stripped_wood");
     public static final Block NIGHTRIO_STRIPPED_LOG = createStrippedLog("nightrio_stripped_log");
 
-    //Ores
-    public static final Block ALEXANDRITE_ORE = createOre("alexandrite_ore");
+    //ores
     public static final Block KROHNKITE_ORE = createOre("krohnkite_ore");
+    public static final Block ABYSS_GLOWSTONE_ORE = createGlowOre("abyss_glowstone_ore");
+    public static final Block ALEXANDERITE_ORE = createOre("alexanderite_ore");
 
-
+    //ore blocks
+    public static final Block RHYLITHYST_BLOCK = createOreBlock("rhylithyst_block");
 
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
-    public static final Block ABYSS_GLOWSTONE_ORE = createGlowBlock("abyss_glowstone_ore");
 
     //mycena
     public static final Block BLUE_MYCENA = createMycenaBlock("blue_mycena");
@@ -138,6 +139,7 @@ public class ATBlocks {
 
     //overgrown stone
     public static final Block OVERGROWN_VOIDSTONE = createOvergrownStone("overgrown_voidstone");
+    public static final Block PHERN_MOSS = createOvergrownStone("phern_moss");
 
     //grass blocks
     public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
@@ -161,7 +163,12 @@ public class ATBlocks {
     public static final Block METEOR_STONE_WALL = createStoneWall("meteor_stone_wall");
     public static final Block METEOR_STONE_STAIRS = createStoneStairs("meteor_stone_stairs");
     public static final Block METEOR_STONE_SLAB = createStoneSlabs("meteor_stone_slab");
-    public static final Block ALEXANDERITE_ORE = createStoneBlock("alexanderite_ore");
+    public static final Block SPACE_DEBRIS = createStonePillar("space_debris");
+    public static final Block RHYLITE_PILLAR = createStonePillar("rhylite_pillar");
+    public static final Block RHYLITE_BRICKS = createStoneBlock("rhylite_bricks");
+    public static final Block RHYLITE_BLOCK = createStoneBlock("rhylite_block");
+    public static final Block CHISELED_RHYLITE_BLOCK = createStoneBlock("chiseled_rhylite_block");
+    public static final Block SHADE_STONE = createStoneBlock("shade_stone");
 
     //leaves
     public static final Block SPECTRAL_LEAVES = createLeafBlock("spectral_leaves");
@@ -190,6 +197,22 @@ public class ATBlocks {
 
     static Block createOre(String id) {
         Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createGlowOre(String id) {
+        Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.GLASS).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f).setLightLevel((state) -> 9));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createOreBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(3.0f, 5.0f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);

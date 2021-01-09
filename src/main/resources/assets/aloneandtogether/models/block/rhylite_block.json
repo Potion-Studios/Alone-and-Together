@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_top_bottom",
+  "textures": {
+    "particle": "aloneandtogether:block/rhylite_block_side",
+    "side": "aloneandtogether:block/rhylite_block_side",
+    "top": "aloneandtogether:block/rhylite_block_top",
+    "bottom": "aloneandtogether:block/rhylite_block_bottom"
+  }
+}

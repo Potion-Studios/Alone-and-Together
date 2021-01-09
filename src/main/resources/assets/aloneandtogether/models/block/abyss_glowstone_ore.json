@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "aloneandtogether:block/abyss_glowstone_ore"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "aloneandtogether:block/space_debris_side",
+    "end": "aloneandtogether:block/space_debris_top"
+  }
+}
