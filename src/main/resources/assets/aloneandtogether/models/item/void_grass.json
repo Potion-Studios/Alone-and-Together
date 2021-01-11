@@ -1,3 +1,6 @@
 {
-  "parent": "aloneandtogether:block/void_grass"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "aloneandtogether:block/void_grass"
+  }
 }

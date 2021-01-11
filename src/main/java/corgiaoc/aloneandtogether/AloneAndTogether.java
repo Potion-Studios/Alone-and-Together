@@ -17,6 +17,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -70,6 +71,10 @@ public class AloneAndTogether {
         ClientRegistry.bindTileEntityRenderer(TileEntityType.CHEST, ATChestTileEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ATEntities.GECKO, GeckoRenderer::new);
 
+    }
+
+    public static ResourceLocation createResource(String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

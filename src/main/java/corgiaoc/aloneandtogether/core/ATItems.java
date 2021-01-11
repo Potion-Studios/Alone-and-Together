@@ -2,22 +2,18 @@ package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.fml.RegistryObject;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("deprecation")
 public class ATItems {
-
     public static List<Item> items = new ArrayList<>();
 
-    public static final ItemGroup CREATIVE_TAB = new ItemGroup("aloneandtogether") {
+    public static final ItemGroup CREATIVE_TAB = new ItemGroup(AloneAndTogether.MOD_ID) {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ATItems.CARVED_COSMIC_PLANKS);
@@ -152,10 +148,6 @@ public class ATItems {
     public static final Item ASTRAL_GRASS_BLOCK = createItem(new BlockItem(ATBlocks.ASTRAL_GRASS_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ASTRAL_GRASS_BLOCK));
     public static final Item ORANGE_ASTRAL_GRASS_BLOCK = createItem(new BlockItem(ATBlocks.ORANGE_ASTRAL_GRASS_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORANGE_ASTRAL_GRASS_BLOCK));
 
-    //leaves
-    public static final Item SPECTRAL_LEAVES = createItem(new BlockItem(ATBlocks.SPECTRAL_LEAVES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_LEAVES));
-    public static final Item ORVIUM_LEAVES = createItem(new BlockItem(ATBlocks.ORVIUM_LEAVES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ORVIUM_LEAVES));
-
     //ores
     public static final Item KROHNKITE_ORE = createItem(new BlockItem(ATBlocks.KROHNKITE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.KROHNKITE_ORE));
     public static final Item ABYSS_GLOWSTONE_ORE = createItem(new BlockItem(ATBlocks.ABYSS_GLOWSTONE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ABYSS_GLOWSTONE_ORE));
@@ -169,11 +161,19 @@ public class ATItems {
     //dirt
     public static final Item ASTRAL_DIRT = createItem(new BlockItem(ATBlocks.ASTRAL_DIRT, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ASTRAL_DIRT));
 
-    //plants
-    public static final Item VOID_GRASS = createItem(new BlockItem(ATBlocks.VOID_GRASS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_GRASS));
-    public static final Item VOID_FERN = createItem(new BlockItem(ATBlocks.VOID_FERN, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOID_FERN));
-    public static final Item GLOWTAILS = createItem(new BlockItem(ATBlocks.GLOWTAILS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GLOWTAILS));
-    public static final Item SPECTRAL_VINES = createItem(new BlockItem(ATBlocks.SPECTRAL_VINES, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_VINES));
+    //flora, for ordering see ATBlocks - flora
+    public static final Item
+            SPECTRAL_LEAVES = createBlockItem(ATBlocks.SPECTRAL_LEAVES, createFloraProperties()),
+            ORVIUM_LEAVES   = createBlockItem(ATBlocks.ORVIUM_LEAVES,   createFloraProperties()),
+            ABYSSAL_GROWTH  = createBlockItem(ATBlocks.ABYSSAL_GROWTH,  createFloraProperties()),
+            VOID_GRASS      = createBlockItem(ATBlocks.VOID_GRASS,      createFloraProperties()),
+            VOID_FERN       = createBlockItem(ATBlocks.VOID_FERN,       createFloraProperties()),
+            GLOWTAILS       = createBlockItem(ATBlocks.GLOWTAILS,       createFloraProperties()),
+            SPECTRAL_VINES  = createBlockItem(ATBlocks.SPECTRAL_VINES,  createFloraProperties());
+
+    private static @Nonnull Item.Properties createFloraProperties() {
+        return new Item.Properties().group(ATItemGroups.FLORA);
+    }
 
     //overgrown stone
     public static final Item OVERGROWN_VOIDSTONE = createItem(new BlockItem(ATBlocks.OVERGROWN_VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.OVERGROWN_VOIDSTONE));
@@ -207,29 +207,24 @@ public class ATItems {
     //chests
     public static final Item SPECTRAL_CHEST = createItem(new BlockItem(ATBlocks.SPECTRAL_CHEST, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CHEST));
 
+    public static Item createItem(Item item, String id) {
+        return createItem(item, AloneAndTogether.createResource(id));
+    }
+
+    public static Item createBlockItem(Block block, Item.Properties props) {
+        return createItem(new BlockItem(block, props), Registry.BLOCK.getKey(block));
+    }
 
     public static Item createItem(Item item, ResourceLocation id) {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
-//            Registry.register(Registry.ITEM, id, item);
-            item.setRegistryName(id); //Forge
+            item.setRegistryName(id);
+
             items.add(item);
+
             return item;
-        } else {
-            return null;
-        }
+        } else return null;
     }
 
-
-    public static Item createItem(Item item, String id) {
-//        Registry.register(Registry.ITEM, new ResourceLocation(AloneAndTogetger.MOD_ID, id), item);
-        item.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        items.add(item);
-        return item;
+    public static void init() {
     }
-
-    public static void init()
-    {
-    }
-
-
 }

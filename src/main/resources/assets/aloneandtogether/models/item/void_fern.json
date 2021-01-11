@@ -1,3 +1,6 @@
 {
-  "parent": "aloneandtogether:block/void_fern"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "aloneandtogether:block/void_fern"
+  }
 }

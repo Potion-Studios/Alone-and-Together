@@ -11,27 +11,28 @@ import net.minecraft.util.Util;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public final class GeckoRenderer extends AbstractGeckoRenderer<GeckoEntity, GeckoModel<GeckoEntity>> {
-
-
-    private static final Map<GeckoEntity.SkinColors, ResourceLocation> GECKO_TEXTURE = Util.make(Maps.newEnumMap(GeckoEntity.SkinColors.class), (textureMap) -> {
-        textureMap.put(GeckoEntity.SkinColors.BLUE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/blue_gecko.png"));
-        textureMap.put(GeckoEntity.SkinColors.WHITE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/white_gecko.png"));
-        textureMap.put(GeckoEntity.SkinColors.GREEN, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/green_gecko.png"));
-        textureMap.put(GeckoEntity.SkinColors.BROWN, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/brown_gecko.png"));
-        textureMap.put(GeckoEntity.SkinColors.BLACK, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/black_gecko.png"));
-        textureMap.put(GeckoEntity.SkinColors.RED, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/red_gecko.png"));
-        textureMap.put(GeckoEntity.SkinColors.ORANGE, new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/gecko/orange_gecko.png"));
+public final class GeckoRenderer<T extends GeckoEntity> extends AbstractGeckoRenderer<T, GeckoModel<T>> {
+    private static final Map<GeckoEntity.SkinColors, ResourceLocation> GECKO_TEXTURE = Util.make(Maps.newEnumMap(GeckoEntity.SkinColors.class), (map) -> {
+        map.put(GeckoEntity.SkinColors.BLUE,   createTexture("blue"));
+        map.put(GeckoEntity.SkinColors.WHITE,  createTexture("white"));
+        map.put(GeckoEntity.SkinColors.GREEN,  createTexture("green"));
+        map.put(GeckoEntity.SkinColors.BROWN,  createTexture("brown"));
+        map.put(GeckoEntity.SkinColors.BLACK,  createTexture("black"));
+        map.put(GeckoEntity.SkinColors.RED,    createTexture("red"));
+        map.put(GeckoEntity.SkinColors.ORANGE, createTexture("orange"));
     });
 
-    public GeckoRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new GeckoModel<>(), 1.0F);
+    public GeckoRenderer(EntityRendererManager manager) {
+        super(manager, new GeckoModel<>(), 1.0F);
     }
 
     @Nullable
     @Override
-    public ResourceLocation getEntityTexture(GeckoEntity entity) {
+    public ResourceLocation getEntityTexture(T entity) {
         return GECKO_TEXTURE.get(entity.getSkinColor());
     }
 
+    private static ResourceLocation createTexture(String name) {
+        return AloneAndTogether.createResource("textures/entity/gecko/" + name + "_gecko.png");
+    }
 }
