@@ -203,8 +203,8 @@ public class ATBlocks {
     //flora
     public static final Block
             // Leaves/Growths/Misc (flora that does'nt use the cross model)
-            SPECTRAL_LEAVES      = createLeavesBlock("spectral_leaves"),
-            ORVIUM_LEAVES        = createLeavesBlock("orvium_leaves"),
+            SPECTRAL_LEAVES      = registerBlock("spectral_leaves", new ATLeavesBlock()),
+            ORVIUM_LEAVES        = registerBlock("orvium_leaves", new ATLeavesBlock()),
 
             ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock()),
 
@@ -449,40 +449,33 @@ public class ATBlocks {
         return createBlock;
     }
 
-    static Block createGrassBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
+    static @Nonnull Block createGrassBlock(String id) {
+        Block grass = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
 
-        return registerBlock(id, createBlock);
+        return registerBlock(id, grass);
     }
 
-    static Block createDirtBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.5f));
-
-        return registerBlock(id, createBlock);
+    static @Nonnull Block createDirtBlock(String id) {
+        Block dirt = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.5f));
+        return registerBlock(id, dirt);
     }
 
-    static Block createStoneBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
-
-        return registerBlock(id, createBlock);
+    static @Nonnull Block createStoneBlock(String id) {
+        Block stone = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, stone);
     }
 
-    static Block createOvergrownStone(String id) {
-        Block block = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.NYLIUM).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
-
-        return registerBlock(id, block);
+    static @Nonnull Block createOvergrownStone(String id) {
+        Block overgrownStone = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.NYLIUM).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, overgrownStone);
     }
 
-    static Block createStonePillar(String id) {
+    static @Nonnull Block createStonePillar(String id) {
         Block pillar = new RotatedPillarBlock(Properties.from(Blocks.BASALT).hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, pillar);
     }
 
-    static Block createLeavesBlock(String id) {
-        return registerBlock(id, new ATLeavesBlock());
-    }
-
-    static <T extends Block> T registerBlock(String id, T block) {
+    static @Nonnull <T extends Block> T registerBlock(String id, @Nonnull T block) {
         block.setRegistryName(AloneAndTogether.createResource(id));
 
         blocks.add(block);
