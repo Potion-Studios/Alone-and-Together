@@ -1,0 +1,35 @@
+{	"credit": "cowplant#9401 (unknownbeetle)",
+	"textures": {
+		"growth": "aloneandtogether:block/abyssal_growth",
+		"particle": "aloneandtogether:block/abyssal_growth_grass"
+	},
+	"elements": [
+		{	"from": [0, 0, 0],
+			"to": 	[16, 2, 16],
+			"faces": {
+				"north": {"uv": [0, 14, 16, 16], "texture": "#particle", "cullface": "north"},
+				"east":  {"uv": [0, 14, 16, 16], "texture": "#particle", "cullface": "east"},
+				"south": {"uv": [0, 14, 16, 16], "texture": "#particle", "cullface": "south"},
+				"west":  {"uv": [0, 14, 16, 16], "texture": "#particle", "cullface": "west"},
+				"up":    {"uv": [0,  0, 16, 16], "texture": "#growth"},
+				"down":  {"uv": [0,  0, 16, 16], "texture": "#growth", "cullface": "down"}
+			}
+		},
+		{	"from": [0, 2, 8],
+			"to": 	[16, 16, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 14], "texture": "#particle"},
+				"south": {"uv": [0, 0, 16, 14], "texture": "#particle"}
+			}
+		},
+		{	"from": [0, 2, 8],
+			"to": 	[16, 16, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 14], "texture": "#particle"},
+				"south": {"uv": [0, 0, 16, 14], "texture": "#particle"}
+			}
+		}
+	]
+}
