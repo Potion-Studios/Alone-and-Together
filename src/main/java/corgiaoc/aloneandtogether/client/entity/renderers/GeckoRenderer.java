@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Map;
 
@@ -28,11 +29,11 @@ public final class GeckoRenderer<T extends GeckoEntity> extends AbstractGeckoRen
 
     @Nullable
     @Override
-    public ResourceLocation getEntityTexture(T entity) {
+    public ResourceLocation getEntityTexture(@Nonnull T entity) {
         return GECKO_TEXTURE.get(entity.getSkinColor());
     }
 
-    private static ResourceLocation createTexture(String name) {
+    private static @Nonnull ResourceLocation createTexture(String name) {
         return AloneAndTogether.createResource("textures/entity/gecko/" + name + "_gecko.png");
     }
 }

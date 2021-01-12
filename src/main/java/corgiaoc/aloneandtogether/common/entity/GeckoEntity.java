@@ -22,6 +22,7 @@ import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class GeckoEntity extends AnimalEntity {
         super(type, worldIn);
     }
 
-    public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
+    public static @Nonnull AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 2.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5F)
@@ -77,7 +78,7 @@ public class GeckoEntity extends AnimalEntity {
         return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
-    public static SkinColors getRandomGeckoColor(Random random) {
+    public static SkinColors getRandomGeckoColor(@Nonnull Random random) {
         int i = random.nextInt(35);
 
         if (i < 5) {
@@ -100,7 +101,7 @@ public class GeckoEntity extends AnimalEntity {
     // End initialising
 
     @Override
-    public boolean isBreedingItem(ItemStack stack) {
+    public boolean isBreedingItem(@Nonnull ItemStack stack) {
         return stack.getItem() == Items.APPLE;
     }
 
@@ -115,9 +116,8 @@ public class GeckoEntity extends AnimalEntity {
         return child;
     }
 
-    @ParametersAreNonnullByDefault
     @Override
-    public boolean attackEntityAsMob(Entity entityIn) {
+    public boolean attackEntityAsMob(@Nonnull Entity entityIn) {
         boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)getAttributeValue(Attributes.ATTACK_DAMAGE)));
 
         if (flag) applyEnchantments(this, entityIn);
@@ -125,9 +125,8 @@ public class GeckoEntity extends AnimalEntity {
         return flag;
     }
 
-    @ParametersAreNonnullByDefault
     @Override
-    public void applyEntityCollision(Entity entityIn) {
+    public void applyEntityCollision(@Nonnull Entity entityIn) {
         if (entityIn == this) super.applyEntityCollision(entityIn);
     }
 
@@ -138,9 +137,8 @@ public class GeckoEntity extends AnimalEntity {
 
     // Write to Nbt
 
-    @ParametersAreNonnullByDefault
     @Override
-    public void writeAdditional(CompoundNBT compound) {
+    public void writeAdditional(@Nonnull CompoundNBT compound) {
         super.writeAdditional(compound);
         compound.putByte("Color", (byte)this.getSkinColor().getId());
     }
@@ -149,14 +147,13 @@ public class GeckoEntity extends AnimalEntity {
         return SkinColors.byId(dataManager.get(SKIN_COLOR) & 15);
     }
 
-    @ParametersAreNonnullByDefault
     @Override
-    public void readAdditional(CompoundNBT compound) {
+    public void readAdditional(@Nonnull CompoundNBT compound) {
         super.readAdditional(compound);
         this.setSkinColor(SkinColors.byId(compound.getByte("Color")));
     }
 
-    public void setSkinColor(SkinColors color) {
+    public void setSkinColor(@Nonnull SkinColors color) {
         byte b = this.dataManager.get(SKIN_COLOR);
         this.dataManager.set(SKIN_COLOR, (byte)(b & 240 | color.getId() & 15));
     }

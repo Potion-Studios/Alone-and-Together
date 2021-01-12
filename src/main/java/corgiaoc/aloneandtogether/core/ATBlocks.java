@@ -180,6 +180,7 @@ public class ATBlocks {
             // Leaves/Growths/Misc (flora that does'nt use the cross model)
             SPECTRAL_LEAVES      = createLeavesBlock("spectral_leaves"),
             ORVIUM_LEAVES        = createLeavesBlock("orvium_leaves"),
+
             ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock()),
 
             // Grass/Flowers/Ferns (flora, that uses the cross model)

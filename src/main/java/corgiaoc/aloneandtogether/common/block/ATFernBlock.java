@@ -8,6 +8,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
@@ -33,12 +34,12 @@ public class ATFernBlock extends BushBlock implements IFlammableBlock {
 
     @ParametersAreNonnullByDefault
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public @Nonnull VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
 
     @Override
-    public OffsetType getOffsetType() {
+    public @Nonnull OffsetType getOffsetType() {
         return AbstractBlock.OffsetType.XYZ;
     }
 
