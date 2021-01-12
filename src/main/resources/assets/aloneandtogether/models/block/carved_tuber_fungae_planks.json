@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "aloneandtogether:block/carved_tuber_fungae_planks"
+  }
+}

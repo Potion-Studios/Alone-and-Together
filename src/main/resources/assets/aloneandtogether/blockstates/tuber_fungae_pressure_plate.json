@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "aloneandtogether:block/tuber_fungae_pressure_plate"
+    },
+    "powered=true": {
+      "model": "aloneandtogether:block/tuber_fungae_pressure_plate_down"
+    }
+  }
+}

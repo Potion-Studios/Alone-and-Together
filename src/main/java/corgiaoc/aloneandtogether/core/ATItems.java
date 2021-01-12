@@ -16,7 +16,7 @@ public class ATItems {
     public static final ItemGroup CREATIVE_TAB = new ItemGroup(AloneAndTogether.MOD_ID) {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ATItems.CARVED_COSMIC_PLANKS);
+            return new ItemStack(ATItems.COSMIC_LOG);
         }
 
         @Override
@@ -156,7 +156,25 @@ public class ATItems {
     //gems
     public static final Item ALEXANDRITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "alexandrite_gem");
     public static final Item KROHNKITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "krohnkite_gem");
-
+    
+    //tuber
+    public static final Item TUBER_FUNGAE_LOG = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_LOG));
+    public static final Item TUBER_FUNGAE_PLANKS = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_PLANKS));
+    public static final Item CARVED_TUBER_FUNGAE_PLANKS = createItem(new BlockItem(ATBlocks.CARVED_TUBER_FUNGAE_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CARVED_TUBER_FUNGAE_PLANKS));
+    public static final Item TUBER_FUNGAE_FENCE = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_FENCE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_FENCE));
+    public static final Item TUBER_FUNGAE_WOOD = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_WOOD));
+    public static final Item TUBER_FUNGAE_WOOD_WALL = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_WOOD_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_WOOD_WALL));
+    public static final Item TUBER_FUNGAE_FENCE_GATE = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_FENCE_GATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_FENCE_GATE));
+    public static final Item TUBER_FUNGAE_SLAB = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_SLAB));
+    public static final Item TUBER_FUNGAE_PRESSURE_PLATE = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_PRESSURE_PLATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_PRESSURE_PLATE));
+    public static final Item TUBER_FUNGAE_STAIRS = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_STAIRS));
+    public static final Item TUBER_FUNGAE_TRAP_DOOR = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_TRAP_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_TRAP_DOOR));
+    public static final Item TUBER_FUNGAE_CRAFTING_TABLE = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_CRAFTING_TABLE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_CRAFTING_TABLE));
+    public static final Item TUBER_FUNGAE_BUTTON = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_BUTTON, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_BUTTON));
+    public static final Item TUBER_FUNGAE_BOOKSHELF = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_BOOKSHELF, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_BOOKSHELF));
+    public static final Item TUBER_FUNGAE_DOOR = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_DOOR));
+    public static final Item TUBER_FUNGAE_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_STRIPPED_WOOD));
+    public static final Item TUBER_FUNGAE_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_STRIPPED_LOG));
 
     //dirt
     public static final Item ASTRAL_DIRT = createItem(new BlockItem(ATBlocks.ASTRAL_DIRT, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ASTRAL_DIRT));
