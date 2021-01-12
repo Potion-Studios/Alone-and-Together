@@ -145,6 +145,7 @@ public class ATBlocks {
     public static final Block TUBER_FUNGAE_DOOR = createDoor("tuber_fungae_door");
     public static final Block TUBER_FUNGAE_STRIPPED_WOOD = createStrippedLog("tuber_fungae_stripped_wood");
     public static final Block TUBER_FUNGAE_STRIPPED_LOG = createStrippedLog("tuber_fungae_stripped_log");
+    public static final Block TUBER_FUNGAE_BLOCK = createTuberBlock("tuber_fungae_block");
     
     //ores
     public static final Block KROHNKITE_ORE = createOre("krohnkite_ore");

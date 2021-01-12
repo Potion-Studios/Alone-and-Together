@@ -175,6 +175,7 @@ public class ATItems {
     public static final Item TUBER_FUNGAE_DOOR = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_DOOR));
     public static final Item TUBER_FUNGAE_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_STRIPPED_WOOD));
     public static final Item TUBER_FUNGAE_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_STRIPPED_LOG));
+    public static final Item TUBER_FUNGAE_BLOCK = createItem(new BlockItem(ATBlocks.TUBER_FUNGAE_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.TUBER_FUNGAE_BLOCK));
 
     //dirt
     public static final Item ASTRAL_DIRT = createItem(new BlockItem(ATBlocks.ASTRAL_DIRT, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ASTRAL_DIRT));
