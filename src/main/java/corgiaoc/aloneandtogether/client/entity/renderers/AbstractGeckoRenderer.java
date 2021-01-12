@@ -2,8 +2,7 @@ package corgiaoc.aloneandtogether.client.entity.renderers;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import corgiaoc.aloneandtogether.client.entity.models.GeckoModel;
-import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
+import corgiaoc.aloneandtogether.common.dimension.abyss.entity.GeckoEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

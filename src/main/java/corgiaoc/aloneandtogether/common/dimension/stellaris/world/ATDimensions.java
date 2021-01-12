@@ -1,11 +1,11 @@
-package corgiaoc.aloneandtogether.common.dimension;
+package corgiaoc.aloneandtogether.common.dimension.stellaris.world;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.client.renderer.dimension.StellarisDimensionRenderer;
 import corgiaoc.aloneandtogether.client.renderer.dimension.AbyssDimensionRenderer;
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.biomesource.AbyssBiomeSource;
-import corgiaoc.aloneandtogether.common.dimension.stellaris.world.chunkgenerator.StellarisChunkGenerator;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biomesource.StellarisBiomeSource;
+import corgiaoc.aloneandtogether.common.dimension.stellaris.world.chunkgenerator.StellarisChunkGenerator;
 import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
@@ -20,8 +20,6 @@ public class ATDimensions {
 
     public static final RegistryKey<World> ABYSS_WORLD_KEY = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, ABYSS_ID);
     public static final RegistryKey<World> STELLARIS_WORLD_KEY = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, STELLARIS_ID);
-
-
 
     public static void registerBiomeSources() {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(AloneAndTogether.MOD_ID, "abyss"), AbyssBiomeSource.CODEC);

@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.layer;
+package corgiaoc.aloneandtogether.common.world.layer;
 
 import corgiaoc.aloneandtogether.util.BiomeUtils;
 import net.minecraft.util.ResourceLocation;

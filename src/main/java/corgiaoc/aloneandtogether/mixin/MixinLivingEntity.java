@@ -1,6 +1,6 @@
 package corgiaoc.aloneandtogether.mixin;
 
-import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
+import corgiaoc.aloneandtogether.common.dimension.stellaris.world.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.util.StellarisDimensionGravityModifier;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Pose;

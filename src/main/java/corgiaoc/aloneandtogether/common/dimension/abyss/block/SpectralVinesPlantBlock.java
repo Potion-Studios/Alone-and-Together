@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.properties;
+package corgiaoc.aloneandtogether.common.dimension.abyss.block;
 
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import net.minecraft.block.*;
@@ -10,10 +10,10 @@ import net.minecraft.world.IWorldReader;
 
 import java.util.Random;
 
-public class SpectralVinesPlant extends AbstractBodyPlantBlock {
+public class SpectralVinesPlantBlock extends AbstractBodyPlantBlock {
     public static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public SpectralVinesPlant(AbstractBlock.Properties properties) {
+    public SpectralVinesPlantBlock(AbstractBlock.Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false);
 
     }

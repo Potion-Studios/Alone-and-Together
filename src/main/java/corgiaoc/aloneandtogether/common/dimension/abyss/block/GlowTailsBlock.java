@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.properties;
+package corgiaoc.aloneandtogether.common.dimension.abyss.block;
 
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;

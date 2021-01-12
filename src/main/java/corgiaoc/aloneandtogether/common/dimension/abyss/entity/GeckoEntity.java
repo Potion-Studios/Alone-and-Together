@@ -1,7 +1,7 @@
-package corgiaoc.aloneandtogether.common.entity;
+package corgiaoc.aloneandtogether.common.dimension.abyss.entity;
 
 
-import corgiaoc.aloneandtogether.common.dimension.abyss.entity.BogFlyEntity;
+import com.github.unknownbeetle.libraries.Maths;
 import corgiaoc.aloneandtogether.core.ATEntities;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -25,8 +25,6 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Random;
 
 public class GeckoEntity extends AnimalEntity {
@@ -140,7 +138,7 @@ public class GeckoEntity extends AnimalEntity {
     @Override
     public void writeAdditional(@Nonnull CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putByte("Color", (byte)this.getSkinColor().getId());
+        compound.putByte("Color", (byte)this.getSkinColor().ordinal());
     }
 
     public SkinColors getSkinColor() {
@@ -155,33 +153,22 @@ public class GeckoEntity extends AnimalEntity {
 
     public void setSkinColor(@Nonnull SkinColors color) {
         byte b = this.dataManager.get(SKIN_COLOR);
-        this.dataManager.set(SKIN_COLOR, (byte)(b & 240 | color.getId() & 15));
+        this.dataManager.set(SKIN_COLOR, (byte)(b & 240 | color.ordinal() & 15));
     }
 
     // End write to nbt
 
     public enum SkinColors {
-        WHITE(0),
-        BLUE(1),
-        GREEN(2),
-        BROWN(3),
-        BLACK(4),
-        RED(5),
-        ORANGE(6);
-
-        private static final SkinColors[] VALUES = Arrays.stream(values()).sorted(Comparator.comparingInt(SkinColors::getId)).toArray(SkinColors[]::new);
-        private final int id;
-
-        SkinColors(int id) {
-            this.id = id;
-        }
-
-        public int getId() {
-            return id;
-        }
+        WHITE(),
+        BLUE(),
+        GREEN(),
+        BROWN(),
+        BLACK(),
+        RED(),
+        ORANGE();
 
         public static SkinColors byId(int id) {
-            return VALUES[id >= VALUES.length ? 0 : id];
+            return Maths.get(SkinColors.values(), id);
         }
     }
 }

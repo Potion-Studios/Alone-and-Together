@@ -1,9 +1,8 @@
 package corgiaoc.aloneandtogether.mixin;
 
-import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
+import corgiaoc.aloneandtogether.common.dimension.stellaris.world.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.util.StellarisDimensionGravityModifier;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;

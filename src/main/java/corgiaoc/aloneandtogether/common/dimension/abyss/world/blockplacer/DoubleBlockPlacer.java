@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.world.feature.blockplacer;
+package corgiaoc.aloneandtogether.common.dimension.abyss.world.blockplacer;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
