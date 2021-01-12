@@ -151,9 +151,6 @@ public class ATBlocks {
     public static final Block ABYSS_GLOWSTONE_ORE = createGlowOre("abyss_glowstone_ore");
     public static final Block ALEXANDERITE_ORE = createOre("alexanderite_ore");
 
-    //saplings
-    public static final Block SPECTRAL_SAPLING = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling");
-
     //ore blocks
     public static final Block RHYLITHYST_BLOCK = createOreBlock("rhylithyst_block");
 
@@ -202,13 +199,17 @@ public class ATBlocks {
 
     //flora
     public static final Block
-            // Leaves/Growths/Misc (flora that does'nt use the cross model)
+            // leaves
             SPECTRAL_LEAVES      = registerBlock("spectral_leaves", new ATLeavesBlock()),
             ORVIUM_LEAVES        = registerBlock("orvium_leaves", new ATLeavesBlock()),
 
-            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock()),
+            // saplings
+            SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),
 
-            // Grass/Flowers/Ferns (flora, that uses the cross model)
+            // misc
+            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
+
+            // grass, flowers, and ferns
             VOID_GRASS           = createAbyssPlantBlock("void_grass"),
             VOID_FERN            = createAbyssPlantBlock("void_fern"),
             GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(Properties.from(Blocks.TALL_GRASS).setLightLevel((state) -> 2))),
@@ -271,7 +272,7 @@ public class ATBlocks {
     }
 
     static @Nonnull Block createAbyssPlantBlock(String id) {
-        return registerBlock(id, new ATFernBlock());
+        return registerBlock(id, new ATFernBlock(Properties.from(Blocks.GRASS).notSolid()));
     }
 
     static @Nonnull Block createWoodPressurePlate(String id) {

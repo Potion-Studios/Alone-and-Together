@@ -1,78 +1,74 @@
 package corgiaoc.aloneandtogether.common.dimension.abyss.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.DoublePlantBlock;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.state.properties.SlabType;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 
-public class GlowTailsBlock extends BushBlock implements IWaterLoggable {
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
+import static net.minecraft.state.properties.BlockStateProperties.WATERLOGGED;
 
-    public GlowTailsBlock(AbstractBlock.Properties properties) {
+public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable {
+
+    public GlowTailsBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, Boolean.valueOf(false)));
+        setDefaultState(stateContainer.getBaseState()
+                .with(HALF, DoubleBlockHalf.LOWER)
+                .with(WATERLOGGED, false)
+        );
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    @Override
+    protected void fillStateContainer(@Nonnull StateContainer.Builder<Block, BlockState> builder) {
         builder.add(HALF, WATERLOGGED);
     }
 
+    @ParametersAreNonnullByDefault
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        BlockPos blockpos = context.getPos();
-        BlockState blockstate = context.getWorld().getBlockState(blockpos);
-        if (blockstate.isIn(this)) {
-            return blockstate.with(WATERLOGGED, Boolean.valueOf(false));
-        } else {
-            FluidState fluidstate = context.getWorld().getFluidState(blockpos);
-            BlockState blockstate1 = this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
-            return blockstate1;
+    public boolean canContainFluid(IBlockReader reader, BlockPos pos, BlockState state, Fluid fluid) {
+        return !hasFluid(state) && isFluidValid(fluid);
+    }
+
+    @ParametersAreNonnullByDefault
+    @Override
+    public boolean receiveFluid(IWorld world, BlockPos pos, BlockState state, FluidState fluidState) {
+        Fluid fluid = fluidState.getFluid();
+        if (!hasFluid(state) && isFluidValid(fluid)) {
+            if (!world.isRemote()) {
+                world.setBlockState(pos, state.with(WATERLOGGED, true), 3);
+                world.getPendingFluidTicks().scheduleTick(pos, fluid, fluid.getTickRate(world));
+            }
+            return true;
         }
+        return false;
     }
 
+    @ParametersAreNonnullByDefault
+    @Nonnull
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isSolidSide(worldIn, pos, Direction.UP) && !state.isIn(Blocks.MAGMA_BLOCK);
-    }
-
-    @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        BlockState blockstate = super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-        DoubleBlockHalf doubleblockhalf = stateIn.get(HALF);
-        if (facing.getAxis() != Direction.Axis.Y || doubleblockhalf == DoubleBlockHalf.LOWER != (facing == Direction.UP) || facingState.isIn(this) && facingState.get(HALF) != doubleblockhalf) {
-            return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-        } if (stateIn.get(WATERLOGGED)) {
-            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+    public Fluid pickupFluid(IWorld world, BlockPos pos, BlockState state) {
+        if (hasFluid(state)) {
+            world.setBlockState(pos, state.with(WATERLOGGED, false), 3);
+            return world.getFluidState(pos).getFluid();
         }
-        return blockstate;
-    }
-    @Override
-    public boolean isTransparent(BlockState state) {
-        return true;
+        return Fluids.EMPTY;
     }
 
-    @Override
-    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
-        return true;
+    private static boolean isFluidValid(Fluid fluid) {
+        return fluid == Fluids.WATER || fluid == Fluids.LAVA;
     }
 
-    @Override
-    public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, FluidState fluidStateIn) {
-        return true;
+    private static boolean hasFluid(@Nonnull BlockState state) {
+        return state.get(WATERLOGGED);
     }
-
 }

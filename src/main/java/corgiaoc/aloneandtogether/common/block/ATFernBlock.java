@@ -15,10 +15,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ATFernBlock extends BushBlock implements IFlammableBlock {
     private static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
-    public ATFernBlock() {
-        this(Properties.from(Blocks.GRASS).notSolid());
-    }
-
     public ATFernBlock(Properties properties) {
         super(properties);
     }
