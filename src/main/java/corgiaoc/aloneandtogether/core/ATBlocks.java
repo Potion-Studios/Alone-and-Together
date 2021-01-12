@@ -6,6 +6,9 @@ import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import corgiaoc.aloneandtogether.common.block.ATLeavesBlock;
 import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.abyss.properties.*;
+import corgiaoc.aloneandtogether.common.world.feature.tree.TreeSpawners;
+import corgiaoc.aloneandtogether.common.world.feature.tree.abyss.SpectralTree1;
+import corgiaoc.aloneandtogether.common.world.feature.tree.util.TreeSpawner;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -124,10 +127,32 @@ public class ATBlocks {
     public static final Block NIGHTRIO_STRIPPED_WOOD = createStrippedLog("nightrio_stripped_wood");
     public static final Block NIGHTRIO_STRIPPED_LOG = createStrippedLog("nightrio_stripped_log");
 
+    //tuber
+    public static final Block TUBER_FUNGAE_LOG = createLog("tuber_fungae_log");
+    public static final Block TUBER_FUNGAE_PLANKS = createPlanks("tuber_fungae_planks");
+    public static final Block CARVED_TUBER_FUNGAE_PLANKS = createPlanks("carved_tuber_fungae_planks");
+    public static final Block TUBER_FUNGAE_FENCE = createFence("tuber_fungae_fence");
+    public static final Block TUBER_FUNGAE_WOOD = createWood("tuber_fungae_wood");
+    public static final Block TUBER_FUNGAE_WOOD_WALL = createWoodWall("tuber_fungae_wood_wall");
+    public static final Block TUBER_FUNGAE_FENCE_GATE = createFenceGate("tuber_fungae_fence_gate");
+    public static final Block TUBER_FUNGAE_SLAB = createWoodSlab("tuber_fungae_slab");
+    public static final Block TUBER_FUNGAE_PRESSURE_PLATE = createWoodPressurePlate("tuber_fungae_pressure_plate");
+    public static final Block TUBER_FUNGAE_STAIRS = createWoodStairs("tuber_fungae_stairs");
+    public static final Block TUBER_FUNGAE_TRAP_DOOR = createTrapDoor("tuber_fungae_trapdoor");
+    public static final Block TUBER_FUNGAE_CRAFTING_TABLE = createCraftingTable("tuber_fungae_crafting_table");
+    public static final Block TUBER_FUNGAE_BUTTON = createWoodButton("tuber_fungae_button");
+    public static final Block TUBER_FUNGAE_BOOKSHELF = createBookshelf("tuber_fungae_bookshelf");
+    public static final Block TUBER_FUNGAE_DOOR = createDoor("tuber_fungae_door");
+    public static final Block TUBER_FUNGAE_STRIPPED_WOOD = createStrippedLog("tuber_fungae_stripped_wood");
+    public static final Block TUBER_FUNGAE_STRIPPED_LOG = createStrippedLog("tuber_fungae_stripped_log");
+    
     //ores
     public static final Block KROHNKITE_ORE = createOre("krohnkite_ore");
     public static final Block ABYSS_GLOWSTONE_ORE = createGlowOre("abyss_glowstone_ore");
     public static final Block ALEXANDERITE_ORE = createOre("alexanderite_ore");
+
+    //saplings
+    public static final Block SPECTRAL_SAPLING = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling");
 
     //ore blocks
     public static final Block RHYLITHYST_BLOCK = createOreBlock("rhylithyst_block");
@@ -206,6 +231,14 @@ public class ATBlocks {
 
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createSapling(int taskRange, TreeSpawner tree, String id){
+        Block createBlock = new ATSaplingBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
         //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);
@@ -401,6 +434,14 @@ public class ATBlocks {
 
     static Block createMycenaBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).notSolid().setLightLevel((state) -> 11));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
+        blocks.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTuberBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
         blocks.add(createBlock);

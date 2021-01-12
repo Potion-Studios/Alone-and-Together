@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "aloneandtogether:block/tuber_fungae_stripped_log"
+  }
+}

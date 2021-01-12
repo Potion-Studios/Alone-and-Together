@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "aloneandtogether:block/tuber_fungae_log",
+    "end": "aloneandtogether:block/tuber_fungae_log_top"
+  }
+}
