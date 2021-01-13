@@ -1,9 +1,12 @@
 {
-  "parent": "minecraft:block/cube_top_bottom",
+  "parent": "minecraft:block/cube",
   "textures": {
     "particle": "aloneandtogether:block/rhylite_block_side",
-    "side": "aloneandtogether:block/rhylite_block_side",
-    "top": "aloneandtogether:block/rhylite_block_top",
-    "bottom": "aloneandtogether:block/rhylite_block_bottom"
+    "north": "aloneandtogether:block/rhylite_block_side",
+    "south": "aloneandtogether:block/rhylite_block_side",
+    "east": "aloneandtogether:block/rhylite_block_side",
+    "west": "aloneandtogether:block/rhylite_block_side",
+    "up": "aloneandtogether:block/rhylite_block_top",
+    "down": "aloneandtogether:block/rhylite_block_bottom"
   }
 }

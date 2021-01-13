@@ -154,7 +154,7 @@ public class ATItems {
     public static final Item ALEXANDERITE_ORE = createItem(new BlockItem(ATBlocks.ALEXANDERITE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ALEXANDERITE_ORE));
     
     //gems
-    public static final Item ALEXANDRITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "alexandrite_gem");
+    public static final Item ALEXANDERITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "alexanderite_gem");
     public static final Item KROHNKITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "krohnkite_gem");
     
     //tuber
@@ -221,7 +221,7 @@ public class ATItems {
     public static final Item RHYLITE_BLOCK = createItem(new BlockItem(ATBlocks.RHYLITE_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLITE_BLOCK));
     public static final Item RHYLITE_BRICKS = createItem(new BlockItem(ATBlocks.RHYLITE_BRICKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLITE_BRICKS));
     public static final Item CHISELED_RHYLITE_BLOCK = createItem(new BlockItem(ATBlocks.CHISELED_RHYLITE_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_RHYLITE_BLOCK));
-    public static final Item SHADE_STONE = createItem(new BlockItem(ATBlocks.SHADE_STONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SHADE_STONE));
+    public static final Item SHADE_STONE = createBlockItem(ATBlocks.SHADE_STONE, new Item.Properties().group(CREATIVE_TAB));
 
     //chests
     public static final Item SPECTRAL_CHEST = createItem(new BlockItem(ATBlocks.SPECTRAL_CHEST, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CHEST));

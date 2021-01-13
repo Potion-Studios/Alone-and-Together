@@ -3,7 +3,7 @@ package corgiaoc.aloneandtogether.client.entity.renderers;
 import com.google.common.collect.Maps;
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.client.entity.models.GeckoModel;
-import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
+import corgiaoc.aloneandtogether.common.dimension.abyss.entity.GeckoEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
@@ -27,9 +27,8 @@ public final class GeckoRenderer<T extends GeckoEntity> extends AbstractGeckoRen
         super(manager, new GeckoModel<>(), 1.0F);
     }
 
-    @Nullable
     @Override
-    public ResourceLocation getEntityTexture(@Nonnull T entity) {
+    public @Nonnull ResourceLocation getEntityTexture(@Nonnull T entity) {
         return GECKO_TEXTURE.get(entity.getSkinColor());
     }
 

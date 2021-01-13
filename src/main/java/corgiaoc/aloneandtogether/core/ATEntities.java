@@ -1,7 +1,7 @@
 package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
-import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
+import corgiaoc.aloneandtogether.common.dimension.abyss.entity.GeckoEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

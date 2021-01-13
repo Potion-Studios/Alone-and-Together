@@ -4,7 +4,7 @@
 //import com.google.common.collect.ImmutableList;
 //import com.mojang.blaze3d.matrix.MatrixStack;
 //import com.mojang.blaze3d.vertex.IVertexBuilder;
-//import corgiaoc.aloneandtogether.common.dimension.abyss.entity.BogFlyEntity;
+//import corgiaoc.aloneandtogether.common.abyss.entity.BogFlyEntity;
 //import net.minecraft.client.renderer.entity.model.AgeableModel;
 //import net.minecraft.client.renderer.model.ModelRenderer;
 //import net.minecraft.util.math.MathHelper;

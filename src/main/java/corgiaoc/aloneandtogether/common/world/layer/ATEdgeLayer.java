@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.layer;
+package corgiaoc.aloneandtogether.common.world.layer;
 
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;

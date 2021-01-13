@@ -1,10 +1,7 @@
 package corgiaoc.aloneandtogether.client.renderer;
 
-import com.google.common.collect.Maps;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import corgiaoc.aloneandtogether.AloneAndTogether;
-import corgiaoc.aloneandtogether.common.entity.GeckoEntity;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
@@ -23,15 +20,10 @@ import net.minecraft.tileentity.IChestLid;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMerger;
 import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.world.World;
 
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Comparator;
-import java.util.Map;
 
 public class ATChestTileEntityRenderer<T extends TileEntity & IChestLid> extends TileEntityRenderer<T> {
     private final ModelRenderer singleLid;

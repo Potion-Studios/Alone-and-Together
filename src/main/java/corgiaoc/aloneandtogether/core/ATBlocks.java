@@ -4,10 +4,8 @@ import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.common.block.ATCraftingTableBlock;
 import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import corgiaoc.aloneandtogether.common.block.ATLeavesBlock;
-import corgiaoc.aloneandtogether.common.dimension.ATDimensions;
-import corgiaoc.aloneandtogether.common.dimension.abyss.properties.*;
+import corgiaoc.aloneandtogether.common.dimension.abyss.block.*;
 import corgiaoc.aloneandtogether.common.world.feature.tree.TreeSpawners;
-import corgiaoc.aloneandtogether.common.world.feature.tree.abyss.SpectralTree1;
 import corgiaoc.aloneandtogether.common.world.feature.tree.util.TreeSpawner;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -152,9 +150,6 @@ public class ATBlocks {
     public static final Block ABYSS_GLOWSTONE_ORE = createGlowOre("abyss_glowstone_ore");
     public static final Block ALEXANDERITE_ORE = createOre("alexanderite_ore");
 
-    //saplings
-    public static final Block SPECTRAL_SAPLING = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling");
-
     //ore blocks
     public static final Block RHYLITHYST_BLOCK = createOreBlock("rhylithyst_block");
 
@@ -203,17 +198,21 @@ public class ATBlocks {
 
     //flora
     public static final Block
-            // Leaves/Growths/Misc (flora that does'nt use the cross model)
+            // leaves
             SPECTRAL_LEAVES      = registerBlock("spectral_leaves", new ATLeavesBlock()),
             ORVIUM_LEAVES        = registerBlock("orvium_leaves", new ATLeavesBlock()),
 
-            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock()),
+            // saplings
+            SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),
 
-            // Grass/Flowers/Ferns (flora, that uses the cross model)
+            // misc
+            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
+
+            // grass, flowers, and ferns
             VOID_GRASS           = createAbyssPlantBlock("void_grass"),
             VOID_FERN            = createAbyssPlantBlock("void_fern"),
             GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(Properties.from(Blocks.TALL_GRASS).setLightLevel((state) -> 2))),
-            SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlant(createVineProperties())),
+            SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlantBlock(createVineProperties())),
             SPECTRAL_VINES       = registerBlock("spectral_vines", new SpectralVinesBlock(createVineProperties().setLightLevel((state) -> 12)));
 
     private static @Nonnull Properties createVineProperties() {
@@ -231,228 +230,147 @@ public class ATBlocks {
     //chests
     public static final Block SPECTRAL_CHEST = createChestBlock("spectral_chest");
 
-    static Block createFence(String id) {
+    static @Nonnull Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createSapling(int taskRange, TreeSpawner tree, String id){
+    static @Nonnull Block createSapling(int taskRange, TreeSpawner tree, String id){
         Block createBlock = new ATSaplingBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createOre(String id) {
+    static @Nonnull Block createOre(String id) {
         Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createGlowOre(String id) {
+    static @Nonnull Block createGlowOre(String id) {
         Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.GLASS).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f).setLightLevel((state) -> 9));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createOreBlock(String id) {
+    static @Nonnull Block createOreBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(3.0f, 5.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createFenceGate(String id) {
+    static @Nonnull Block createFenceGate(String id) {
         Block createBlock = new FenceGateBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createChestBlock(String id){
+    static @Nonnull Block createChestBlock(String id){
         Block createBlock = new ChestBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD), () -> TileEntityType.CHEST);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createWoodSlab(String id) {
+    static @Nonnull Block createWoodSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createAbyssPlantBlock(String id) {
-        return registerBlock(id, new ATFernBlock());
+    static @Nonnull Block createAbyssPlantBlock(String id) {
+        return registerBlock(id, new ATFernBlock(Properties.from(Blocks.GRASS).notSolid()));
     }
 
-    static Block createWoodPressurePlate(String id) {
+    static @Nonnull Block createWoodPressurePlate(String id) {
         Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createWoodStairs(String id) {
+    static @Nonnull Block createWoodStairs(String id) {
         Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "planks"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.OAK_PLANKS).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createStoneStairs(String id) {
+    static @Nonnull Block createStoneStairs(String id) {
         Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "stone"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.STONE).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createStoneSlabs(String id) {
+    static @Nonnull Block createStoneSlabs(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createTrapDoor(String id) {
+    static @Nonnull Block createTrapDoor(String id) {
         Block createBlock = new TrapDoorBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createCraftingTable(String id) {
+    static @Nonnull Block createCraftingTable(String id) {
         Block createBlock = new ATCraftingTableBlock(AbstractBlock.Properties.from(Blocks.CRAFTING_TABLE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createWoodButton(String id) {
+    static @Nonnull Block createWoodButton(String id) {
         Block createBlock = new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createBookshelf(String id) {
+    static @Nonnull Block createBookshelf(String id) {
         Block createBlock = new BookshelfBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createDoor(String id) {
+    static @Nonnull Block createDoor(String id) {
         Block createBlock = new DoorBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createPlanks(String id) {
+    static @Nonnull Block createPlanks(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createWood(String id) {
+    static @Nonnull Block createWood(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createStrippedLog(String id) {
+    static @Nonnull Block createStrippedLog(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createLog(String id) {
+    static @Nonnull Block createLog(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(AloneAndTogether.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createWoodWall(String id) {
+    static @Nonnull Block createWoodWall(String id) {
         Block createBlock = new WallBlock(AbstractBlock.Properties.from(SPECTRAL_WOOD));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createStoneWall(String id) {
+    static @Nonnull Block createStoneWall(String id) {
         Block createBlock = new WallBlock(AbstractBlock.Properties.from(VOIDSTONE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
+    static @Nonnull Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
         Block createBlock = new DimensionTeleporterBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool(), worldRegistryKey);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
-    static Block createGlowBlock(String id) {
+
+    static @Nonnull Block createGlowBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(2.0f, 2.5f).notSolid().setLightLevel((state) -> { return 11; }));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createMycenaBlock(String id) {
+    static @Nonnull Block createMycenaBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).notSolid().setLightLevel((state) -> 11));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+        return registerBlock(id, createBlock);
     }
 
-    static Block createTuberBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(AloneAndTogether.MOD_ID, id)); //Forge
-        blocks.add(createBlock);
-        return createBlock;
+    static @Nonnull Block createTuberBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.FUNGUS).hardnessAndResistance(1.0f));
+        return registerBlock(id, createBlock);
     }
 
     static @Nonnull Block createGrassBlock(String id) {
         Block grass = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
-
         return registerBlock(id, grass);
     }
 
@@ -472,7 +390,7 @@ public class ATBlocks {
     }
 
     static @Nonnull Block createStonePillar(String id) {
-        Block pillar = new RotatedPillarBlock(Properties.from(Blocks.BASALT).hardnessAndResistance(1.5F, 6.0F));
+        Block pillar = new RotatedPillarBlock(Properties.from(Blocks.STONE).hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, pillar);
     }
 
