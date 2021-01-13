@@ -7,6 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -29,6 +30,8 @@ import java.util.Random;
 
 public class GeckoEntity extends AnimalEntity {
     private static final DataParameter<Byte> SKIN_COLOR = EntityDataManager.createKey(GeckoEntity.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(GeckoEntity.class, DataSerializers.BYTE);
+
 
     public GeckoEntity(EntityType<? extends GeckoEntity> type, World worldIn) {
         super(type, worldIn);
@@ -48,6 +51,7 @@ public class GeckoEntity extends AnimalEntity {
     protected void registerData() {
         super.registerData();
         dataManager.register(SKIN_COLOR, (byte)0);
+        dataManager.register(CLIMBING, (byte)0);
     }
 
     @Override
@@ -128,9 +132,31 @@ public class GeckoEntity extends AnimalEntity {
         if (entityIn == this) super.applyEntityCollision(entityIn);
     }
 
+    public void tick() {
+        super.tick();
+        if (!this.world.isRemote) {
+            this.setBesideClimbableBlock(this.collidedHorizontally);
+        }
+    }
+
+    public boolean isBesideClimbableBlock() {
+        return (this.dataManager.get(CLIMBING) & 1) != 0;
+    }
+
+    public void setBesideClimbableBlock(boolean climbing) {
+        byte b0 = this.dataManager.get(CLIMBING);
+        if (climbing) {
+            b0 = (byte)(b0 | 1);
+        } else {
+            b0 = (byte)(b0 & -2);
+        }
+
+        this.dataManager.set(CLIMBING, b0);
+    }
+
     @Override
     public boolean isOnLadder() {
-        return true;
+        return this.isBesideClimbableBlock();
     }
 
     // Write to Nbt

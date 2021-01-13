@@ -19,7 +19,7 @@ public class AbstractGeckoRenderer<T extends GeckoEntity, M extends GeckoModel<T
 
     protected void preRenderCallback(T entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
         if (this.getEntityModel().isChild) {
-            matrixStackIn.scale(this.SCALE - 0.5F, this.SCALE - 0.2F, this.SCALE - 0.5F);
+            matrixStackIn.scale(this.SCALE - 0.5F, this.SCALE - 0.2F, this.SCALE - 0.4F);
         } else {
             matrixStackIn.scale(this.SCALE, this.SCALE, this.SCALE);
             super.preRenderCallback(entitylivingbaseIn, matrixStackIn, partialTickTime);

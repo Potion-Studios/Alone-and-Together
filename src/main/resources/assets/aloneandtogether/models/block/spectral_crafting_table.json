@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "aloneandtogether:block/spectral_crafting_table_front",
+    "north": "aloneandtogether:block/spectral_crafting_table_front",
+    "south": "aloneandtogether:block/spectral_crafting_table_side",
+    "east": "aloneandtogether:block/spectral_crafting_table_side",
+    "west": "aloneandtogether:block/spectral_crafting_table_side",
+    "up": "aloneandtogether:block/spectral_crafting_table_top",
+    "down": "aloneandtogether:block/spectral_crafting_table_bottom"
+  }
+}

@@ -1,9 +1,6 @@
 package corgiaoc.aloneandtogether.common.dimension.abyss.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DoublePlantBlock;
-import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -18,7 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import static net.minecraft.state.properties.BlockStateProperties.WATERLOGGED;
 
-public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable {
+public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable, ILiquidContainer {
 
     public GlowTailsBlock(Properties properties) {
         super(properties);
@@ -38,6 +35,7 @@ public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable {
     public boolean canContainFluid(IBlockReader reader, BlockPos pos, BlockState state, Fluid fluid) {
         return !hasFluid(state) && isFluidValid(fluid);
     }
+
 
     @ParametersAreNonnullByDefault
     @Override
@@ -67,6 +65,15 @@ public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable {
     private static boolean isFluidValid(Fluid fluid) {
         return fluid == Fluids.WATER || fluid == Fluids.LAVA;
     }
+
+    public FluidState getFluidState(BlockState state) {
+        if (hasFluid(state)) {
+            return Fluids.WATER.getStillFluidState(false);
+        }else {
+            return Fluids.EMPTY.getDefaultState();
+        }
+    }
+
 
     private static boolean hasFluid(@Nonnull BlockState state) {
         return state.get(WATERLOGGED);

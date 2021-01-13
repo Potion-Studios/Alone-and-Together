@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.client.entity.models;
+package corgiaoc.aloneandtogether.client.entity.renderers;
 
 //public class BogFlyRenderer extends MobRenderer<BogFlyEntity, BeeModel<BogFlyEntity>> {
 //    private static final ResourceLocation BOG_FLY_TEXTURE_PATH = new ResourceLocation(AloneAndTogether.MOD_ID, "textures/entity/bog_fly.png");
