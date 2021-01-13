@@ -54,9 +54,8 @@ public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable {
     }
 
     @ParametersAreNonnullByDefault
-    @Nonnull
     @Override
-    public Fluid pickupFluid(IWorld world, BlockPos pos, BlockState state) {
+    public @Nonnull Fluid pickupFluid(IWorld world, BlockPos pos, BlockState state) {
         if (hasFluid(state)) {
             world.setBlockState(pos, state.with(WATERLOGGED, false), 3);
             return world.getFluidState(pos).getFluid();

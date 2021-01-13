@@ -27,9 +27,8 @@ public final class GeckoRenderer<T extends GeckoEntity> extends AbstractGeckoRen
         super(manager, new GeckoModel<>(), 1.0F);
     }
 
-    @Nullable
     @Override
-    public ResourceLocation getEntityTexture(@Nonnull T entity) {
+    public @Nonnull ResourceLocation getEntityTexture(@Nonnull T entity) {
         return GECKO_TEXTURE.get(entity.getSkinColor());
     }
 

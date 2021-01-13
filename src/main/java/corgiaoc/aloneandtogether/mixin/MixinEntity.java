@@ -1,6 +1,6 @@
 package corgiaoc.aloneandtogether.mixin;
 
-import corgiaoc.aloneandtogether.common.dimension.stellaris.world.ATDimensions;
+import corgiaoc.aloneandtogether.core.ATDimensions;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.util.StellarisDimensionGravityModifier;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.AxisAlignedBB;

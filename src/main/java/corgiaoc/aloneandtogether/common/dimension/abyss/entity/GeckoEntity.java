@@ -28,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 public class GeckoEntity extends AnimalEntity {
-    private static final DataParameter<Byte> SKIN_COLOR = EntityDataManager.createKey(GeckoEntity.class, DataSerializers.BYTE);
+    private static final DataParameter<Integer> FLAGS = EntityDataManager.createKey(GeckoEntity.class, DataSerializers.VARINT);
 
     public GeckoEntity(EntityType<? extends GeckoEntity> type, World worldIn) {
         super(type, worldIn);
@@ -47,7 +47,7 @@ public class GeckoEntity extends AnimalEntity {
     @Override
     protected void registerData() {
         super.registerData();
-        dataManager.register(SKIN_COLOR, (byte)0);
+        dataManager.register(FLAGS, 0);
     }
 
     @Override
@@ -66,14 +66,10 @@ public class GeckoEntity extends AnimalEntity {
     }
 
     @ParametersAreNonnullByDefault
-    @Nullable
     @Override
-    public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+    public @Nullable ILivingEntityData onInitialSpawn(IServerWorld world, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT tag) {
         setSkinColor(getRandomGeckoColor(rand));
-
-        if (spawnDataIn == null) spawnDataIn = new AgeableEntity.AgeableData(1.0F);
-
-        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+        return super.onInitialSpawn(world, difficultyIn, reason, spawnData == null ? new AgeableEntity.AgeableData(1.0F) : spawnData, tag);
     }
 
     public static SkinColors getRandomGeckoColor(@Nonnull Random random) {
@@ -99,14 +95,19 @@ public class GeckoEntity extends AnimalEntity {
     // End initialising
 
     @Override
+    public void tick() {
+        super.tick();
+        setClimbing(!world.isRemote && collidedHorizontally);
+    }
+
+    @Override
     public boolean isBreedingItem(@Nonnull ItemStack stack) {
         return stack.getItem() == Items.APPLE;
     }
 
     @ParametersAreNonnullByDefault
-    @Nullable
     @Override
-    public AgeableEntity func_241840_a(ServerWorld world, AgeableEntity baby) {
+    public @Nullable AgeableEntity func_241840_a(ServerWorld world, AgeableEntity mate) {
         @Nullable GeckoEntity child = ATEntities.GECKO.create(world);
 
         if (child != null) child.setSkinColor(getRandomGeckoColor(child.rand));
@@ -124,13 +125,8 @@ public class GeckoEntity extends AnimalEntity {
     }
 
     @Override
-    public void applyEntityCollision(@Nonnull Entity entityIn) {
-        if (entityIn == this) super.applyEntityCollision(entityIn);
-    }
-
-    @Override
     public boolean isOnLadder() {
-        return true;
+        return isClimbing();
     }
 
     // Write to Nbt
@@ -138,22 +134,44 @@ public class GeckoEntity extends AnimalEntity {
     @Override
     public void writeAdditional(@Nonnull CompoundNBT compound) {
         super.writeAdditional(compound);
-        compound.putByte("Color", (byte)this.getSkinColor().ordinal());
-    }
-
-    public SkinColors getSkinColor() {
-        return SkinColors.byId(dataManager.get(SKIN_COLOR) & 15);
+        compound.putInt("Flag", getRawFlag());
     }
 
     @Override
     public void readAdditional(@Nonnull CompoundNBT compound) {
         super.readAdditional(compound);
-        this.setSkinColor(SkinColors.byId(compound.getByte("Color")));
+        setRawFlag(compound.getInt("Flag"));
+    }
+
+    public SkinColors getSkinColor() {
+        return SkinColors.byIndex((getRawFlag() >> 8) & Byte.MAX_VALUE);
+    }
+
+    public boolean isClimbing() {
+        return ((getRawFlag() >> 16) & Byte.MAX_VALUE) > 0;
     }
 
     public void setSkinColor(@Nonnull SkinColors color) {
-        byte b = this.dataManager.get(SKIN_COLOR);
-        this.dataManager.set(SKIN_COLOR, (byte)(b & 240 | color.ordinal() & 15));
+        setFlags(color, isClimbing());
+    }
+
+    public void setClimbing(boolean value) {
+        setFlags(getSkinColor(), value);
+    }
+
+    public int getRawFlag() {
+        return dataManager.get(FLAGS);
+    }
+
+    public void setFlags(@Nonnull SkinColors color, boolean climbing) {
+        setRawFlag(
+                (color.ordinal() & Byte.MAX_VALUE) << 16 |
+                (climbing ? 1 : 0) << 8
+        );
+    }
+
+    public void setRawFlag(int flag) {
+        dataManager.set(FLAGS, flag);
     }
 
     // End write to nbt
@@ -167,8 +185,8 @@ public class GeckoEntity extends AnimalEntity {
         RED(),
         ORANGE();
 
-        public static SkinColors byId(int id) {
-            return Maths.get(SkinColors.values(), id);
+        public static SkinColors byIndex(int index) {
+            return Maths.get(SkinColors.values(), index);
         }
     }
 }

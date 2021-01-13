@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.stellaris.world;
+package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.client.renderer.dimension.StellarisDimensionRenderer;

@@ -5,31 +5,23 @@ import corgiaoc.aloneandtogether.client.entity.models.GeckoModel;
 import corgiaoc.aloneandtogether.common.dimension.abyss.entity.GeckoEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.util.ResourceLocation;
 
-import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
-public class AbstractGeckoRenderer<T extends GeckoEntity, M extends GeckoModel<T>> extends MobRenderer<T, M> {
-    private final float SCALE;
+public abstract class AbstractGeckoRenderer<T extends GeckoEntity, M extends GeckoModel<T>> extends MobRenderer<T, M> {
+    private final float scale;
 
-    public AbstractGeckoRenderer(EntityRendererManager renderManagerIn, M model, float scaleIn) {
-        super(renderManagerIn, model, 0.25F);
-        this.SCALE = scaleIn;
+    public AbstractGeckoRenderer(EntityRendererManager manager, M model, float scale) {
+        super(manager, model, 0.25F);
+        this.scale = scale;
     }
 
-    protected void preRenderCallback(T entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
-        if (this.getEntityModel().isChild) {
-            matrixStackIn.scale(this.SCALE - 0.5F, this.SCALE - 0.2F, this.SCALE - 0.5F);
-        } else {
-            matrixStackIn.scale(this.SCALE, this.SCALE, this.SCALE);
-            super.preRenderCallback(entitylivingbaseIn, matrixStackIn, partialTickTime);
-        }
-    }
+    @ParametersAreNonnullByDefault
+    @Override
+    protected void preRenderCallback(T entity, MatrixStack matrices, float tickTime) {
+        if(entity.isChild()) matrices.scale(scale - 0.5F, scale - 0.2F, scale - 0.4F);
 
-
-
-    @Nullable
-    public ResourceLocation getEntityTexture(T entity) {
-        return null;
+        matrices.scale(scale, scale, scale);
+        super.preRenderCallback(entity, matrices, tickTime);
     }
 }

@@ -5,7 +5,6 @@ import corgiaoc.aloneandtogether.common.block.ATCraftingTableBlock;
 import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import corgiaoc.aloneandtogether.common.block.ATLeavesBlock;
 import corgiaoc.aloneandtogether.common.dimension.abyss.block.*;
-import corgiaoc.aloneandtogether.common.dimension.stellaris.world.ATDimensions;
 import corgiaoc.aloneandtogether.common.world.feature.tree.TreeSpawners;
 import corgiaoc.aloneandtogether.common.world.feature.tree.util.TreeSpawner;
 import net.minecraft.block.*;
@@ -330,7 +329,7 @@ public class ATBlocks {
         return registerBlock(id, createBlock);
     }
 
-    static Block createStrippedLog(String id) {
+    static @Nonnull Block createStrippedLog(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
         return registerBlock(id, createBlock);
     }
@@ -372,7 +371,6 @@ public class ATBlocks {
 
     static @Nonnull Block createGrassBlock(String id) {
         Block grass = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
-
         return registerBlock(id, grass);
     }
 
