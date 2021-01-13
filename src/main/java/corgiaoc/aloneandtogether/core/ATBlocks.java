@@ -365,7 +365,7 @@ public class ATBlocks {
     }
 
     static @Nonnull Block createTuberBlock(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f));
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.FUNGUS).hardnessAndResistance(1.0f));
         return registerBlock(id, createBlock);
     }
 

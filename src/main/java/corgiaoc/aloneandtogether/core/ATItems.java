@@ -154,7 +154,7 @@ public class ATItems {
     public static final Item ALEXANDERITE_ORE = createItem(new BlockItem(ATBlocks.ALEXANDERITE_ORE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.ALEXANDERITE_ORE));
     
     //gems
-    public static final Item ALEXANDRITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "alexandrite_gem");
+    public static final Item ALEXANDERITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "alexanderite_gem");
     public static final Item KROHNKITE_GEM = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "krohnkite_gem");
     
     //tuber
