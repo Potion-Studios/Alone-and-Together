@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "aloneandtogether:block/void_grass"
+    "layer0": "aloneandtogether:block/abyssal_growth_grass"
   }
 }

@@ -23,7 +23,8 @@ public class ATCutOutRenders {
                 ATBlocks.YELLOW_MYCENA.getBlock(),
                 ATBlocks.GREEN_MYCENA.getBlock(),
                 ATBlocks.VOID_FERN.getBlock(),
-                ATBlocks.ABYSSAL_GROWTH.getBlock()
+                ATBlocks.ABYSSAL_GROWTH.getBlock(),
+                ATBlocks.VOID_GRASS.getBlock()
         };
         Arrays.stream(blocks).forEach((block) -> RenderTypeLookup.setRenderLayer(block, RenderType.getCutoutMipped()));
 

@@ -271,7 +271,7 @@ public class ATBlocks {
     }
 
     static @Nonnull Block createAbyssPlantBlock(String id) {
-        return registerBlock(id, new ATFernBlock(Properties.from(Blocks.GRASS).notSolid()));
+        return registerBlock(id, new ATFernBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> { return 11; })));
     }
 
     static @Nonnull Block createWoodPressurePlate(String id) {

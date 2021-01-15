@@ -17,8 +17,8 @@ public class AbyssBog extends AbyssBiomeBase {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("abyss_bog", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ATBlocks.OVERGROWN_VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
-    static final float DEPTH = 0.0F;
-    static final float SCALE = 0.35F;
+    static final float DEPTH = -0.35F;
+    static final float SCALE = 0.02F;
     static final float TEMPERATURE = 2.0F;
     static final float DOWNFALL = 0.9F;
     static final int WATER_COLOR = 3158064;
@@ -42,7 +42,8 @@ public class AbyssBog extends AbyssBiomeBase {
     }
 
     static {
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.VOID_FERN);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.RANDOM_VOID_PLANT);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.ABYSSAL_GROWTH);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.ABYSS_BOG_TREES);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
