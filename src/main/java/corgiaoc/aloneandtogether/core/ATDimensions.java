@@ -1,8 +1,8 @@
 package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
-import corgiaoc.aloneandtogether.client.renderer.dimension.StellarisDimensionRenderer;
 import corgiaoc.aloneandtogether.client.renderer.dimension.AbyssDimensionRenderer;
+import corgiaoc.aloneandtogether.client.renderer.dimension.StellarisDimensionRenderer;
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.biomesource.AbyssBiomeSource;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.biomesource.StellarisBiomeSource;
 import corgiaoc.aloneandtogether.common.dimension.stellaris.world.chunkgenerator.StellarisChunkGenerator;

@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import corgiaoc.aloneandtogether.common.world.decorator.config.CountExtraRandomYConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 
 import java.util.Random;

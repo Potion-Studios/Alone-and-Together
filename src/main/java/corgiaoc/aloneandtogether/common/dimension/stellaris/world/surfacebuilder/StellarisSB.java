@@ -1,7 +1,6 @@
 package corgiaoc.aloneandtogether.common.dimension.stellaris.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
-
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FNVector3f;
 import corgiaoc.aloneandtogether.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;

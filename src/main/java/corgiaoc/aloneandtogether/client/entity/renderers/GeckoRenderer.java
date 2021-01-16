@@ -9,10 +9,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.Map;
 
-public final class GeckoRenderer<T extends GeckoEntity> extends AbstractGeckoRenderer<T, GeckoModel<T>> {
+public final class GeckoRenderer<T extends GeckoEntity> extends AbstractRenderer<T, GeckoModel<T>> {
     private static final Map<GeckoEntity.SkinColors, ResourceLocation> GECKO_TEXTURE = Util.make(Maps.newEnumMap(GeckoEntity.SkinColors.class), (map) -> {
         map.put(GeckoEntity.SkinColors.BLUE,   createTexture("blue"));
         map.put(GeckoEntity.SkinColors.WHITE,  createTexture("white"));

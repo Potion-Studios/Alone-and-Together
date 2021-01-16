@@ -7,7 +7,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IWorldReader;
 
-
 import java.util.Random;
 
 public class SpectralVinesBlock extends AbstractTopPlantBlock {
