@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.ArrayList;
 import java.util.List;
 
-import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.*;
+import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.createFeature;
 
 public class ATFeatures {
 

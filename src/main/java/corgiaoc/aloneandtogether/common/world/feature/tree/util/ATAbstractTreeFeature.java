@@ -3,7 +3,6 @@ package corgiaoc.aloneandtogether.common.world.feature.tree.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
-
 import corgiaoc.aloneandtogether.common.world.feature.config.ATTreeConfig;
 import corgiaoc.aloneandtogether.common.world.feature.util.FeatureUtil;
 import corgiaoc.aloneandtogether.core.ATBlocks;

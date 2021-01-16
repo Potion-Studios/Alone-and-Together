@@ -3,7 +3,6 @@ package corgiaoc.aloneandtogether.client.renderer.dimension;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import corgiaoc.aloneandtogether.AloneAndTogether;
-import corgiaoc.aloneandtogether.client.renderer.dimension.util.SkyRendererUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;

@@ -16,7 +16,8 @@ import net.minecraftforge.client.ISkyRenderHandler;
 import javax.annotation.Nullable;
 import java.awt.*;
 
-import static corgiaoc.aloneandtogether.client.renderer.dimension.util.SkyRendererUtils.*;
+import static corgiaoc.aloneandtogether.client.renderer.dimension.util.SkyRendererUtils.renderSimpleObject;
+import static corgiaoc.aloneandtogether.client.renderer.dimension.util.SkyRendererUtils.renderSimpleSkyBox;
 
 public class AbyssDimensionRenderer extends DimensionRenderInfo {
 

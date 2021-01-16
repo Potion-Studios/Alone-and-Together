@@ -37,8 +37,8 @@ public class GeckoEntity extends AnimalEntity {
     public static @Nonnull AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 2.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5F)
-                .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.33F)
+                .createMutableAttribute(Attributes.FOLLOW_RANGE, 12.0D)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
     }
 
@@ -62,7 +62,7 @@ public class GeckoEntity extends AnimalEntity {
         this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(9, new LeapAtTargetGoal(this, 0.4f));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, BogFlyEntity.class, false));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PyreFlyEntity.class, false));
     }
 
     @ParametersAreNonnullByDefault
@@ -144,11 +144,11 @@ public class GeckoEntity extends AnimalEntity {
     }
 
     public SkinColors getSkinColor() {
-        return SkinColors.byIndex((getRawFlag() >> 8) & Byte.MAX_VALUE);
+        return SkinColors.byIndex((getRawFlag() >> 16) & Byte.MAX_VALUE);
     }
 
     public boolean isClimbing() {
-        return ((getRawFlag() >> 16) & Byte.MAX_VALUE) > 0;
+        return ((getRawFlag() >> 8) & Byte.MAX_VALUE) > 0;
     }
 
     public void setSkinColor(@Nonnull SkinColors color) {

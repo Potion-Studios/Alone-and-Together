@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 
-import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.*;
+import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.createConfiguredFeature;
 
 public class ATConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> DUMMY_TREE = createConfiguredFeature("dummy_tree", ATFeatures.NBT_STRUCTURE.withConfiguration(new NoFeatureConfig()).withPlacement(ATDecorators.COUNT_EXTRA_RANDOM_Y.configure(new CountExtraRandomYConfig(100000, 0.05F, 1))));

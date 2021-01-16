@@ -211,7 +211,7 @@ public class ATBlocks {
             // grass, flowers, and ferns
             VOID_GRASS           = createAbyssPlantBlock("void_grass"),
             VOID_FERN            = createAbyssPlantBlock("void_fern"),
-            GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(Properties.from(Blocks.TALL_GRASS).setLightLevel((state) -> 2))),
+            GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 4))),
             SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlantBlock(createVineProperties())),
             SPECTRAL_VINES       = registerBlock("spectral_vines", new SpectralVinesBlock(createVineProperties().setLightLevel((state) -> 12)));
 

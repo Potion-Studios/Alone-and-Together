@@ -1,6 +1,5 @@
 package corgiaoc.aloneandtogether.core.world.util;
 
-import com.google.common.collect.ImmutableMap;
 import corgiaoc.aloneandtogether.AloneAndTogether;
 import corgiaoc.aloneandtogether.core.world.*;
 import net.minecraft.util.ResourceLocation;
@@ -16,8 +15,6 @@ import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.settings.DimensionStructuresSettings;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;

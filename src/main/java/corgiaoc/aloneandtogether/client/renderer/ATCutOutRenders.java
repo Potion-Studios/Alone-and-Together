@@ -4,7 +4,6 @@ import corgiaoc.aloneandtogether.core.ATBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import java.util.Arrays;
 

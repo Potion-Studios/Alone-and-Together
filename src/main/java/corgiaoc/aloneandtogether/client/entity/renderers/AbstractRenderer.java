@@ -1,17 +1,17 @@
 package corgiaoc.aloneandtogether.client.entity.renderers;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import corgiaoc.aloneandtogether.client.entity.models.GeckoModel;
-import corgiaoc.aloneandtogether.common.dimension.abyss.entity.GeckoEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
+import net.minecraft.entity.MobEntity;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public abstract class AbstractGeckoRenderer<T extends GeckoEntity, M extends GeckoModel<T>> extends MobRenderer<T, M> {
+public abstract class AbstractRenderer<T extends MobEntity, M extends AgeableModel<T>> extends MobRenderer<T, M> {
     private final float scale;
 
-    public AbstractGeckoRenderer(EntityRendererManager manager, M model, float scale) {
+    public AbstractRenderer(EntityRendererManager manager, M model, float scale) {
         super(manager, model, 0.25F);
         this.scale = scale;
     }

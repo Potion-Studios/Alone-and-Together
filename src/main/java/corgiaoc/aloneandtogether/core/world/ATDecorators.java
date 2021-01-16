@@ -7,7 +7,7 @@ import net.minecraft.world.gen.placement.Placement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.*;
+import static corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper.createDecorator;
 
 public class ATDecorators {
 

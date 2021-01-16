@@ -1,15 +1,13 @@
 package corgiaoc.aloneandtogether;
 
 import corgiaoc.aloneandtogether.client.entity.renderers.GeckoRenderer;
+import corgiaoc.aloneandtogether.client.entity.renderers.PyreFlyRenderer;
 import corgiaoc.aloneandtogether.client.renderer.ATChestTileEntityRenderer;
 import corgiaoc.aloneandtogether.client.renderer.ATCutOutRenders;
-import corgiaoc.aloneandtogether.core.ATDimensions;
-import corgiaoc.aloneandtogether.common.dimension.abyss.world.blockplacer.ATBlockPlacerTypes;
 import corgiaoc.aloneandtogether.common.dimension.abyss.entity.GeckoEntity;
-import corgiaoc.aloneandtogether.core.ATBlocks;
-import corgiaoc.aloneandtogether.core.ATEntities;
-import corgiaoc.aloneandtogether.core.ATItems;
-import corgiaoc.aloneandtogether.core.ATSoundEvents;
+import corgiaoc.aloneandtogether.common.dimension.abyss.entity.PyreFlyEntity;
+import corgiaoc.aloneandtogether.common.dimension.abyss.world.blockplacer.ATBlockPlacerTypes;
+import corgiaoc.aloneandtogether.core.*;
 import corgiaoc.aloneandtogether.core.world.*;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Block;
@@ -63,6 +61,7 @@ public class AloneAndTogether {
             }
         });
         GlobalEntityTypeAttributes.put(ATEntities.GECKO, GeckoEntity.setCustomAttributes().create());
+        GlobalEntityTypeAttributes.put(ATEntities.PYRE_FLY, PyreFlyEntity.setCustomAttributes().create());
 
     }
 
@@ -71,6 +70,8 @@ public class AloneAndTogether {
         ATCutOutRenders.renderCutOuts();
         ClientRegistry.bindTileEntityRenderer(TileEntityType.CHEST, ATChestTileEntityRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ATEntities.GECKO, GeckoRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ATEntities.PYRE_FLY, PyreFlyRenderer::new);
+
 
     }
 
