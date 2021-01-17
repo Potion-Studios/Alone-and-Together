@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.block;
+package corgiaoc.aloneandtogether.common.dimension.abyss.block.flora;
 
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;

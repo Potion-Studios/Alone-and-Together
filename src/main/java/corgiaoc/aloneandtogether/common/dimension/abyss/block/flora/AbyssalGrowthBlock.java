@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.block;
+package corgiaoc.aloneandtogether.common.dimension.abyss.block.flora;
 
 import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import net.minecraft.block.Block;
@@ -34,9 +34,8 @@ public class AbyssalGrowthBlock extends ATFernBlock {
         builder.add(LIT);
     }
 
-    @Nonnull
     @Override
-    public OffsetType getOffsetType() {
+    public @Nonnull OffsetType getOffsetType() {
         return OffsetType.NONE;
     }
 

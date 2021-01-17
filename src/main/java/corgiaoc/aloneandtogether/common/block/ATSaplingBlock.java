@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.block;
+package corgiaoc.aloneandtogether.common.block;
 
 import corgiaoc.aloneandtogether.common.world.feature.tree.util.TreeSpawner;
 import corgiaoc.aloneandtogether.core.ATBlocks;

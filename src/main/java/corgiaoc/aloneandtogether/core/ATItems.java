@@ -186,6 +186,7 @@ public class ATItems {
             SPECTRAL_LEAVES = createBlockItem(ATBlocks.SPECTRAL_LEAVES, createFloraProperties()),
             ORVIUM_LEAVES   = createBlockItem(ATBlocks.ORVIUM_LEAVES,   createFloraProperties()),
             ABYSSAL_GROWTH  = createBlockItem(ATBlocks.ABYSSAL_GROWTH,  createFloraProperties()),
+            BOG_SHROOM      = createBlockItem(ATBlocks.BOG_SHROOM,      createFloraProperties()),
             VOID_GRASS      = createBlockItem(ATBlocks.VOID_GRASS,      createFloraProperties()),
             VOID_FERN       = createBlockItem(ATBlocks.VOID_FERN,       createFloraProperties()),
             GLOWTAILS       = createBlockItem(ATBlocks.GLOWTAILS,       createFloraProperties()),

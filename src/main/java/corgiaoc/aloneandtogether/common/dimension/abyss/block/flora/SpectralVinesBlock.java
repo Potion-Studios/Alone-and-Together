@@ -1,4 +1,4 @@
-package corgiaoc.aloneandtogether.common.dimension.abyss.block;
+package corgiaoc.aloneandtogether.common.dimension.abyss.block.flora;
 
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import net.minecraft.block.*;
