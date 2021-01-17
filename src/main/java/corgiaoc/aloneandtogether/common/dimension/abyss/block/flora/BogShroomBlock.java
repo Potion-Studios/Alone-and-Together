@@ -32,8 +32,7 @@ public class BogShroomBlock extends ATFernBlock {
     @Override
     public @Nullable BlockState getStateForPlacement(@Nonnull BlockItemUseContext context) {
         World world = context.getPlayer().world;
-
-        return super.getStateForPlacement(context).with(AGE_0_3, world.rand.nextInt(3));
+        return getDefaultState().with(AGE_0_3, world.rand.nextInt(3));
     }
 
     @ParametersAreNonnullByDefault

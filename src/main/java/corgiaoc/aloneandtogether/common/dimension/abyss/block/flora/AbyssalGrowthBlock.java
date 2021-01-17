@@ -46,7 +46,6 @@ public class AbyssalGrowthBlock extends ATFernBlock {
         builder.add(LIT);
     }
 
-
     public static boolean isLit(@Nonnull BlockState state) {
         return state.get(LIT);
     }

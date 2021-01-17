@@ -6,6 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nonnull;
@@ -22,7 +23,8 @@ public class ATFernBlock extends BushBlock implements IFlammableBlock {
     @ParametersAreNonnullByDefault
     @Override
     public @Nonnull VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
-        return SHAPE;
+        Vector3d offset = state.getOffset(reader, pos);
+        return SHAPE.withOffset(offset.x, offset.y, offset.z);
     }
 
     @ParametersAreNonnullByDefault
