@@ -18,6 +18,8 @@ public class ATCutOutRenders {
                 ATBlocks.GLOWTAILS.getBlock(),
                 ATBlocks.VOID_FERN.getBlock(),
                 ATBlocks.ABYSSAL_GROWTH.getBlock(),
+                ATBlocks.ABYSSAL_WALL_GROWTH.getBlock(),
+                ATBlocks.BOG_SHROOM.getBlock(),
                 ATBlocks.VOID_GRASS.getBlock(),
                 ATBlocks.RHYLAGLASS.getBlock(),
                 ATBlocks.BOG_BELL_BULBS.getBlock(),

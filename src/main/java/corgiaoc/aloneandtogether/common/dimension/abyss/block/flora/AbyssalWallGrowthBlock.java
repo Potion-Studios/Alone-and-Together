@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import static net.minecraft.state.properties.BlockStateProperties.HORIZONTAL_FACING;
-// y
+
 public class AbyssalWallGrowthBlock extends AbyssalGrowthBlock {
 
     public AbyssalWallGrowthBlock(Properties properties) {

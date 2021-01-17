@@ -6,10 +6,7 @@ import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import corgiaoc.aloneandtogether.common.block.ATLeavesBlock;
 import corgiaoc.aloneandtogether.common.block.ATSaplingBlock;
 import corgiaoc.aloneandtogether.common.dimension.abyss.block.*;
-import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.AbyssalGrowthBlock;
-import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.GlowTailsBlock;
-import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.SpectralVinesBlock;
-import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.SpectralVinesPlantBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.*;
 import corgiaoc.aloneandtogether.common.world.feature.tree.TreeSpawners;
 import corgiaoc.aloneandtogether.common.world.feature.tree.util.TreeSpawner;
 import net.minecraft.block.*;
@@ -223,6 +220,8 @@ public class ATBlocks {
 
             // misc
             ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
+            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(ABYSSAL_GROWTH))),
+            BOG_SHROOM           = registerBlock("bog_shroom", new BogShroomBlock(Properties.from(Blocks.GRASS))),
 
             // grass, flowers, and ferns
             VOID_GRASS           = createAbyssPlantBlock("void_grass"),
