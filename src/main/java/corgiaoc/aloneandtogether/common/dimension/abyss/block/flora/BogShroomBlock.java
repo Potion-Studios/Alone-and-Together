@@ -55,8 +55,8 @@ public class BogShroomBlock extends ATFernBlock {
             if (effect != null) {
                 effect.setPosition(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D);
                 effect.setPotion(Potions.POISON);
-                effect.setRadius(0.7F);
-                effect.setDuration(10);
+                effect.setRadius(1.7F);
+                effect.setDuration(40);
 
                 world.addEntity(effect);
             }
