@@ -2,17 +2,19 @@ package corgiaoc.aloneandtogether.common.dimension.abyss.world.biome;
 
 import corgiaoc.aloneandtogether.common.dimension.abyss.world.AbyssBiomeBase;
 import corgiaoc.aloneandtogether.core.ATBlocks;
+import corgiaoc.aloneandtogether.core.world.ATConfiguredFeatures;
 import corgiaoc.aloneandtogether.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class OrviumTropics extends AbyssBiomeBase {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("orvium_tropics", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ATBlocks.OVERGROWN_VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("orvium_tropics", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ATBlocks.ORVIUM_GRASS.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
     static final float DEPTH = 0.15F;
@@ -40,6 +42,7 @@ public class OrviumTropics extends AbyssBiomeBase {
     }
 
     static {
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.ORVIUM_FEATHER);
 
     }
 }

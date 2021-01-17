@@ -138,6 +138,9 @@ public class ATItems {
     //glowstone
     public static final Item BOG_LILLY_CRYSTAL = createItem(new BlockItem(ATBlocks.BOG_LILLY_CRYSTAL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BOG_LILLY_CRYSTAL));
 
+    //glass
+    public static final Item RHYLAGLASS = createItem(new BlockItem(ATBlocks.RHYLAGLASS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLAGLASS));
+
     //mycena
     public static final Item BLUE_MYCENA = createItem(new BlockItem(ATBlocks.BLUE_MYCENA, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BLUE_MYCENA));
     public static final Item GREEN_MYCENA = createItem(new BlockItem(ATBlocks.GREEN_MYCENA, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GREEN_MYCENA));
@@ -185,12 +188,14 @@ public class ATItems {
     public static final Item
             SPECTRAL_LEAVES = createBlockItem(ATBlocks.SPECTRAL_LEAVES, createFloraProperties()),
             ORVIUM_LEAVES   = createBlockItem(ATBlocks.ORVIUM_LEAVES,   createFloraProperties()),
-            ABYSSAL_GROWTH  = createItem(new WallOrFloorItem(ATBlocks.ABYSSAL_GROWTH, ATBlocks.ABYSSAL_WALL_GROWTH, createFloraProperties()), "abyssal_growth"),
-            BOG_SHROOM      = createBlockItem(ATBlocks.BOG_SHROOM,      createFloraProperties()),
+            ABYSSAL_GROWTH  = createBlockItem(ATBlocks.ABYSSAL_GROWTH,  createFloraProperties()),
             VOID_GRASS      = createBlockItem(ATBlocks.VOID_GRASS,      createFloraProperties()),
             VOID_FERN       = createBlockItem(ATBlocks.VOID_FERN,       createFloraProperties()),
             GLOWTAILS       = createBlockItem(ATBlocks.GLOWTAILS,       createFloraProperties()),
-            SPECTRAL_VINES  = createBlockItem(ATBlocks.SPECTRAL_VINES,  createFloraProperties());
+            SPECTRAL_VINES  = createBlockItem(ATBlocks.SPECTRAL_VINES,  createFloraProperties()),
+            BOG_BELL_BULBS  = createBlockItem(ATBlocks.BOG_BELL_BULBS,  createFloraProperties()),
+            TALL_BELL_BULBS = createBlockItem(ATBlocks.TALL_BELL_BULBS, createFloraProperties()),
+            ORVIUM_FEATHER  = createBlockItem(ATBlocks.ORVIUM_FEATHER,  createFloraProperties());
 
     private static @Nonnull Item.Properties createFloraProperties() {
         return new Item.Properties().group(ATItemGroups.FLORA);
@@ -199,6 +204,11 @@ public class ATItems {
     //overgrown stone
     public static final Item OVERGROWN_VOIDSTONE = createItem(new BlockItem(ATBlocks.OVERGROWN_VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.OVERGROWN_VOIDSTONE));
     public static final Item PHERN_MOSS = createItem(new BlockItem(ATBlocks.PHERN_MOSS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.PHERN_MOSS));
+    public static final Item RITHLIUM = createItem(new BlockItem(ATBlocks.RITHLIUM, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RITHLIUM));
+    public static final Item ORVIUM_GRASS = createBlockItem(ATBlocks.ORVIUM_GRASS, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item BOLITHIAN_STONE = createBlockItem(ATBlocks.BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item POLISHED_BOLITHIAN_STONE = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+
 
     //stone
     public static final Item VOIDSTONE = createItem(new BlockItem(ATBlocks.VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.VOIDSTONE));
@@ -219,11 +229,13 @@ public class ATItems {
     public static final Item METEOR_STONE_STAIRS = createItem(new BlockItem(ATBlocks.METEOR_STONE_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.METEOR_STONE_STAIRS));
     public static final Item METEOR_STONE_SLAB = createItem(new BlockItem(ATBlocks.METEOR_STONE_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.METEOR_STONE_SLAB));
     public static final Item SPACE_DEBRIS = createItem(new BlockItem(ATBlocks.SPACE_DEBRIS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPACE_DEBRIS));
-    public static final Item RHYLITE_PILLAR = createItem(new BlockItem(ATBlocks.RHYLITE_PILLAR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLITE_PILLAR));
-    public static final Item RHYLITE_BLOCK = createItem(new BlockItem(ATBlocks.RHYLITE_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLITE_BLOCK));
-    public static final Item RHYLITE_BRICKS = createItem(new BlockItem(ATBlocks.RHYLITE_BRICKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLITE_BRICKS));
-    public static final Item CHISELED_RHYLITE_BLOCK = createItem(new BlockItem(ATBlocks.CHISELED_RHYLITE_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_RHYLITE_BLOCK));
+    public static final Item RITHLIUM_PILLAR = createItem(new BlockItem(ATBlocks.RITHLIUM_PILLAR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RITHLIUM_PILLAR));
+    public static final Item RITHLIUM_BLOCK = createItem(new BlockItem(ATBlocks.RITHLIUM_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RITHLIUM_BLOCK));
+    public static final Item RITHLIUM_BRICKS = createItem(new BlockItem(ATBlocks.RITHLIUM_BRICKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RITHLIUM_BRICKS));
+    public static final Item CHISELED_RITHLIUM_BLOCK = createItem(new BlockItem(ATBlocks.CHISELED_RITHLIUM_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_RITHLIUM_BLOCK));
     public static final Item SHADE_STONE = createBlockItem(ATBlocks.SHADE_STONE, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item HARDENED_RITH_STONE = createItem(new BlockItem(ATBlocks.HARDENED_RITH_STONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.HARDENED_RITH_STONE));
+    public static final Item HARDENED_VOIDSTONE = createItem(new BlockItem(ATBlocks.HARDENED_VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.HARDENED_VOIDSTONE));
 
     //chests
     public static final Item SPECTRAL_CHEST = createItem(new BlockItem(ATBlocks.SPECTRAL_CHEST, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CHEST));

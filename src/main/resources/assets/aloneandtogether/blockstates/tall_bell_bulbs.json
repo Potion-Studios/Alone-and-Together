@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "aloneandtogether:block/tall_bell_bulbs_bottom"
+    },
+    "half=upper": {
+      "model": "aloneandtogether:block/tall_bell_bulbs_top"}
+  }
+}

@@ -6,7 +6,10 @@ import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import corgiaoc.aloneandtogether.common.block.ATLeavesBlock;
 import corgiaoc.aloneandtogether.common.block.ATSaplingBlock;
 import corgiaoc.aloneandtogether.common.dimension.abyss.block.*;
-import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.*;
+import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.AbyssalGrowthBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.GlowTailsBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.SpectralVinesBlock;
+import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.SpectralVinesPlantBlock;
 import corgiaoc.aloneandtogether.common.world.feature.tree.TreeSpawners;
 import corgiaoc.aloneandtogether.common.world.feature.tree.util.TreeSpawner;
 import net.minecraft.block.*;
@@ -155,6 +158,9 @@ public class ATBlocks {
     //ore blocks
     public static final Block RHYLITHYST_BLOCK = createOreBlock("rhylithyst_block");
 
+    //glass
+    public static final Block RHYLAGLASS = createGlass("rhylaglass");
+
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
 
@@ -168,6 +174,8 @@ public class ATBlocks {
     //overgrown stone
     public static final Block OVERGROWN_VOIDSTONE = createOvergrownStone("overgrown_voidstone");
     public static final Block PHERN_MOSS = createOvergrownStone("phern_moss");
+    public static final Block RITHLIUM = createOvergrownStone("rithlium");
+    public static final Block ORVIUM_GRASS = createOvergrownStone("orvium_grass");
 
     //grass blocks
     public static final Block ASTRAL_GRASS_BLOCK = createGrassBlock("astral_grass_block");
@@ -192,11 +200,15 @@ public class ATBlocks {
     public static final Block METEOR_STONE_STAIRS = createStoneStairs("meteor_stone_stairs");
     public static final Block METEOR_STONE_SLAB = createStoneSlabs("meteor_stone_slab");
     public static final Block SPACE_DEBRIS = createStonePillar("space_debris");
-    public static final Block RHYLITE_PILLAR = createStonePillar("rhylite_pillar");
-    public static final Block RHYLITE_BRICKS = createStoneBlock("rhylite_bricks");
-    public static final Block RHYLITE_BLOCK = createStoneBlock("rhylite_block");
-    public static final Block CHISELED_RHYLITE_BLOCK = createStoneBlock("chiseled_rhylite_block");
+    public static final Block RITHLIUM_PILLAR = createStonePillar("rithlium_pillar");
+    public static final Block RITHLIUM_BRICKS = createStoneBlock("rithlium_bricks");
+    public static final Block RITHLIUM_BLOCK = createStoneBlock("rithlium_block");
+    public static final Block CHISELED_RITHLIUM_BLOCK = createStoneBlock("chiseled_rithlium_block");
     public static final Block SHADE_STONE = createStoneBlock("shade_stone");
+    public static final Block POLISHED_BOLITHIAN_STONE = createStoneBlock("polished_bolithian_stone");
+    public static final Block BOLITHIAN_STONE = createBasaltPillar("bolithian_stone");
+    public static final Block HARDENED_VOIDSTONE = createHardenedStoneBlock("hardened_voidstone");
+    public static final Block HARDENED_RITH_STONE = createHardenedStoneBlock("hardened_rith_stone");
 
     //flora
     public static final Block
@@ -208,14 +220,15 @@ public class ATBlocks {
             SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),
 
             // misc
-            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().hardnessAndResistance(0.2F, 0.0F).setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
-            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_wall_growth", new AbyssalWallGrowthBlock(Properties.from(ABYSSAL_GROWTH))),
-            BOG_SHROOM           = registerBlock("bog_shroom", new BogShroomBlock(Properties.from(Blocks.GRASS))),
+            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
 
             // grass, flowers, and ferns
             VOID_GRASS           = createAbyssPlantBlock("void_grass"),
             VOID_FERN            = createAbyssPlantBlock("void_fern"),
-            GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 4))),
+            ORVIUM_FEATHER       = createAbyssPlantBlock("orvium_feather"),
+            BOG_BELL_BULBS       = createAbyssPlantBlock("bog_bell_bulbs"),
+            TALL_BELL_BULBS  = registerBlock("tall_bell_bulbs", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 9))),
+            GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 6))),
             SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlantBlock(createVineProperties())),
             SPECTRAL_VINES       = registerBlock("spectral_vines", new SpectralVinesBlock(createVineProperties().setLightLevel((state) -> 12)));
 
@@ -234,171 +247,186 @@ public class ATBlocks {
     //chests
     public static final Block SPECTRAL_CHEST = createChestBlock("spectral_chest");
 
-    static Block createFence(String id) {
+    static @Nonnull Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createSapling(int taskRange, TreeSpawner tree, String id){
+    static @Nonnull Block createGlass(String id) {
+        Block createBlock = new GlassBlock(AbstractBlock.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(0.3f).notSolid());
+        return registerBlock(id, createBlock);
+    }
+
+    static @Nonnull Block createSapling(int taskRange, TreeSpawner tree, String id){
         Block createBlock = new ATSaplingBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
         return registerBlock(id, createBlock);
     }
 
-    static Block createOre(String id) {
+    static @Nonnull Block createOre(String id) {
         Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createGlowOre(String id) {
+    static @Nonnull Block createGlowOre(String id) {
         Block createBlock = new OreBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.GLASS).sound(SoundType.STONE).hardnessAndResistance(3.0f, 5.0f).setLightLevel((state) -> 9));
         return registerBlock(id, createBlock);
     }
 
-    static Block createOreBlock(String id) {
+    static @Nonnull Block createOreBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(3.0f, 5.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createFenceGate(String id) {
+    static @Nonnull Block createFenceGate(String id) {
         Block createBlock = new FenceGateBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createChestBlock(String id){
+    static @Nonnull Block createChestBlock(String id){
         Block createBlock = new ChestBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD), () -> TileEntityType.CHEST);
         return registerBlock(id, createBlock);
     }
 
-    static Block createWoodSlab(String id) {
+    static @Nonnull Block createWoodSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createAbyssPlantBlock(String id) {
+    static @Nonnull Block createAbyssPlantBlock(String id) {
         return registerBlock(id, new ATFernBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> { return 11; })));
     }
 
-    static Block createWoodPressurePlate(String id) {
+    static @Nonnull Block createWoodPressurePlate(String id) {
         Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
         return registerBlock(id, createBlock);
     }
 
-    static Block createWoodStairs(String id) {
+    static @Nonnull Block createWoodStairs(String id) {
         Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "planks"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.OAK_PLANKS).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createStoneStairs(String id) {
+    static @Nonnull Block createStoneStairs(String id) {
         Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "stone"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.STONE).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, createBlock);
     }
 
-    static Block createStoneSlabs(String id) {
+    static @Nonnull Block createStoneSlabs(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, createBlock);
     }
 
-    static Block createTrapDoor(String id) {
+    static @Nonnull Block createTrapDoor(String id) {
         Block createBlock = new TrapDoorBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
         return registerBlock(id, createBlock);
     }
 
-    static Block createCraftingTable(String id) {
+    static @Nonnull Block createCraftingTable(String id) {
         Block createBlock = new ATCraftingTableBlock(AbstractBlock.Properties.from(Blocks.CRAFTING_TABLE));
         return registerBlock(id, createBlock);
     }
 
-    static Block createWoodButton(String id) {
+    static @Nonnull Block createWoodButton(String id) {
         Block createBlock = new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
         return registerBlock(id, createBlock);
     }
 
-    static Block createBookshelf(String id) {
+    static @Nonnull Block createBookshelf(String id) {
         Block createBlock = new BookshelfBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createDoor(String id) {
+    static @Nonnull Block createDoor(String id) {
         Block createBlock = new DoorBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
         return registerBlock(id, createBlock);
     }
 
-    static Block createPlanks(String id) {
+    static @Nonnull Block createPlanks(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createWood(String id) {
+    static @Nonnull Block createWood(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createStrippedLog(String id) {
+    static @Nonnull Block createStrippedLog(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createLog(String id) {
+    static @Nonnull Block createLog(String id) {
         Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createWoodWall(String id) {
+    static @Nonnull Block createWoodWall(String id) {
         Block createBlock = new WallBlock(AbstractBlock.Properties.from(SPECTRAL_WOOD));
         return registerBlock(id, createBlock);
     }
 
-    static Block createStoneWall(String id) {
+    static @Nonnull Block createStoneWall(String id) {
         Block createBlock = new WallBlock(AbstractBlock.Properties.from(VOIDSTONE));
         return registerBlock(id, createBlock);
     }
 
-    static Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
+    static @Nonnull Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
         Block createBlock = new DimensionTeleporterBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool(), worldRegistryKey);
         return registerBlock(id, createBlock);
     }
 
-    static Block createGlowBlock(String id) {
+    static @Nonnull Block createGlowBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(2.0f, 2.5f).notSolid().setLightLevel((state) -> { return 11; }));
         return registerBlock(id, createBlock);
     }
 
-    static Block createMycenaBlock(String id) {
+    static @Nonnull Block createMycenaBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1.0f).notSolid().setLightLevel((state) -> 11));
         return registerBlock(id, createBlock);
     }
 
-    static Block createTuberBlock(String id) {
+    static @Nonnull Block createTuberBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.CLAY).sound(SoundType.FUNGUS).hardnessAndResistance(1.0f));
         return registerBlock(id, createBlock);
     }
 
-    static Block createGrassBlock(String id) {
+    static @Nonnull Block createGrassBlock(String id) {
         Block grass = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.5f));
         return registerBlock(id, grass);
     }
 
-    static Block createDirtBlock(String id) {
+    static @Nonnull Block createDirtBlock(String id) {
         Block dirt = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.5f));
         return registerBlock(id, dirt);
     }
 
-    static Block createStoneBlock(String id) {
+    static @Nonnull Block createStoneBlock(String id) {
         Block stone = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, stone);
     }
 
-    static Block createOvergrownStone(String id) {
+    static @Nonnull Block createHardenedStoneBlock(String id) {
+        Block stone = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3F, 12F));
+        return registerBlock(id, stone);
+    }
+
+    static @Nonnull Block createOvergrownStone(String id) {
         Block overgrownStone = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.NYLIUM).setRequiresTool().harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, overgrownStone);
     }
 
-    static Block createStonePillar(String id) {
+    static @Nonnull Block createStonePillar(String id) {
         Block pillar = new RotatedPillarBlock(Properties.from(Blocks.STONE).hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, pillar);
     }
 
-    static <T extends Block> T registerBlock(String id, @Nonnull T block) {
+    static @Nonnull Block createBasaltPillar(String id) {
+        Block pillar = new RotatedPillarBlock(Properties.from(Blocks.BASALT).hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, pillar);
+    }
+
+    static @Nonnull <T extends Block> T registerBlock(String id, @Nonnull T block) {
         block.setRegistryName(AloneAndTogether.createResource(id));
 
         blocks.add(block);

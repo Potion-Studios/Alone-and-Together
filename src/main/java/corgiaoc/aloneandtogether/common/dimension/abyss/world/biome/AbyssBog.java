@@ -44,6 +44,9 @@ public class AbyssBog extends AbyssBiomeBase {
     static {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.RANDOM_VOID_PLANT);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.ABYSSAL_GROWTH);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.BOG_BELL_BULBS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.TALL_BELL_BULBS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.GLOWTAILS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.ABYSS_BOG_TREES);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ATConfiguredFeatures.SPECTRAL_VINES);

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "aloneandtogether:block/rithlium_block_side",
+    "north": "aloneandtogether:block/rithlium_block_side",
+    "south": "aloneandtogether:block/rithlium_block_side",
+    "east": "aloneandtogether:block/rithlium_block_side",
+    "west": "aloneandtogether:block/rithlium_block_side",
+    "up": "aloneandtogether:block/rithlium_block_top",
+    "down": "aloneandtogether:block/rithlium_block_bottom"
+  }
+}
