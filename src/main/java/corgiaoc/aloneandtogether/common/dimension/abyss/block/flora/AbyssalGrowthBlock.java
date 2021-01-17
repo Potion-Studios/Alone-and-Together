@@ -33,7 +33,7 @@ public class AbyssalGrowthBlock extends ATFernBlock {
     @ParametersAreNonnullByDefault
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
-        return super.isValidGround(state, reader, pos) || state.isIn(BlockTags.LOGS);
+        return super.isValidGround(state, reader, pos) || state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.PLANKS);
     }
 
     @Override

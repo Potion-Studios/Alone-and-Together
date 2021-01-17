@@ -16,16 +16,18 @@ public class ATCutOutRenders {
                 ATBlocks.SPECTRAL_VINES.getBlock(),
                 ATBlocks.SPECTRAL_VINES_PLANT.getBlock(),
                 ATBlocks.GLOWTAILS.getBlock(),
-                ATBlocks.MYCENA_STEM.getBlock(),
-                ATBlocks.BLUE_MYCENA.getBlock(),
-                ATBlocks.RED_MYCENA.getBlock(),
-                ATBlocks.YELLOW_MYCENA.getBlock(),
-                ATBlocks.GREEN_MYCENA.getBlock(),
                 ATBlocks.VOID_FERN.getBlock(),
                 ATBlocks.ABYSSAL_GROWTH.getBlock(),
+                ATBlocks.ABYSSAL_WALL_GROWTH.getBlock(),
+                ATBlocks.BOG_SHROOM.getBlock(),
                 ATBlocks.VOID_GRASS.getBlock()
         };
         Arrays.stream(blocks).forEach((block) -> RenderTypeLookup.setRenderLayer(block, RenderType.getCutoutMipped()));
+
+        RenderTypeLookup.setRenderLayer(ATBlocks.RED_MYCENA.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ATBlocks.YELLOW_MYCENA.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ATBlocks.BLUE_MYCENA.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ATBlocks.GREEN_MYCENA.getBlock(), RenderType.getTranslucent());
 
         //Doors & Trapdoors
         RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_DOOR.getBlock(), RenderType.getTranslucent());
