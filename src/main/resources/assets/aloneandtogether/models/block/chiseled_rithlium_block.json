@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "aloneandtogether:block/chiseled_rhylite_block"
+    "side": "aloneandtogether:block/chiseled_rithlium_block",
+    "end": "aloneandtogether:block/chiseled_rithlium_block_top"
   }
 }

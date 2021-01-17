@@ -174,7 +174,7 @@ public class ATBlocks {
     //overgrown stone
     public static final Block OVERGROWN_VOIDSTONE = createOvergrownStone("overgrown_voidstone");
     public static final Block PHERN_MOSS = createOvergrownStone("phern_moss");
-    public static final Block RITHLIUM = createOvergrownStone("rithlium");
+    public static final Block RHYLIUM = createOvergrownStone("rhylium");
     public static final Block ORVIUM_GRASS = createOvergrownStone("orvium_grass");
 
     //grass blocks
@@ -202,6 +202,7 @@ public class ATBlocks {
     public static final Block SPACE_DEBRIS = createStonePillar("space_debris");
     public static final Block RITHLIUM_PILLAR = createStonePillar("rithlium_pillar");
     public static final Block RITHLIUM_BRICKS = createStoneBlock("rithlium_bricks");
+    public static final Block RITHLIUM = createStoneBlock("rithlium");
     public static final Block RITHLIUM_BLOCK = createStoneBlock("rithlium_block");
     public static final Block CHISELED_RITHLIUM_BLOCK = createStoneBlock("chiseled_rithlium_block");
     public static final Block SHADE_STONE = createStoneBlock("shade_stone");
@@ -215,6 +216,7 @@ public class ATBlocks {
             // leaves
             SPECTRAL_LEAVES      = registerBlock("spectral_leaves", new ATLeavesBlock()),
             ORVIUM_LEAVES        = registerBlock("orvium_leaves", new ATLeavesBlock()),
+            NIGHTRIO_LEAVES      = registerBlock("nightrio_leaves", new ATLeavesBlock()),
 
             // saplings
             SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),

@@ -21,8 +21,6 @@ public class ATCutOutRenders {
                 ATBlocks.VOID_GRASS.getBlock(),
                 ATBlocks.RHYLAGLASS.getBlock(),
                 ATBlocks.BOG_BELL_BULBS.getBlock(),
-                ATBlocks.ABYSSAL_WALL_GROWTH.getBlock(),
-                ATBlocks.BOG_SHROOM.getBlock(),
                 ATBlocks.TALL_BELL_BULBS.getBlock(),
                 ATBlocks.ORVIUM_FEATHER.getBlock()
         };
