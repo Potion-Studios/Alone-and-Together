@@ -4,6 +4,7 @@ import corgiaoc.aloneandtogether.common.block.ATFernBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.StateContainer;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -29,15 +30,22 @@ public class AbyssalGrowthBlock extends ATFernBlock {
         return SHAPE;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
-    protected void fillStateContainer(@Nonnull StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(LIT);
+    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
+        return super.isValidGround(state, reader, pos) || state.isIn(BlockTags.LOGS);
     }
 
     @Override
     public @Nonnull OffsetType getOffsetType() {
         return OffsetType.NONE;
     }
+
+    @Override
+    protected void fillStateContainer(@Nonnull StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(LIT);
+    }
+
 
     public static boolean isLit(@Nonnull BlockState state) {
         return state.get(LIT);

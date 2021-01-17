@@ -208,7 +208,8 @@ public class ATBlocks {
             SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),
 
             // misc
-            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
+            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().hardnessAndResistance(0.2F, 0.0F).setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
+            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_wall_growth", new AbyssalWallGrowthBlock(Properties.from(Blocks.GRASS).notSolid().hardnessAndResistance(0.2F, 0.0F))),
             BOG_SHROOM           = registerBlock("bog_shroom", new BogShroomBlock(Properties.from(Blocks.GRASS))),
 
             // grass, flowers, and ferns

@@ -21,17 +21,17 @@ public class ATFernBlock extends BushBlock implements IFlammableBlock {
 
     @ParametersAreNonnullByDefault
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return super.isValidGround(state, worldIn, pos) ||
-                        state.isIn(ATBlocks.OVERGROWN_VOIDSTONE) ||
-                        state.isIn(BlockTags.NYLIUM) ||
-                        state.isIn(Blocks.MYCELIUM);
+    public @Nonnull VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
+        return SHAPE;
     }
 
     @ParametersAreNonnullByDefault
     @Override
-    public @Nonnull VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE;
+    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
+        return super.isValidGround(state, reader, pos) ||
+                        state.isIn(ATBlocks.OVERGROWN_VOIDSTONE) ||
+                        state.isIn(BlockTags.NYLIUM) ||
+                        state.isIn(Blocks.MYCELIUM);
     }
 
     @Override

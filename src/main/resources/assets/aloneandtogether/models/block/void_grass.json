@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:block/tinted_cross",
 	"textures": {
-		"cross": "aloneandtogether:block/abyssal_growth_grass"
+		"cross": "aloneandtogether:block/void_grass"
 	}
 }

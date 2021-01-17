@@ -39,7 +39,7 @@ public class BogShroomBlock extends ATFernBlock {
     @ParametersAreNonnullByDefault
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!nativeEntity(entity)) world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+        if (!nativeEntity(entity) && world.rand.nextInt(64) == 0) world.destroyBlock(pos, false);
     }
 
     private boolean nativeEntity(Entity entity) {
