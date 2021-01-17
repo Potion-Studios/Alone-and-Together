@@ -220,7 +220,7 @@ public class ATBlocks {
 
             // misc
             ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
-            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(ABYSSAL_GROWTH))),
+            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_wall_growth", new AbyssalGrowthBlock(Properties.from(ABYSSAL_GROWTH))),
             BOG_SHROOM           = registerBlock("bog_shroom", new BogShroomBlock(Properties.from(Blocks.GRASS))),
 
             // grass, flowers, and ferns
