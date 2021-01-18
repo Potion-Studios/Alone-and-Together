@@ -7,7 +7,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
 /**
- * WHEN PORTING TO FABRIC, DELETE, FABRIC HAS IT'S OWN WAY OF IMPLEMENTING FLAMMABLE BLOCKS
+ * delete when porting to fabric, cause it has it's own way of implementing flammables!
  */
 public interface IFlammableBlock extends IForgeBlock {
     @Override

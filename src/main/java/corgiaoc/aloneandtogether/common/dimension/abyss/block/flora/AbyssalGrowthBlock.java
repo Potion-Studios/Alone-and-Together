@@ -46,6 +46,10 @@ public class AbyssalGrowthBlock extends ATFernBlock {
         builder.add(LIT);
     }
 
+    /*
+    lit bro, dude, radical lit
+    :flame_emoji:
+     */
     public static boolean isLit(@Nonnull BlockState state) {
         return state.get(LIT);
     }

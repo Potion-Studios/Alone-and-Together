@@ -221,8 +221,8 @@ public class ATBlocks {
             SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),
 
             // misc
-            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).notSolid().setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
-            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_wall_growth", new AbyssalGrowthBlock(Properties.from(ABYSSAL_GROWTH))),
+            ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).hardnessAndResistance(0.2F, 0.0F).setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
+            ABYSSAL_WALL_GROWTH  = registerBlock("abyssal_wall_growth", new AbyssalWallGrowthBlock(Properties.from(ABYSSAL_GROWTH))),
             BOG_SHROOM           = registerBlock("bog_shroom", new BogShroomBlock(Properties.from(Blocks.GRASS))),
 
             // grass, flowers, and ferns
@@ -230,20 +230,10 @@ public class ATBlocks {
             VOID_FERN            = createAbyssPlantBlock("void_fern"),
             ORVIUM_FEATHER       = createAbyssPlantBlock("orvium_feather"),
             BOG_BELL_BULBS       = createAbyssPlantBlock("bog_bell_bulbs"),
-            TALL_BELL_BULBS  = registerBlock("tall_bell_bulbs", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 9))),
+            TALL_BELL_BULBS      = registerBlock("tall_bell_bulbs", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 9))),
             GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 6))),
-            SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlantBlock(createVineProperties())),
-            SPECTRAL_VINES       = registerBlock("spectral_vines", new SpectralVinesBlock(createVineProperties().setLightLevel((state) -> 12)));
-
-    private static @Nonnull Properties createVineProperties() {
-        return Properties
-                .create(Material.PLANTS, MaterialColor.CYAN)
-                .doesNotBlockMovement()
-                .zeroHardnessAndResistance()
-                .sound(SoundType.NETHER_VINE)
-                .notSolid();
-    }
-
+            SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlantBlock(Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).notSolid())),
+            SPECTRAL_VINES       = registerBlock("spectral_vines", new SpectralVinesBlock(Properties.from(SPECTRAL_VINES_PLANT).setLightLevel((state) -> 12)));
     //dirt
     public static final Block ASTRAL_DIRT = createDirtBlock("astral_dirt");
 

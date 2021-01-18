@@ -1,0 +1,30 @@
+{
+	"credit": "cowplant#9401 (unknownbeetle)",
+	"textures": {
+		"growth": "aloneandtogether:block/abyssal_growth",
+		"particle": "aloneandtogether:block/abyssal_growth_grass"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 14],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#growth"},
+				"east": {"uv": [0, 0, 2, 16], "texture": "#growth", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#growth", "cullface": "south"},
+				"west": {"uv": [0, 0, 2, 16], "texture": "#growth", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 2], "texture": "#growth", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 2], "texture": "#growth", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, 0, 14],
+			"to": [16, 16, 14],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 14]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#particle"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#particle"}
+			}
+		}
+	]
+}
