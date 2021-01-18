@@ -31,14 +31,14 @@ public class BogShroomBlock extends ATFernBlock {
 
     @Override
     public @Nullable BlockState getStateForPlacement(@Nonnull BlockItemUseContext context) {
-        World world = context.getPlayer().world;
-        return getDefaultState().with(AGE_0_3, world.rand.nextInt(3));
+        return getDefaultState().with(AGE_0_3, context.getWorld().rand.nextInt(3));
     }
 
     @ParametersAreNonnullByDefault
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!nativeEntity(entity) && world.rand.nextInt(64) == 0) world.destroyBlock(pos, false);
+        int age = state.get(AGE_0_3);
+        if (age > 0 && !nativeEntity(entity) && world.rand.nextInt(100 / age) == 0) world.destroyBlock(pos, false);
     }
 
     private boolean nativeEntity(Entity entity) {
@@ -48,17 +48,16 @@ public class BogShroomBlock extends ATFernBlock {
     @ParametersAreNonnullByDefault
     @Override
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moving) {
-        if (newState.getBlock() != this) {
-            AreaEffectCloudEntity effect = EntityType.AREA_EFFECT_CLOUD.create(world);
+        int age = getAge(state);
 
-            if (effect != null) {
-                effect.setPosition(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D);
-                effect.setPotion(Potions.POISON);
-                effect.setRadius(1.7F);
-                effect.setDuration(40);
+        if (newState.getBlock() != this && !world.isRemote) {
+            AreaEffectCloudEntity effect = new AreaEffectCloudEntity(world, pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D);
 
-                world.addEntity(effect);
-            }
+            effect.setDuration(20 * age);
+            effect.setRadius(0.3F * age);
+            effect.setPotion(Potions.POISON);
+
+            world.addEntity(effect);
         }
         super.onReplaced(state, world, pos, newState, moving);
     }
@@ -71,5 +70,9 @@ public class BogShroomBlock extends ATFernBlock {
     @Override
     protected void fillStateContainer(@Nonnull StateContainer.Builder<Block, BlockState> builder) {
         builder.add(AGE_0_3);
+    }
+
+    private static int getAge(@Nonnull BlockState state) {
+        return state.get(AGE_0_3);
     }
 }

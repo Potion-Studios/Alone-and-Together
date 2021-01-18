@@ -13,7 +13,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
@@ -25,7 +24,6 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -43,23 +41,31 @@ public class PyreFlyEntity extends AnimalEntity implements IFlyingAnimal {
        this.setPathPriority(PathNodeType.FENCE, -1.0F);
     }
 
+    public static @Nonnull AttributeModifierMap.MutableAttribute setCustomAttributes() {
+        return MobEntity.func_233666_p_()
+                .createMutableAttribute(Attributes.MAX_HEALTH, 2.0D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.18F)
+                .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D)
+                .createMutableAttribute(Attributes.FLYING_SPEED, 0.6F)
+                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+    }
+
     @Override
     public void tick() {
         super.tick();
         if (world.isRemote) {
-            this.addParticle(this.world, this.getPosX() - 0.3D, this.getPosX() + 0.3D, this.getPosZ() - 0.4D, this.getPosZ() + 0.4D, this.getPosYHeight(0.4D), ParticleTypes.FLAME);
+            double x = MathHelper.lerp(rand.nextDouble(), getPosX() - 0.3D, getPosX() + 0.3D);
+            double z = MathHelper.lerp(rand.nextDouble(), getPosZ() - 0.4D, getPosZ() + 0.4D);
+            world.addOptionalParticle(ParticleTypes.FLAME, true, x, getPosYHeight(0.4D), z, 0.0D, 0.0D, 0.D);
         }
-    }
-
-    private void addParticle(World worldIn, double x, double x2, double z, double z2, double posY, IParticleData particleData) {
-        worldIn.addParticle(particleData, MathHelper.lerp(worldIn.rand.nextDouble(), x, x2), posY, MathHelper.lerp(worldIn.rand.nextDouble(), z, z2), 0.0D, 0.0D, 0.0D);
     }
 
     @Override
     public boolean onLivingFall(float distance, float damageMultiplier) {
-        return true;
+        return false;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
     }
@@ -68,6 +74,7 @@ public class PyreFlyEntity extends AnimalEntity implements IFlyingAnimal {
     protected void registerData() {
         super.registerData();
     }
+
     @ParametersAreNonnullByDefault
     @Override
     public @Nullable
@@ -92,46 +99,28 @@ public class PyreFlyEntity extends AnimalEntity implements IFlyingAnimal {
     @ParametersAreNonnullByDefault
     @Override
     public @Nullable AgeableEntity func_241840_a(ServerWorld world, AgeableEntity mate) {
-        @Nullable PyreFlyEntity child = ATEntities.PYRE_FLY.create(world);
-
-        return child;
+        return ATEntities.PYRE_FLY.create(world);
     }
 
     @Override
-    public boolean isBreedingItem(ItemStack stack) {
+    public boolean isBreedingItem(@Nonnull ItemStack stack) {
         return stack.getItem().isIn(ItemTags.FLOWERS);
     }
 
-
-    public static @Nonnull
-    AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 2.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.18F)
-                .createMutableAttribute(Attributes.FOLLOW_RANGE, 48.0D)
-                .createMutableAttribute(Attributes.FLYING_SPEED, 0.6F)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
-    }
-
-    protected @NotNull PathNavigator createNavigator(World worldIn) {
-        FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, worldIn) {
-            public boolean canEntityStandOnPos(BlockPos pos) {
-                return !this.world.getBlockState(pos.down()).isAir();
-            }
-
-            public void tick() {
-                super.tick();
+    protected @Nonnull PathNavigator createNavigator(@Nonnull World worldIn) {
+        FlyingPathNavigator navigator = new FlyingPathNavigator(this, worldIn) {
+            public boolean canEntityStandOnPos(@Nonnull BlockPos pos) {
+                return !this.world.isAirBlock(pos.down());
             }
         };
-        flyingpathnavigator.setCanOpenDoors(false);
-        flyingpathnavigator.setCanSwim(false);
-        flyingpathnavigator.setCanEnterDoors(true);
-        return flyingpathnavigator;
+        navigator.setCanOpenDoors(false);
+        navigator.setCanSwim(false);
+        navigator.setCanEnterDoors(true);
+        return navigator;
     }
 
     protected boolean makeFlySound() {
         return true;
     }
-
 }
 

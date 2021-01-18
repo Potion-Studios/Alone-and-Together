@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "aloneandtogether:block/abyssal_wall_growth_north"
+    },
+    "facing=north": {
+      "model": "aloneandtogether:block/abyssal_wall_growth_north"
+    },
+    "facing=south": {
+      "model": "aloneandtogether:block/abyssal_wall_growth_south"
+    },
+    "facing=west": {
+      "model": "aloneandtogether:block/abyssal_wall_growth_north"
+    }
+  }
+}
