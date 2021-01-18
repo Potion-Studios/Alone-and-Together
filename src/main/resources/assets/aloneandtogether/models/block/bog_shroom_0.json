@@ -1,7 +1,7 @@
 {
 	"credit": "cowplant#9401 (unknownbeetle)",
 	"textures": {
-		"particle": "aloneandtogether:block/bogshroom"
+		"particle": "aloneandtogether:block/bog_shroom"
 	},
 	"elements": [
 		{

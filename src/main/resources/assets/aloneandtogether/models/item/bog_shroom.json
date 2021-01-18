@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "aloneandtogether:item/bogshroom"
+    "layer0": "aloneandtogether:item/bog_shroom"
   }
 }
