@@ -1,5 +1,6 @@
 package corgiaoc.aloneandtogether.common.dimension.abyss.block.flora;
 
+import corgiaoc.aloneandtogether.core.ATBlocks;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -10,6 +11,7 @@ import net.minecraft.state.Property;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -51,6 +53,14 @@ public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable, 
     }
 
     @Override
+    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return super.isValidGround(state, worldIn, pos) ||
+                state.isIn(ATBlocks.OVERGROWN_VOIDSTONE) || state.isIn(ATBlocks.ORVIUM_GRASS) || state.isIn(ATBlocks.PHERN_MOSS) || state.isIn(ATBlocks.RITHLIUM) ||
+                state.isIn(BlockTags.NYLIUM) ||
+                state.isIn(Blocks.MYCELIUM);
+    }
+
+    @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos)) {
             return Blocks.AIR.getDefaultState();
@@ -61,7 +71,6 @@ public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable, 
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }
-
 
     @ParametersAreNonnullByDefault
     @Override

@@ -39,6 +39,7 @@ public class ATItems {
     public static final Item STELLARIS_TELEPORTER = createItem(new BlockItem(ATBlocks.STELLARIS_TELEPORTER, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.STELLARIS_TELEPORTER));
     public static final Item GECKO_SPAWN_EGG = createItem(new SpawnEggItem(ATEntities.GECKO, 15423, 21331, (new Item.Properties().group(CREATIVE_TAB))),"gecko_spawn_egg");
     public static final Item PYRE_SPAWN_EGG = createItem(new SpawnEggItem(ATEntities.PYRE_FLY, 354223, 213301, (new Item.Properties().group(CREATIVE_TAB))),"pyre_fly_spawn_egg");
+    public static final Item RISTALITH_CRYSTAL = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "ristalith_crystal");
 
     //spectral wood
     public static final Item SPECTRAL_LOG = createItem(new BlockItem(ATBlocks.SPECTRAL_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_LOG));
