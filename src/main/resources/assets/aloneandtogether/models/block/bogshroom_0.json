@@ -1,0 +1,31 @@
+{
+	"credit": "cowplant#9401 (unknownbeetle)",
+	"textures": {
+		"particle": "aloneandtogether:block/bogshroom"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 7],
+			"to": [9, 4, 9],
+			"faces": {
+				"north": {"uv": [2, 9, 4, 13], "texture": "#particle"},
+				"east": {"uv": [2, 9, 4, 13], "texture": "#particle"},
+				"south": {"uv": [2, 9, 4, 13], "texture": "#particle"},
+				"west": {"uv": [2, 9, 4, 13], "texture": "#particle"},
+				"down": {"uv": [2, 13, 4, 15], "texture": "#particle", "cullface": "down"}
+			}
+		},
+		{
+			"from": [5, 4, 5],
+			"to": [11, 7, 11],
+			"faces": {
+				"north": {"uv": [0, 6, 6, 9], "texture": "#particle"},
+				"east": {"uv": [0, 6, 6, 9], "texture": "#particle"},
+				"south": {"uv": [0, 6, 6, 9], "texture": "#particle"},
+				"west": {"uv": [0, 6, 6, 9], "texture": "#particle"},
+				"up": {"uv": [0, 0, 6, 6], "texture": "#particle"},
+				"down": {"uv": [6, 0, 12, 6], "texture": "#particle"}
+			}
+		}
+	]
+}
