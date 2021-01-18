@@ -19,7 +19,6 @@ public class ATCutOutRenders {
                 ATBlocks.VOID_FERN.getBlock(),
                 ATBlocks.ABYSSAL_GROWTH.getBlock(),
                 ATBlocks.ABYSSAL_WALL_GROWTH.getBlock(),
-                ATBlocks.BOG_SHROOM.getBlock(),
                 ATBlocks.VOID_GRASS.getBlock(),
                 ATBlocks.BOG_BELL_BULBS.getBlock(),
                 ATBlocks.TALL_BELL_BULBS.getBlock(),
@@ -27,6 +26,7 @@ public class ATCutOutRenders {
         };
         Arrays.stream(blocks).forEach((block) -> RenderTypeLookup.setRenderLayer(block, RenderType.getCutoutMipped()));
 
+        RenderTypeLookup.setRenderLayer(ATBlocks.BOG_SHROOM.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.RED_MYCENA.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.YELLOW_MYCENA.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.BLUE_MYCENA.getBlock(), RenderType.getTranslucent());
