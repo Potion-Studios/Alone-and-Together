@@ -160,6 +160,8 @@ public class ATBlocks {
 
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
+    public static final Block RISTALITH_BLOCK = createGlowBlock("ristalith_block");
+
 
     //mycena
     public static final Block BLUE_MYCENA = createMycenaBlock("blue_mycena");

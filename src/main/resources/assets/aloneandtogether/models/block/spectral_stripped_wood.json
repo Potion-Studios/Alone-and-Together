@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aloneandtogether:block/spectral_strip_wood"
+    "all": "aloneandtogether:block/spectral_strip_log"
   }
 }
