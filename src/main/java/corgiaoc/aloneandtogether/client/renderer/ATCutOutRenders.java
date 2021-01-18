@@ -20,7 +20,6 @@ public class ATCutOutRenders {
                 ATBlocks.ABYSSAL_GROWTH.getBlock(),
                 ATBlocks.ABYSSAL_WALL_GROWTH.getBlock(),
                 ATBlocks.VOID_GRASS.getBlock(),
-                ATBlocks.RHYLAGLASS.getBlock(),
                 ATBlocks.BOG_BELL_BULBS.getBlock(),
                 ATBlocks.TALL_BELL_BULBS.getBlock(),
                 ATBlocks.ORVIUM_FEATHER.getBlock()
@@ -32,6 +31,7 @@ public class ATCutOutRenders {
         RenderTypeLookup.setRenderLayer(ATBlocks.YELLOW_MYCENA.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.BLUE_MYCENA.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.GREEN_MYCENA.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ATBlocks.RHYLAGLASS.getBlock(), RenderType.getTranslucent());
 
 
         //Doors & Trapdoors

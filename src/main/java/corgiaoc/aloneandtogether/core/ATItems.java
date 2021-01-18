@@ -137,6 +137,7 @@ public class ATItems {
 
     //glowstone
     public static final Item BOG_LILLY_CRYSTAL = createItem(new BlockItem(ATBlocks.BOG_LILLY_CRYSTAL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.BOG_LILLY_CRYSTAL));
+    public static final Item RISTALITH_BLOCK = createItem(new BlockItem(ATBlocks.RISTALITH_BLOCK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RISTALITH_BLOCK));
 
     //glass
     public static final Item RHYLAGLASS = createItem(new BlockItem(ATBlocks.RHYLAGLASS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RHYLAGLASS));
@@ -188,6 +189,7 @@ public class ATItems {
     public static final Item
             SPECTRAL_LEAVES = createBlockItem(ATBlocks.SPECTRAL_LEAVES, createFloraProperties()),
             ORVIUM_LEAVES   = createBlockItem(ATBlocks.ORVIUM_LEAVES,   createFloraProperties()),
+            NIGHTRIO_LEAVES = createBlockItem(ATBlocks.NIGHTRIO_LEAVES, createFloraProperties()),
             ABYSSAL_GROWTH  = createItem(new WallOrFloorItem(ATBlocks.ABYSSAL_GROWTH, ATBlocks.ABYSSAL_WALL_GROWTH, createFloraProperties()), "abyssal_growth"),
             BOG_SHROOM      = createBlockItem(ATBlocks.BOG_SHROOM,      createFloraProperties()),
             VOID_GRASS      = createBlockItem(ATBlocks.VOID_GRASS,      createFloraProperties()),
