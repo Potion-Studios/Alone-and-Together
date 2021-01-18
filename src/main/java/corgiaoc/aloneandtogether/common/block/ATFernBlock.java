@@ -31,7 +31,7 @@ public class ATFernBlock extends BushBlock implements IFlammableBlock {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
         return super.isValidGround(state, reader, pos) ||
-                        state.isIn(ATBlocks.OVERGROWN_VOIDSTONE) ||
+                        state.isIn(ATBlocks.OVERGROWN_VOIDSTONE) || state.isIn(ATBlocks.ORVIUM_GRASS) || state.isIn(ATBlocks.PHERN_MOSS) || state.isIn(ATBlocks.RITHLIUM) ||
                         state.isIn(BlockTags.NYLIUM) ||
                         state.isIn(Blocks.MYCELIUM);
     }

@@ -153,7 +153,6 @@ public class ATBlocks {
     public static final Block ALEXANDERITE_ORE = createOre("alexanderite_ore");
 
     //ore blocks
-    public static final Block RHYLITHYST_BLOCK = createOreBlock("rhylithyst_block");
 
     //glass
     public static final Block RHYLAGLASS = createGlass("rhylaglass");
@@ -161,7 +160,6 @@ public class ATBlocks {
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
     public static final Block RISTALITH_BLOCK = createGlowBlock("ristalith_block");
-
 
     //mycena
     public static final Block BLUE_MYCENA = createMycenaBlock("blue_mycena");
@@ -173,7 +171,7 @@ public class ATBlocks {
     //overgrown stone
     public static final Block OVERGROWN_VOIDSTONE = createOvergrownStone("overgrown_voidstone");
     public static final Block PHERN_MOSS = createOvergrownStone("phern_moss");
-    public static final Block RHYLIUM = createOvergrownStone("rhylium");
+    public static final Block RITHLIUM = createOvergrownStone("rithlium");
     public static final Block ORVIUM_GRASS = createOvergrownStone("orvium_grass");
 
     //grass blocks
@@ -201,7 +199,6 @@ public class ATBlocks {
     public static final Block SPACE_DEBRIS = createStonePillar("space_debris");
     public static final Block RITHLIUM_PILLAR = createStonePillar("rithlium_pillar");
     public static final Block RITHLIUM_BRICKS = createStoneBlock("rithlium_bricks");
-    public static final Block RITHLIUM = createStoneBlock("rithlium");
     public static final Block RITHLIUM_BLOCK = createStoneBlock("rithlium_block");
     public static final Block CHISELED_RITHLIUM_BLOCK = createStoneBlock("chiseled_rithlium_block");
     public static final Block SHADE_STONE = createStoneBlock("shade_stone");
