@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "aloneandtogether:block/decadatable_front",
+    "north": "aloneandtogether:block/decadatable_front",
+    "south": "aloneandtogether:block/decadatable_side",
+    "east": "aloneandtogether:block/decadatable_side",
+    "west": "aloneandtogether:block/decadatable_side",
+    "up": "aloneandtogether:block/decadatable_top",
+    "down": "aloneandtogether:block/decadatable_bottom"
+  }
+}

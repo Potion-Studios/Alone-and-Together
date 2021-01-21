@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "aloneandtogether:block/spectral_strip_log",
-    "end": "aloneandtogether:block/spectral_strip_log_top"
+    "side": "aloneandtogether:block/spectral_stripped_log",
+    "end": "aloneandtogether:block/spectral_stripped_log_top"
   }
 }

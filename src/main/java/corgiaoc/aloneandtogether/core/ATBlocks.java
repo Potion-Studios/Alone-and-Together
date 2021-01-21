@@ -196,6 +196,7 @@ public class ATBlocks {
     public static final Block DECADASTONE_BRICK_STAIRS = createStoneStairs("decadastone_brick_stairs");
     public static final Block DECADASTONE_BRICK_SLAB = createStoneSlabs("decadastone_brick_slab");
     public static final Block DECADASTONE_BRICK_WALL = createStoneWall("decadastone_brick_wall");
+    public static final Block DECADASTONE_BRICK_FENCE = createStoneFence("decadastone_brick_fence");
     public static final Block CHISELED_DECADASTONE_BRICK = createStoneBlock("chiseled_decadastone_brick");
     public static final Block DECADATABLE = createStoneCraftingTable("decadatable");
     public static final Block DECADASITE = createStoneBlock("decadasite");
@@ -310,6 +311,11 @@ public class ATBlocks {
 
     static @Nonnull Block createStoneSlabs(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, createBlock);
+    }
+
+    static @Nonnull Block createStoneFence(String id) {
+        Block createBlock = new FenceBlock(AbstractBlock.Properties.from(Blocks.NETHER_BRICK_FENCE));
         return registerBlock(id, createBlock);
     }
 

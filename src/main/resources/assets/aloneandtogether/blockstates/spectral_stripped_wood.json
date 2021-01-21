@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "aloneandtogether:block/spectral_strip_wood"
+      "model": "aloneandtogether:block/spectral_stripped_wood"
     }
   }
 }

@@ -231,6 +231,7 @@ public class ATItems {
     public static final Item DECADASTONE_BRICK_STAIRS = createItem(new BlockItem(ATBlocks.DECADASTONE_BRICK_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE_BRICK_STAIRS));
     public static final Item DECADASTONE_BRICK_SLAB = createItem(new BlockItem(ATBlocks.DECADASTONE_BRICK_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE_BRICK_SLAB));
     public static final Item DECADASTONE_BRICK_WALL = createItem(new BlockItem(ATBlocks.DECADASTONE_BRICK_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE_BRICK_WALL));
+    public static final Item DECADASTONE_BRICK_FENCE = createItem(new BlockItem(ATBlocks.DECADASTONE_BRICK_FENCE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE_BRICK_FENCE));
     public static final Item CHISELED_DECADASTONE_BRICK = createItem(new BlockItem(ATBlocks.CHISELED_DECADASTONE_BRICK, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CHISELED_DECADASTONE_BRICK));
     public static final Item DECADATABLE = createItem(new BlockItem(ATBlocks.DECADATABLE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADATABLE));
     public static final Item DECADASTONE_PILLAR = createItem(new BlockItem(ATBlocks.DECADASTONE_PILLAR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.DECADASTONE_PILLAR));
