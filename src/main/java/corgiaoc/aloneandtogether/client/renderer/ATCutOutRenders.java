@@ -31,7 +31,7 @@ public class ATCutOutRenders {
         RenderTypeLookup.setRenderLayer(ATBlocks.YELLOW_MYCENA.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.BLUE_MYCENA.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ATBlocks.GREEN_MYCENA.getBlock(), RenderType.getTranslucent());
-        RenderTypeLookup.setRenderLayer(ATBlocks.RHYLAGLASS.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ATBlocks.RISTAGLASS.getBlock(), RenderType.getTranslucent());
 
 
         //Doors & Trapdoors

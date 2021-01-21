@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/decadastone_brick_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/decadastone_brick"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/decadastone_brick_slab_top"
+    }
+  }
+}

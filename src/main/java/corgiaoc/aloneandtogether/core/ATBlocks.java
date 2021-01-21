@@ -155,7 +155,7 @@ public class ATBlocks {
     //ore blocks
 
     //glass
-    public static final Block RHYLAGLASS = createGlass("rhylaglass");
+    public static final Block RISTAGLASS = createGlass("ristaglass");
 
     //glowstone
     public static final Block BOG_LILLY_CRYSTAL = createGlowBlock("bog_lilly_crystal");
@@ -191,6 +191,13 @@ public class ATBlocks {
     public static final Block VOIDSTONE_BRICK_SLAB = createStoneSlabs("voidstone_brick_slab");
     public static final Block VOIDSTONE_SLAB = createStoneSlabs("voidstone_slab");
     public static final Block DECADASTONE = createStonePillar("decadastone");
+    public static final Block DECADASTONE_PILLAR = createStonePillar("decadastone_pillar");
+    public static final Block DECADASTONE_BRICK = createStoneBlock("decadastone_brick");
+    public static final Block DECADASTONE_BRICK_STAIRS = createStoneStairs("decadastone_brick_stairs");
+    public static final Block DECADASTONE_BRICK_SLAB = createStoneSlabs("decadastone_brick_slab");
+    public static final Block DECADASTONE_BRICK_WALL = createStoneWall("decadastone_brick_wall");
+    public static final Block CHISELED_DECADASTONE_BRICK = createStoneBlock("chiseled_decadastone_brick");
+    public static final Block DECADATABLE = createStoneCraftingTable("decadatable");
     public static final Block DECADASITE = createStoneBlock("decadasite");
     public static final Block METEOR_STONE = createStoneBlock("meteor_stone");
     public static final Block METEOR_STONE_WALL = createStoneWall("meteor_stone_wall");
@@ -313,6 +320,11 @@ public class ATBlocks {
 
     static @Nonnull Block createCraftingTable(String id) {
         Block createBlock = new ATCraftingTableBlock(AbstractBlock.Properties.from(Blocks.CRAFTING_TABLE));
+        return registerBlock(id, createBlock);
+    }
+
+    static @Nonnull Block createStoneCraftingTable(String id) {
+        Block createBlock = new ATCraftingTableBlock(AbstractBlock.Properties.from(Blocks.STONE));
         return registerBlock(id, createBlock);
     }
 
