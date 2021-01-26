@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "aloneandtogether:block/compressed_bolithian_stone",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "aloneandtogether:block/compressed_bolithian_stone",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "aloneandtogether:block/compressed_bolithian_stone"
+    }
+  }
+}

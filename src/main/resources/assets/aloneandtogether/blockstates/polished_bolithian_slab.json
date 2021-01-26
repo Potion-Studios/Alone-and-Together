@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aloneandtogether:block/polished_bolithian_slab"
+    },
+    "type=double": {
+      "model": "aloneandtogether:block/polished_bolithian"
+    },
+    "type=top": {
+      "model": "aloneandtogether:block/polished_bolithian_slab_top"
+    }
+  }
+}

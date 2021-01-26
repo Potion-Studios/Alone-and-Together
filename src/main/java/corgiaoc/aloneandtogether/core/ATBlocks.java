@@ -210,8 +210,14 @@ public class ATBlocks {
     public static final Block RITHLIUM_BLOCK = createStoneBlock("rithlium_block");
     public static final Block CHISELED_RITHLIUM_BLOCK = createStoneBlock("chiseled_rithlium_block");
     public static final Block SHADE_STONE = createStoneBlock("shade_stone");
-    public static final Block POLISHED_BOLITHIAN_STONE = createStoneBlock("polished_bolithian_stone");
+    public static final Block POLISHED_BOLITHIAN_STONE = createStoneBasalt("polished_bolithian_stone");
+    public static final Block POLISHED_BOLITHIAN_SLAB = createStoneBasalt("polished_bolithian_slab");
+    public static final Block POLISHED_BOLITHIAN_STAIRS = createStoneBasalt("polished_bolithian_stairs");
+    public static final Block POLISHED_BOLITHIAN_WALL = createStoneBasaltWall("polished_bolithian_wall");
     public static final Block BOLITHIAN_STONE = createBasaltPillar("bolithian_stone");
+    public static final Block COMPRESSED_BOLITHIAN_STONE = createBasaltPillar("compressed_bolithian_stone");
+    public static final Block MOSSY_BOLITHIAN_STONE = createStoneBasalt("mossy_bolithian_stone");
+    public static final Block CRACKED_BOLITHIAN_STONE = createStoneBasalt("cracked_bolithian_stone");
     public static final Block HARDENED_VOIDSTONE = createHardenedStoneBlock("hardened_voidstone");
     public static final Block HARDENED_RITH_STONE = createHardenedStoneBlock("hardened_rith_stone");
 
@@ -314,6 +320,16 @@ public class ATBlocks {
         return registerBlock(id, createBlock);
     }
 
+    static @Nonnull Block createStoneBasaltStairs(String id) {
+        Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(AloneAndTogether.MOD_ID, id.replace("_stairs", "stone"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.STONE).sound(SoundType.BASALT).hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, createBlock);
+    }
+
+    static @Nonnull Block createStoneBasaltSlabs(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.BASALT).hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, createBlock);
+    }
+
     static @Nonnull Block createStoneFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.from(Blocks.NETHER_BRICK_FENCE));
         return registerBlock(id, createBlock);
@@ -379,6 +395,11 @@ public class ATBlocks {
         return registerBlock(id, createBlock);
     }
 
+    static @Nonnull Block createStoneBasaltWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.from(VOIDSTONE).sound(SoundType.BASALT));
+        return registerBlock(id, createBlock);
+    }
+
     static @Nonnull Block createTeleporterBlock(String id, RegistryKey<World> worldRegistryKey) {
         Block createBlock = new DimensionTeleporterBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool(), worldRegistryKey);
         return registerBlock(id, createBlock);
@@ -411,6 +432,11 @@ public class ATBlocks {
 
     static @Nonnull Block createStoneBlock(String id) {
         Block stone = new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
+        return registerBlock(id, stone);
+    }
+
+    static @Nonnull Block createStoneBasalt(String id) {
+        Block stone = new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.BASALT).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
         return registerBlock(id, stone);
     }
 

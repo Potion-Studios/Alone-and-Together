@@ -211,7 +211,7 @@ public class ATItems {
     public static final Item RITHLIUM = createItem(new BlockItem(ATBlocks.RITHLIUM, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RITHLIUM));
     public static final Item ORVIUM_GRASS = createBlockItem(ATBlocks.ORVIUM_GRASS, new Item.Properties().group(CREATIVE_TAB));
     public static final Item BOLITHIAN_STONE = createBlockItem(ATBlocks.BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
-    public static final Item POLISHED_BOLITHIAN_STONE = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+
 
 
     //stone
@@ -248,6 +248,13 @@ public class ATItems {
     public static final Item SHADE_STONE = createBlockItem(ATBlocks.SHADE_STONE, new Item.Properties().group(CREATIVE_TAB));
     public static final Item HARDENED_RITH_STONE = createItem(new BlockItem(ATBlocks.HARDENED_RITH_STONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.HARDENED_RITH_STONE));
     public static final Item HARDENED_VOIDSTONE = createItem(new BlockItem(ATBlocks.HARDENED_VOIDSTONE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.HARDENED_VOIDSTONE));
+    public static final Item POLISHED_BOLITHIAN_STONE = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item CRACKED_BOLITHIAN_STONE = createBlockItem(ATBlocks.CRACKED_BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item MOSSY_BOLITHIAN_STONE = createBlockItem(ATBlocks.MOSSY_BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item COMPRESSED_BOLITHIAN_STONE = createBlockItem(ATBlocks.COMPRESSED_BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item POLISHED_BOLITHIAN_SLAB = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_SLAB, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item POLISHED_BOLITHIAN_STAIRS = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_STAIRS, new Item.Properties().group(CREATIVE_TAB));
+    public static final Item POLISHED_BOLITHIAN_WALL = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_WALL, new Item.Properties().group(CREATIVE_TAB));
 
     //chests
     public static final Item SPECTRAL_CHEST = createItem(new BlockItem(ATBlocks.SPECTRAL_CHEST, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CHEST));

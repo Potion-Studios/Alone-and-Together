@@ -12,7 +12,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class ObilithFields extends AbyssBiomeBase {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("obilith_fields", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ATBlocks.OVERGROWN_VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState(), ATBlocks.VOIDSTONE.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("obilith_fields", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(ATBlocks.COMPRESSED_BOLITHIAN_STONE.getDefaultState(), ATBlocks.BOLITHIAN_STONE.getDefaultState(), ATBlocks.BOLITHIAN_STONE.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
     static final float DEPTH = 0.15F;

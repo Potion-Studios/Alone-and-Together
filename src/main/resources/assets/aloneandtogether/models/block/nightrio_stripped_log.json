@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "aloneandtogether:block/nightrio_stripped_log",
+    "end": "aloneandtogether:block/nightrio_stripped_log_top"
+  }
+}

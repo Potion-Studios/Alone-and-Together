@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "aloneandtogether:block/compressed_bolithian_stone",
+    "end": "aloneandtogether:block/polished_bolithian_stone"
+  }
+}
