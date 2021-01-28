@@ -1,15 +1,29 @@
 {
   "variants": {
-    "axis=z": {
-      "model": "aloneandtogether:block/compressed_bolithian_stone",
-      "x": 90
+    "facing=down": {
+      "x": 180,
+      "model": "aloneandtogether:block/compressed_bolithian_stone"
     },
-    "axis=x": {
-      "model": "aloneandtogether:block/compressed_bolithian_stone",
+    "facing=east": {
       "x": 90,
-      "y": 90
+      "y": 90,
+      "model": "aloneandtogether:block/compressed_bolithian_stone"
     },
-    "axis=y": {
+    "facing=north": {
+      "x": 90,
+      "model": "aloneandtogether:block/compressed_bolithian_stone"
+    },
+    "facing=south": {
+      "x": 90,
+      "y": 180,
+      "model": "aloneandtogether:block/compressed_bolithian_stone"
+    },
+    "facing=up": {
+      "model": "aloneandtogether:block/compressed_bolithian_stone"
+    },
+    "facing=west": {
+      "x": 90,
+      "y": 270,
       "model": "aloneandtogether:block/compressed_bolithian_stone"
     }
   }

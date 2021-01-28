@@ -1,10 +1,7 @@
 package corgiaoc.aloneandtogether.core;
 
 import corgiaoc.aloneandtogether.AloneAndTogether;
-import corgiaoc.aloneandtogether.common.block.ATCraftingTableBlock;
-import corgiaoc.aloneandtogether.common.block.ATFernBlock;
-import corgiaoc.aloneandtogether.common.block.ATLeavesBlock;
-import corgiaoc.aloneandtogether.common.block.ATSaplingBlock;
+import corgiaoc.aloneandtogether.common.block.*;
 import corgiaoc.aloneandtogether.common.dimension.abyss.block.*;
 import corgiaoc.aloneandtogether.common.dimension.abyss.block.flora.*;
 import corgiaoc.aloneandtogether.common.world.feature.tree.TreeSpawners;
@@ -211,11 +208,11 @@ public class ATBlocks {
     public static final Block CHISELED_RITHLIUM_BLOCK = createStoneBlock("chiseled_rithlium_block");
     public static final Block SHADE_STONE = createStoneBlock("shade_stone");
     public static final Block POLISHED_BOLITHIAN_STONE = createStoneBasalt("polished_bolithian_stone");
-    public static final Block POLISHED_BOLITHIAN_SLAB = createStoneBasalt("polished_bolithian_slab");
-    public static final Block POLISHED_BOLITHIAN_STAIRS = createStoneBasalt("polished_bolithian_stairs");
+    public static final Block POLISHED_BOLITHIAN_SLAB = createStoneBasaltSlabs("polished_bolithian_slab");
+    public static final Block POLISHED_BOLITHIAN_STAIRS = createStoneBasaltStairs("polished_bolithian_stairs");
     public static final Block POLISHED_BOLITHIAN_WALL = createStoneBasaltWall("polished_bolithian_wall");
     public static final Block BOLITHIAN_STONE = createBasaltPillar("bolithian_stone");
-    public static final Block COMPRESSED_BOLITHIAN_STONE = createBasaltPillar("compressed_bolithian_stone");
+    public static final Block COMPRESSED_BOLITHIAN_STONE = registerBlock("compressed_bolithian_stone", new ATDirectionalBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.BASALT).hardnessAndResistance(1.5F, 6.0F)));
     public static final Block MOSSY_BOLITHIAN_STONE = createStoneBasalt("mossy_bolithian_stone");
     public static final Block CRACKED_BOLITHIAN_STONE = createStoneBasalt("cracked_bolithian_stone");
     public static final Block HARDENED_VOIDSTONE = createHardenedStoneBlock("hardened_voidstone");
@@ -223,6 +220,7 @@ public class ATBlocks {
 
     //flora
     public static final Block
+
             // leaves
             SPECTRAL_LEAVES      = registerBlock("spectral_leaves", new ATLeavesBlock()),
             ORVIUM_LEAVES        = registerBlock("orvium_leaves", new ATLeavesBlock()),
