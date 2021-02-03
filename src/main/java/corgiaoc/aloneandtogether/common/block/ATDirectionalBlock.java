@@ -36,6 +36,6 @@ public class ATDirectionalBlock extends DirectionalBlock {
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(PROPERTY_FACING, context.getNearestLookingDirection());
+        return this.getDefaultState().with(PROPERTY_FACING, context.getNearestLookingDirection().getOpposite());
     }
 }
