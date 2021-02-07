@@ -57,6 +57,7 @@ public class GlowTailsBlock extends DoublePlantBlock implements IWaterLoggable, 
         return super.isValidGround(state, worldIn, pos) ||
                 state.isIn(ATBlocks.OVERGROWN_VOIDSTONE) || state.isIn(ATBlocks.ORVIUM_GRASS) || state.isIn(ATBlocks.PHERN_MOSS) || state.isIn(ATBlocks.RITHLIUM) ||
                 state.isIn(BlockTags.NYLIUM) ||
+                state.isIn(ATBlocks.VOIDSTONE) ||
                 state.isIn(Blocks.MYCELIUM);
     }
 

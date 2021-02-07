@@ -7,6 +7,6 @@
     "east": "aloneandtogether:block/decadatable_side",
     "west": "aloneandtogether:block/decadatable_side",
     "up": "aloneandtogether:block/decadatable_top",
-    "down": "aloneandtogether:block/decadatable_bottom"
+    "down": "aloneandtogether:block/decadastone_brick"
   }
 }

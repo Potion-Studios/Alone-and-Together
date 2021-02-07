@@ -19,6 +19,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
@@ -70,6 +71,21 @@ public class GeckoEntity extends AnimalEntity {
     public @Nullable ILivingEntityData onInitialSpawn(IServerWorld world, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT tag) {
         setSkinColor(getRandomGeckoColor(rand));
         return super.onInitialSpawn(world, difficultyIn, reason, spawnData == null ? new AgeableEntity.AgeableData(1.0F) : spawnData, tag);
+    }
+
+    @Override
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        return super.canSpawn(worldIn, spawnReasonIn);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk() {
+        return 12;
+    }
+
+    @Override
+    public boolean canDespawn(double distanceToClosestPlayer) {
+        return true;
     }
 
     public static SkinColors getRandomGeckoColor(@Nonnull Random random) {
