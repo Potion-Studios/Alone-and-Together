@@ -88,14 +88,10 @@ repositories{
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}" //21
-    implementation "com.github.unknownbeetle:Libraries:${project.libraries_version}"
     implementation "org.jetbrains:annotations:20.1.0"
 }
 
 shadowJar {
-    dependencies {
-        include(dependency("com.github.unknownbeetle:Libraries:.*"))
-    }
 }
 
 reobf { shadowJar {} }
