@@ -1,7 +1,7 @@
 package corgiaoc.aloneandtogether.common.dimension.abyss.entity;
 
 
-import com.github.unknownbeetle.libraries.Maths;
+
 import corgiaoc.aloneandtogether.core.ATEntities;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -35,7 +35,8 @@ public class GeckoEntity extends AnimalEntity {
         super(type, worldIn);
     }
 
-    public static @Nonnull AttributeModifierMap.MutableAttribute setCustomAttributes() {
+    public static @Nonnull
+    AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 2.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.33F)
@@ -68,11 +69,12 @@ public class GeckoEntity extends AnimalEntity {
 
     @ParametersAreNonnullByDefault
     @Override
-    public @Nullable ILivingEntityData onInitialSpawn(IServerWorld world, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT tag) {
+    public @Nullable
+    ILivingEntityData onInitialSpawn(IServerWorld world, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT tag) {
         setSkinColor(getRandomGeckoColor(rand));
         return super.onInitialSpawn(world, difficultyIn, reason, spawnData == null ? new AgeableEntity.AgeableData(1.0F) : spawnData, tag);
     }
-
+    @ParametersAreNonnullByDefault
     @Override
     public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
         return super.canSpawn(worldIn, spawnReasonIn);
@@ -123,7 +125,8 @@ public class GeckoEntity extends AnimalEntity {
 
     @ParametersAreNonnullByDefault
     @Override
-    public @Nullable AgeableEntity func_241840_a(ServerWorld world, AgeableEntity mate) {
+    public @Nullable
+    AgeableEntity func_241840_a(ServerWorld world, AgeableEntity mate) {
         @Nullable GeckoEntity child = ATEntities.GECKO.create(world);
 
         if (child != null) child.setSkinColor(getRandomGeckoColor(child.rand));
@@ -133,7 +136,7 @@ public class GeckoEntity extends AnimalEntity {
 
     @Override
     public boolean attackEntityAsMob(@Nonnull Entity entityIn) {
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)getAttributeValue(Attributes.ATTACK_DAMAGE)));
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float) ((int) getAttributeValue(Attributes.ATTACK_DAMAGE)));
 
         if (flag) applyEnchantments(this, entityIn);
 
@@ -182,7 +185,7 @@ public class GeckoEntity extends AnimalEntity {
     public void setFlags(@Nonnull SkinColors color, boolean climbing) {
         setRawFlag(
                 (color.ordinal() & Byte.MAX_VALUE) << 16 |
-                (climbing ? 1 : 0) << 8
+                        (climbing ? 1 : 0) << 8
         );
     }
 
@@ -202,7 +205,9 @@ public class GeckoEntity extends AnimalEntity {
         ORANGE();
 
         public static SkinColors byIndex(int index) {
-            return Maths.get(SkinColors.values(), index);
+            SkinColors[] colours = values();
+
+            return colours[index >= colours.length ? 0 : index];
         }
     }
 }
