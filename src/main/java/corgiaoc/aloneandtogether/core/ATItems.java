@@ -41,25 +41,6 @@ public class ATItems {
     public static final Item PYRE_SPAWN_EGG = createItem(new SpawnEggItem(ATEntities.PYRE_FLY, 354223, 213301, (new Item.Properties().group(CREATIVE_TAB))),"pyre_fly_spawn_egg");
     public static final Item RISTALITH_CRYSTAL = createItem(new Item(new Item.Properties().group(CREATIVE_TAB)), "ristalith_crystal");
 
-    //spectral wood
-    public static final Item SPECTRAL_LOG = createItem(new BlockItem(ATBlocks.SPECTRAL_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_LOG));
-    public static final Item SPECTRAL_PLANKS = createItem(new BlockItem(ATBlocks.SPECTRAL_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_PLANKS));
-    public static final Item CARVED_SPECTRAL_PLANKS = createItem(new BlockItem(ATBlocks.CARVED_SPECTRAL_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.CARVED_SPECTRAL_PLANKS));
-    public static final Item SPECTRAL_FENCE = createItem(new BlockItem(ATBlocks.SPECTRAL_FENCE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_FENCE));
-    public static final Item SPECTRAL_WOOD = createItem(new BlockItem(ATBlocks.SPECTRAL_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_WOOD));
-    public static final Item SPECTRAL_WOOD_WALL = createItem(new BlockItem(ATBlocks.SPECTRAL_WOOD_WALL, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_WOOD_WALL));
-    public static final Item SPECTRAL_FENCE_GATE = createItem(new BlockItem(ATBlocks.SPECTRAL_FENCE_GATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_FENCE_GATE));
-    public static final Item SPECTRAL_SLAB = createItem(new BlockItem(ATBlocks.SPECTRAL_SLAB, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_SLAB));
-    public static final Item SPECTRAL_PRESSURE_PLATE = createItem(new BlockItem(ATBlocks.SPECTRAL_PRESSURE_PLATE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_PRESSURE_PLATE));
-    public static final Item SPECTRAL_STAIRS = createItem(new BlockItem(ATBlocks.SPECTRAL_STAIRS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_STAIRS));
-    public static final Item SPECTRAL_TRAP_DOOR = createItem(new BlockItem(ATBlocks.SPECTRAL_TRAP_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_TRAP_DOOR));
-    public static final Item SPECTRAL_CRAFTING_TABLE = createItem(new BlockItem(ATBlocks.SPECTRAL_CRAFTING_TABLE, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CRAFTING_TABLE));
-    public static final Item SPECTRAL_BUTTON = createItem(new BlockItem(ATBlocks.SPECTRAL_BUTTON, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_BUTTON));
-    public static final Item SPECTRAL_BOOKSHELF = createItem(new BlockItem(ATBlocks.SPECTRAL_BOOKSHELF, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_BOOKSHELF));
-    public static final Item SPECTRAL_DOOR = createItem(new BlockItem(ATBlocks.SPECTRAL_DOOR, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_DOOR));
-    public static final Item SPECTRAL_STRIPPED_WOOD = createItem(new BlockItem(ATBlocks.SPECTRAL_STRIPPED_WOOD, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_STRIPPED_WOOD));
-    public static final Item SPECTRAL_STRIPPED_LOG = createItem(new BlockItem(ATBlocks.SPECTRAL_STRIPPED_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_STRIPPED_LOG));
-
     //golden birch
     public static final Item GOLDEN_BIRCH_LOG = createItem(new BlockItem(ATBlocks.GOLDEN_BIRCH_LOG, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GOLDEN_BIRCH_LOG));
     public static final Item GOLDEN_BIRCH_PLANKS = createItem(new BlockItem(ATBlocks.GOLDEN_BIRCH_PLANKS, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.GOLDEN_BIRCH_PLANKS));
@@ -188,7 +169,6 @@ public class ATItems {
 
     //flora, for ordering see ATBlocks - flora
     public static final Item
-            SPECTRAL_LEAVES = createBlockItem(ATBlocks.SPECTRAL_LEAVES, createFloraProperties()),
             ORVIUM_LEAVES   = createBlockItem(ATBlocks.ORVIUM_LEAVES,   createFloraProperties()),
             NIGHTRIO_LEAVES = createBlockItem(ATBlocks.NIGHTRIO_LEAVES, createFloraProperties()),
             ABYSSAL_GROWTH  = createItem(new WallOrFloorItem(ATBlocks.ABYSSAL_GROWTH, ATBlocks.ABYSSAL_WALL_GROWTH, createFloraProperties()), "abyssal_growth"),
@@ -196,7 +176,6 @@ public class ATItems {
             VOID_GRASS      = createBlockItem(ATBlocks.VOID_GRASS,      createFloraProperties()),
             VOID_FERN       = createBlockItem(ATBlocks.VOID_FERN,       createFloraProperties()),
             GLOWTAILS       = createBlockItem(ATBlocks.GLOWTAILS,       createFloraProperties()),
-            SPECTRAL_VINES  = createBlockItem(ATBlocks.SPECTRAL_VINES,  createFloraProperties()),
             BOG_BELL_BULBS  = createBlockItem(ATBlocks.BOG_BELL_BULBS,  createFloraProperties()),
             TALL_BELL_BULBS = createBlockItem(ATBlocks.TALL_BELL_BULBS, createFloraProperties()),
             ORVIUM_FEATHER  = createBlockItem(ATBlocks.ORVIUM_FEATHER,  createFloraProperties());
@@ -211,7 +190,6 @@ public class ATItems {
     public static final Item RITHLIUM = createItem(new BlockItem(ATBlocks.RITHLIUM, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.RITHLIUM));
     public static final Item ORVIUM_GRASS = createBlockItem(ATBlocks.ORVIUM_GRASS, new Item.Properties().group(CREATIVE_TAB));
     public static final Item BOLITHIAN_STONE = createBlockItem(ATBlocks.BOLITHIAN_STONE, new Item.Properties().group(CREATIVE_TAB));
-
 
 
     //stone
@@ -257,7 +235,6 @@ public class ATItems {
     public static final Item POLISHED_BOLITHIAN_WALL = createBlockItem(ATBlocks.POLISHED_BOLITHIAN_WALL, new Item.Properties().group(CREATIVE_TAB));
 
     //chests
-    public static final Item SPECTRAL_CHEST = createItem(new BlockItem(ATBlocks.SPECTRAL_CHEST, new Item.Properties().group(CREATIVE_TAB)), Registry.BLOCK.getKey(ATBlocks.SPECTRAL_CHEST));
 
     public static Item createItem(Item item, String id) {
         return createItem(item, AloneAndTogether.createResource(id));

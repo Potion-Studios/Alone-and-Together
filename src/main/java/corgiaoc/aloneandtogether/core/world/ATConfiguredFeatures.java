@@ -28,7 +28,7 @@ public class ATConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> VOID_GRASS = createConfiguredFeature("void_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new WeightedBlockStateProvider().addWeightedBlockstate(ATBlocks.VOID_GRASS.getDefaultState(), 10), new SimpleBlockPlacer())).tries(24).build()));
     public static final ConfiguredFeature<?, ?> ORVIUM_FEATHER = createConfiguredFeature("orvium_feather_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new WeightedBlockStateProvider().addWeightedBlockstate(ATBlocks.ORVIUM_FEATHER.getDefaultState(), 10), new SimpleBlockPlacer())).tries(24).build()));
 
-    public static final ConfiguredFeature<?, ?> SPECTRAL_VINES = createConfiguredFeature("spectral_vines", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(ATBlocks.SPECTRAL_VINES.getDefaultState(), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(ATBlocks.SPECTRAL_LEAVES.getDefaultState(), ATBlocks.SPECTRAL_LOG.getDefaultState()))).range(256).square().func_242731_b(128));
+    //public static final ConfiguredFeature<?, ?> SPECTRAL_VINES = createConfiguredFeature("spectral_vines", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(ATBlocks.SPECTRAL_VINES.getDefaultState(), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(ATBlocks.SPECTRAL_LEAVES.getDefaultState(), ATBlocks.SPECTRAL_LOG.getDefaultState()))).range(256).square().func_242731_b(128));
 
     public static final ConfiguredFeature<?, ?> RANDOM_VOID_PLANT = createConfiguredFeature("rs_void_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             VOID_FERN.withChance(0.5F)),
@@ -36,19 +36,19 @@ public class ATConfiguredFeatures {
 
     /************************Tree Features************************/
 
-    public static final ConfiguredFeature<?, ?> TALL_SPECTRAL_TREE1 = createConfiguredFeature("tall_spectral_tree_1", ATFeatures.TALL_SPECTRAL_TREE_1.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
-    public static final ConfiguredFeature<?, ?> TALL_SPECTRAL_TREE2 = createConfiguredFeature("tall_spectral_tree_2", ATFeatures.TALL_SPECTRAL_TREE_2.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
-    public static final ConfiguredFeature<?, ?> TALL_SPECTRAL_TREE3 = createConfiguredFeature("tall_spectral_tree_3", ATFeatures.TALL_SPECTRAL_TREE_3.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
-    public static final ConfiguredFeature<?, ?> SPECTRAL_TREE1 = createConfiguredFeature("spectral_tree", ATFeatures.SPECTRAL_TREE_1.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
+//    public static final ConfiguredFeature<?, ?> TALL_SPECTRAL_TREE1 = createConfiguredFeature("tall_spectral_tree_1", ATFeatures.TALL_SPECTRAL_TREE_1.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
+//    public static final ConfiguredFeature<?, ?> TALL_SPECTRAL_TREE2 = createConfiguredFeature("tall_spectral_tree_2", ATFeatures.TALL_SPECTRAL_TREE_2.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
+//    public static final ConfiguredFeature<?, ?> TALL_SPECTRAL_TREE3 = createConfiguredFeature("tall_spectral_tree_3", ATFeatures.TALL_SPECTRAL_TREE_3.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
+//    public static final ConfiguredFeature<?, ?> SPECTRAL_TREE1 = createConfiguredFeature("spectral_tree", ATFeatures.SPECTRAL_TREE_1.withConfiguration(new ATTreeConfig.Builder().setLeavesBlock(ATBlocks.SPECTRAL_LEAVES).setTrunkBlock(ATBlocks.SPECTRAL_LOG).setWhitelist(ImmutableList.of(ATBlocks.OVERGROWN_VOIDSTONE)).build()));
 
     /************************Tree Random Selector Features************************/
 
 
-    public static final ConfiguredFeature<?, ?> ABYSS_BOG_TREES = createConfiguredFeature("abyss_bog_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            TALL_SPECTRAL_TREE1.withChance(0.3F),
-            TALL_SPECTRAL_TREE2.withChance(0.3F),
-            TALL_SPECTRAL_TREE3.withChance(0.3F)),
-            SPECTRAL_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(0, 0.65F, 1))));
+    //public static final ConfiguredFeature<?, ?> ABYSS_BOG_TREES = createConfiguredFeature("abyss_bog_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+//            TALL_SPECTRAL_TREE1.withChance(0.3F),
+//            TALL_SPECTRAL_TREE2.withChance(0.3F),
+//            TALL_SPECTRAL_TREE3.withChance(0.3F)),
+//            SPECTRAL_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
+//            new AtSurfaceWithExtraConfig(0, 0.65F, 1))));
 }
 

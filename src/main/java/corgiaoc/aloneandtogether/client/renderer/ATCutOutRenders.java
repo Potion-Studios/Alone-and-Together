@@ -11,10 +11,6 @@ public class ATCutOutRenders {
 
     public static void renderCutOuts(){
         Block[] blocks = {
-                ATBlocks.SPECTRAL_LOG.getBlock(),
-                ATBlocks.SPECTRAL_LEAVES.getBlock(),
-                ATBlocks.SPECTRAL_VINES.getBlock(),
-                ATBlocks.SPECTRAL_VINES_PLANT.getBlock(),
                 ATBlocks.GLOWTAILS.getBlock(),
                 ATBlocks.VOID_FERN.getBlock(),
                 ATBlocks.ABYSSAL_GROWTH.getBlock(),
@@ -35,7 +31,6 @@ public class ATCutOutRenders {
 
 
         //Doors & Trapdoors
-        RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_DOOR.getBlock(), RenderType.getTranslucent());
-        RenderTypeLookup.setRenderLayer(ATBlocks.SPECTRAL_TRAP_DOOR.getBlock(), RenderType.getTranslucent());
+        
     }
 }

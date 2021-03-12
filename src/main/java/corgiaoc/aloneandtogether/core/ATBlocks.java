@@ -29,25 +29,6 @@ public class ATBlocks {
     public static final Block ABYSS_TELEPORTER = createTeleporterBlock("abyss_teleporter", ATDimensions.ABYSS_WORLD_KEY);
     public static final Block STELLARIS_TELEPORTER = createTeleporterBlock("stellaris_teleporter", ATDimensions.STELLARIS_WORLD_KEY);
 
-    //spectral wood
-    public static final Block SPECTRAL_LOG = createLog("spectral_log");
-    public static final Block SPECTRAL_PLANKS = createPlanks("spectral_planks");
-    public static final Block CARVED_SPECTRAL_PLANKS = createPlanks("carved_spectral_planks");
-    public static final Block SPECTRAL_FENCE = createFence("spectral_fence");
-    public static final Block SPECTRAL_WOOD = createWood("spectral_wood");
-    public static final Block SPECTRAL_WOOD_WALL = createWoodWall("spectral_wood_wall");
-    public static final Block SPECTRAL_FENCE_GATE = createFenceGate("spectral_fence_gate");
-    public static final Block SPECTRAL_SLAB = createWoodSlab("spectral_slab");
-    public static final Block SPECTRAL_PRESSURE_PLATE = createWoodPressurePlate("spectral_pressure_plate");
-    public static final Block SPECTRAL_STAIRS = createWoodStairs("spectral_stairs");
-    public static final Block SPECTRAL_TRAP_DOOR = createTrapDoor("spectral_trapdoor");
-    public static final Block SPECTRAL_CRAFTING_TABLE = createCraftingTable("spectral_crafting_table");
-    public static final Block SPECTRAL_BUTTON = createWoodButton("spectral_button");
-    public static final Block SPECTRAL_BOOKSHELF = createBookshelf("spectral_bookshelf");
-    public static final Block SPECTRAL_DOOR = createDoor("spectral_door");
-    public static final Block SPECTRAL_STRIPPED_WOOD = createStrippedLog("spectral_stripped_wood");
-    public static final Block SPECTRAL_STRIPPED_LOG = createStrippedLog("spectral_stripped_log");
-
     //golden wood
     public static final Block GOLDEN_BIRCH_LOG = createLog("golden_birch_log");
     public static final Block GOLDEN_BIRCH_PLANKS = createPlanks("golden_birch_planks");
@@ -220,14 +201,11 @@ public class ATBlocks {
 
     //flora
     public static final Block
-
             // leaves
-            SPECTRAL_LEAVES      = registerBlock("spectral_leaves", new ATLeavesBlock()),
             ORVIUM_LEAVES        = registerBlock("orvium_leaves", new ATLeavesBlock()),
             NIGHTRIO_LEAVES      = registerBlock("nightrio_leaves", new ATLeavesBlock()),
 
             // saplings
-            SPECTRAL_SAPLING     = createSapling(1, new TreeSpawners.SpectralTree() , "spectral_sappling"),
 
             // misc
             ABYSSAL_GROWTH       = registerBlock("abyssal_growth", new AbyssalGrowthBlock(Properties.from(Blocks.GRASS).hardnessAndResistance(0.2F, 0.0F).setLightLevel((state) -> AbyssalGrowthBlock.isLit(state) ? 8 : 0))),
@@ -240,14 +218,12 @@ public class ATBlocks {
             ORVIUM_FEATHER       = createAbyssPlantBlock("orvium_feather"),
             BOG_BELL_BULBS       = createAbyssPlantBlock("bog_bell_bulbs"),
             TALL_BELL_BULBS      = registerBlock("tall_bell_bulbs", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 9))),
-            GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 6))),
-            SPECTRAL_VINES_PLANT = registerBlock("spectral_vines_plant", new SpectralVinesPlantBlock(Properties.create(Material.PLANTS, MaterialColor.CYAN).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_VINE).notSolid())),
-            SPECTRAL_VINES       = registerBlock("spectral_vines", new SpectralVinesBlock(Properties.from(SPECTRAL_VINES_PLANT).setLightLevel((state) -> 12)));
+            GLOWTAILS            = registerBlock("glowtails", new GlowTailsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).notSolid().zeroHardnessAndResistance().doesNotBlockMovement().tickRandomly().setLightLevel((state) -> 6)));
     //dirt
     public static final Block ASTRAL_DIRT = createDirtBlock("astral_dirt");
 
     //chests
-    public static final Block SPECTRAL_CHEST = createChestBlock("spectral_chest");
+
 
     static @Nonnull Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -384,7 +360,7 @@ public class ATBlocks {
     }
 
     static @Nonnull Block createWoodWall(String id) {
-        Block createBlock = new WallBlock(AbstractBlock.Properties.from(SPECTRAL_WOOD));
+        Block createBlock = new WallBlock(AbstractBlock.Properties.from(COSMIC_WOOD));
         return registerBlock(id, createBlock);
     }
 

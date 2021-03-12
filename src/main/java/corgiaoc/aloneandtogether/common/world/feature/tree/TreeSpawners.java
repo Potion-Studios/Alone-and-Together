@@ -9,17 +9,17 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class TreeSpawners {
-    public static class SpectralTree extends HugeTreeSpawner {
-        @Override
-        @Nullable
-        public ConfiguredFeature<ATTreeConfig, ?> getBigTreeFeature(Random random) {
-            return (ConfiguredFeature<ATTreeConfig, ?>) ATConfiguredFeatures.TALL_SPECTRAL_TREE1;
-        }
+    //public static class SpectralTree extends HugeTreeSpawner {
+       // @Override
+        //@Nullable
+        //public ConfiguredFeature<ATTreeConfig, ?> getBigTreeFeature(Random random) {
+            //return (ConfiguredFeature<ATTreeConfig, ?>) ATConfiguredFeatures.TALL_SPECTRAL_TREE1;
+       // }
 
-        @Nullable
-        @Override
-        protected ConfiguredFeature<ATTreeConfig, ?> getTreeFeature(Random random) {
-            return (ConfiguredFeature<ATTreeConfig, ?>) ATConfiguredFeatures.SPECTRAL_TREE1;
-        }
-    }
+        //@Nullable
+       // @Override
+        //protected ConfiguredFeature<ATTreeConfig, ?> getTreeFeature(Random random) {
+            //return (ConfiguredFeature<ATTreeConfig, ?>) ATConfiguredFeatures.SPECTRAL_TREE1;
+        //}
+   // }
 }

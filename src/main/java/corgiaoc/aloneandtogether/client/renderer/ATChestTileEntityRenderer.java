@@ -5,10 +5,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import corgiaoc.aloneandtogether.core.ATBlocks;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
-import net.minecraft.block.AbstractChestBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ChestBlock;
+import net.minecraft.block.*;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
@@ -80,7 +77,7 @@ public class ATChestTileEntityRenderer<T extends TileEntity & IChestLid> extends
     public void render(T tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
         World world = tileEntityIn.getWorld();
         boolean flag = world != null;
-        BlockState blockstate = flag ? tileEntityIn.getBlockState() : ATBlocks.SPECTRAL_CHEST.getDefaultState().with(ChestBlock.FACING, Direction.SOUTH);
+        BlockState blockstate = flag ? tileEntityIn.getBlockState() : Blocks.CHEST.getDefaultState().with(ChestBlock.FACING, Direction.SOUTH);
         ChestType chesttype = blockstate.hasProperty(ChestBlock.TYPE) ? blockstate.get(ChestBlock.TYPE) : ChestType.SINGLE;
         Block block = blockstate.getBlock();
         if (block instanceof AbstractChestBlock) {
